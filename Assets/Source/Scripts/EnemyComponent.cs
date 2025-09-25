@@ -1,3 +1,5 @@
+using D2D;
+using D2D.Core;
 using D2D.Gameplay;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,11 +11,15 @@ public class EnemyComponent : MonoBehaviour
     public OnTriggerEnterComponent triggerEnterComponent;
     public Health health;
 
-    [SerializeField] private float maxHealth = 10f;
     [SerializeField] private float speed = 10f;
     [SerializeField] private int refreshNavMeshFrames = 4;
 
-    private float currentHealth;
+    [Header("Combat")]
+    [SerializeField] private float attackRate = 1f;
+    [SerializeField] private float damage = 1f;
+    [SerializeField] private SexyOverlap overlap;
+
+    private float attackTimer;
 
     private NavMeshAgent navMesh;
 
@@ -22,17 +28,31 @@ public class EnemyComponent : MonoBehaviour
         triggerEnterComponent = GetComponent<OnTriggerEnterComponent>();
         health = GetComponent<Health>();
         navMesh = GetComponent<NavMeshAgent>();
+        if (overlap == null)
+        {
+            overlap = GetComponentInChildren<SexyOverlap>();
+        }
+
+        navMesh.speed = speed;
 
         health.Died += Die;
 
-        currentHealth = maxHealth;
-        navMesh.speed = speed;
+        _stateMachine.On<WinState>(Die);
     }
     private void Update()
     {
         if (Time.frameCount % refreshNavMeshFrames == 0)
         {
             navMesh.SetDestination(_formation.transform.position);
+        }
+
+        if (overlap.HasTouch && attackTimer <= Time.time)
+        {
+            var closestPlayer = overlap.NearestTouchedOfType<SquadMember>(transform);
+
+            closestPlayer.health.ApplyDamage(gameObject, damage);
+
+            attackTimer = Time.time + attackRate;
         }
     }
     public void GetHit(float damage)

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3048139185809037682}
   - component: {fileID: 4175571325836463402}
   - component: {fileID: 7955310464312511880}
+  - component: {fileID: -2117773435685940895}
   m_Layer: 11
   m_Name: Machine Gun Member
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MonoBehaviour:
   projectileForce: 10
   bulletPrefab: {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
   enemyTag: Enemy
+--- !u!114 &-2117773435685940895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216713489422480576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5d1505e92ee664dbee730090c4f447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 3054082315714129341, guid: 0ced0700c47852243bb910aa097f92b5, type: 3}
 --- !u!1 &8630829184467430599
 GameObject:
   m_ObjectHideFlags: 0

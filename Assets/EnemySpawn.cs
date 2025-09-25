@@ -1,38 +1,73 @@
 using D2D;
-using System.Collections;
-using System.Collections.Generic;
+using D2D.Core;
+using SRF;
 using UnityEngine;
 
 using static D2D.Utilities.CommonGameplayFacade;
 
 public class EnemySpawn : Unit
 {
-    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private int maxEnemiesOnField;
     [SerializeField] private float delayBetweenSpawn = .4f;
 
+    [SerializeField] private LevelSO debugLevel;
+
+    public LevelSO Level => debugLevel;
+    public float LevelTimer => currentLevelTimer;
+
+    private int currentWaveIndex = 0;
+
     private int currentAmount = 0;
+
+    private float currentWaveTimer = 0;
+    private float currentLevelTimer = 0;
     private float timer;
+
+    private Wave currentWave;
 
     private Camera currentCamera;
 
-    private List<Ray> drawRay = new();
+    private bool isStopped;
 
-    private void OnDrawGizmos()
-    {
-        foreach (var ray in drawRay)
-        {
-            Gizmos.DrawRay(ray);
-        }
-    }
     private void Awake()
     {
         _enemySpawn = this;
 
         currentCamera = Camera.main;
+
+        SetWave(debugLevel.Waves[currentWaveIndex]);
     }
     private void Update()
     {
+        if (isStopped)
+        {
+            return;
+        }
+
+        currentWaveTimer += Time.deltaTime;
+        currentLevelTimer += Time.deltaTime;
+
+        if (currentWaveTimer >= currentWave.Duration)
+        {
+            currentWaveIndex++;
+            currentWaveTimer = 0;
+
+            if (debugLevel.Waves.Length <= currentWaveIndex)
+            {
+                currentWaveIndex = 0;
+            }
+
+            SetWave(debugLevel.Waves[currentWaveIndex]);
+        }
+
+        if (currentLevelTimer >= debugLevel.TotalDuration)
+        {
+            {
+                isStopped = true;
+                _stateMachine.Push(new WinState());
+            }
+        }
+
         if (currentAmount >= maxEnemiesOnField)
         {
             return;
@@ -40,15 +75,19 @@ public class EnemySpawn : Unit
 
         if (timer <= Time.time)
         {
-            SpawnEnemy();
+            SpawnEnemy(currentWave.Enemies.Random());
         }
     }
 
+    public void SetWave(Wave wave)
+    {
+        currentWave = wave;
+    }
     public void EnemyDied()
     {
         currentAmount--;
     }
-    private void SpawnEnemy()
+    private void SpawnEnemy(GameObject enemy)
     {
         float xPos;
         float yPos;
@@ -68,11 +107,10 @@ public class EnemySpawn : Unit
         Vector3 direction = Camera.main.ViewportToWorldPoint(new Vector3(xPos, yPos, -10));
         
         Ray ray = new Ray(currentCamera.transform.position, currentCamera.transform.position - direction);
-        drawRay.Add(ray);
         
         if (Physics.Raycast(ray, out RaycastHit hit, _gameData.GroundLayer))
         {
-            Instantiate(enemyPrefab, hit.point, Quaternion.identity);
+            Instantiate(enemy, hit.point, Quaternion.identity);
 
             currentAmount++;
         }

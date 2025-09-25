@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 6953122935122498689}
   - component: {fileID: 8341165652153434329}
   - component: {fileID: 5867068338665927997}
+  - component: {fileID: -4562102896837309756}
   m_Layer: 11
   m_Name: Rifle Gun Member
   m_TagString: Untagged
@@ -233,6 +234,19 @@ MonoBehaviour:
   shotsRow: 4
   bulletPrefab: {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
   enemyTag: Enemy
+--- !u!114 &-4562102896837309756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6544289291880790323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5d1505e92ee664dbee730090c4f447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 3054082315714129341, guid: 0ced0700c47852243bb910aa097f92b5, type: 3}
 --- !u!1001 &3335295819667527322
 PrefabInstance:
   m_ObjectHideFlags: 0

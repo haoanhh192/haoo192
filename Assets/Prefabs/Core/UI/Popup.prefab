@@ -31,6 +31,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -167,12 +169,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 5180545553154318896}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 5180545553154318896}
+  m_maskType: 0
 --- !u!114 &5180545553154318898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,17 +210,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _isFrom: 0
+  _isLocal: 0
   isRandomnessSupported: 0
   isAdvancedInfoVisible: 1
   isOnCompleteVisible: 0
   isDurationDataMode: 0
+  _isPlayingInEditor: 0
+  isTargetVisibleInEditor: 0
+  beforePlayPosition: {x: 0, y: 0, z: 0}
+  beforePlayRotation: {x: 0, y: 0, z: 0}
+  beforePlayScale: {x: 0, y: 0, z: 0}
   isIncremental: 0
+  _target: {fileID: 0}
   _axis: 0
-  _isFrom: 0
-  _isLocal: 0
   _endPoint: {x: 0, y: 1, z: 0}
   _endPoint2: {x: 0, y: 0, z: 0}
   _isHalf: 0
+  _recalculateEveryLoop: 0
   isEndPointModee: 1
 --- !u!114 &5180545553154318893
 MonoBehaviour:
@@ -255,12 +264,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _isFrom: 0
+  _isLocal: 0
   isRandomnessSupported: 0
   isAdvancedInfoVisible: 1
   isOnCompleteVisible: 0
   isDurationDataMode: 0
+  _isPlayingInEditor: 0
+  isTargetVisibleInEditor: 0
+  beforePlayPosition: {x: 0, y: 0, z: 0}
+  beforePlayRotation: {x: 0, y: 0, z: 0}
+  beforePlayScale: {x: 0, y: 0, z: 0}
   isIncremental: 0
-  _fromZero: 0
+  _target: {fileID: 0}
 --- !u!114 &5180545553154318892
 MonoBehaviour:
   m_ObjectHideFlags: 0

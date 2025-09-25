@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2157142643168769976}
   - component: {fileID: 1031328995934299104}
   - component: {fileID: 1226148258536799843}
+  - component: {fileID: -2877772198491012013}
   m_Layer: 11
   m_Name: Flamethrower Member
   m_TagString: Untagged
@@ -172,6 +173,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   flamesVFX: {fileID: 114540185103529009}
+--- !u!114 &-2877772198491012013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2828328488639961610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5d1505e92ee664dbee730090c4f447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 3054082315714129341, guid: 0ced0700c47852243bb910aa097f92b5, type: 3}
 --- !u!1 &4639906997933834765
 GameObject:
   m_ObjectHideFlags: 0

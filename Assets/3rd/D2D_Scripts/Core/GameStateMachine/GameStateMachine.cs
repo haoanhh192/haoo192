@@ -16,6 +16,7 @@ namespace D2D.Core
     {
         None, 
         Running,
+        Menu
     }
     
     /// <summary>
@@ -64,7 +65,13 @@ namespace D2D.Core
         private void Start()
         {
             if (_startState == CommonGameState.Running)
+            {
                 Push(new RunningState());
+            }
+            else if (_startState == CommonGameState.Menu)
+            {
+                Push(new PauseState());
+            }
         }
 
         /// <summary>

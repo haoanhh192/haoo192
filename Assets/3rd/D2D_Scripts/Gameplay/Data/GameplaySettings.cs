@@ -36,5 +36,10 @@ namespace D2D.Gameplay
         [Header("PickUP")]
         [TabGroup("PickUp")] public float timeBeforeXPActivate;
         [TabGroup("PickUp")] public float pickUpFlyForce;
+
+        [Header("Upgrades")]
+        [TabGroup("Upgrades")] public float baseUpgradePrice;
+        [TabGroup("Upgrades")] public int maxLevelUpgrade;
+        [TabGroup("Upgrades")] public int baseIncrease;
     }
 }

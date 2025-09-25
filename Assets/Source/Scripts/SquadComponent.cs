@@ -6,11 +6,12 @@ using UnityEngine;
 
 using static D2D.Utilities.CommonGameplayFacade;
 
-public class SquadComponent : MonoBehaviour
+public class SquadComponent : GameStateMachineUser
 {
     [Header("Squad Settings")]
     [SerializeField] private List<SquadMember> squadMembers;
     [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _formationRadius = 1.5f;
 
     [Header("Camera Settings")]
     [SerializeField] private CinemachineTargetGroup cinemachineTargetGroup;
@@ -25,11 +26,18 @@ public class SquadComponent : MonoBehaviour
 
     private SquadMember openSquadMember;
 
+    private float temporaryFireRateIncrease;
+    private float temporaryFirePowerIncrease;
+
+    public SquadMember FirstSquadMember => squadMembers[0];
+
+    public float TemporaryFireRateIncrease => temporaryFireRateIncrease / 100;
+    public float TemporaryFirePowerIncrease => temporaryFirePowerIncrease / 100;
+
     private void Awake()
     {
         _squad = this;
 
-        _joystick = FindObjectOfType<Joystick>();
         _formation = FindObjectOfType<FormationComponent>();
         cinemachineTargetGroup = FindObjectOfType<CinemachineTargetGroup>();
 
@@ -37,11 +45,44 @@ public class SquadComponent : MonoBehaviour
 
         foreach (var member in squadMembers)
         {
+            member.animancer.Layers[0].Play(member.animations.Idle);
             member.health.Died += () => MemberDie(member);
         }
 
-        _formation.RecreateFormation(Vector3.zero, 1f, squadMembers.Count - 1);
+        _formation.RecreateFormation(Vector3.zero, _formationRadius, squadMembers.Count - 1);
         SetMembersToCinemachineGroup();
+    }
+    private void Update()
+    {
+        if (!_stateMachine.Last.Is<RunningState>())
+        {
+            return;
+        }
+
+         Movement();
+         Shoot();
+    }
+    protected override void OnGameRun()
+    {
+        _joystick = FindObjectOfType<Joystick>();
+    }
+    public void AddMember(SquadMember member)
+    {
+        if (member != null && !squadMembers.Contains(member))
+        {
+            squadMembers.Add(member);
+            _formation.RecreateFormation(squadMembers[0].transform.position, _formationRadius, squadMembers.Count - 1);
+            member.health.Died += () => MemberDie(member);
+            SetMembersToCinemachineGroup();
+        }
+    }
+    public void IncreaseFireRate(float value)
+    {
+        temporaryFireRateIncrease += value;
+    }
+    public void IncreaseFirePower(float value)
+    {
+        temporaryFirePowerIncrease += value;
     }
 
     private void MemberDie(SquadMember member)
@@ -57,44 +98,10 @@ public class SquadComponent : MonoBehaviour
                 return;
             }
 
-            _formation.RecreateFormation(Vector3.zero, 1f, squadMembers.Count - 1);
+            _formation.RecreateFormation(Vector3.zero, _formationRadius, squadMembers.Count - 1);
             SetMembersToCinemachineGroup();
         }
     }
-
-    private void Update()
-    {
-         Movement();
-         Shoot();
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            var newMember = Instantiate(pistolMemberPrefab, squadMembers[0].transform.position, Quaternion.identity, transform).GetComponent<SquadMember>();
-            AddMember(newMember);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            var newMember = Instantiate(grenadeLauncherPrefab, squadMembers[0].transform.position, Quaternion.identity, transform).GetComponent<SquadMember>();
-            AddMember(newMember);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            var newMember = Instantiate(flamethrowerPrefab, squadMembers[0].transform.position, Quaternion.identity, transform).GetComponent<SquadMember>();
-            AddMember(newMember);
-        }
-    }
-
-    public void AddMember(SquadMember member)
-    {
-        if (member != null && !squadMembers.Contains(member))
-        {
-            squadMembers.Add(member);
-            _formation.RecreateFormation(squadMembers[0].transform.position, 1f, squadMembers.Count - 1);
-            member.health.Died += () => MemberDie(member);
-            SetMembersToCinemachineGroup();
-        }
-    }
-
     private void SetMembersToCinemachineGroup()
     {
         foreach (var oldTarget in cinemachineTargetGroup.m_Targets)
@@ -126,14 +133,33 @@ public class SquadComponent : MonoBehaviour
 
         var swift = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical).normalized * _speed;
 
-        if (swift.magnitude < 0.1f)
+        if (swift.magnitude < .1f)
         {
+            int index = -1;
+
             foreach (var member in squadMembers)
             {
-                member.animancer.Layers[0].Play(member.animations.Idle);
+                index++;
 
-                member.navMesh.isStopped = true;
-                member.navMesh.ResetPath();
+                if (index == 0)
+                {
+                    member.navMesh.ResetPath();
+                    member.animancer.Layers[0].Play(member.animations.Idle);
+                    continue;
+                }
+
+                Transform formationPoint = _formation.FormationPoints[index];
+                
+                if (Vector3.Distance(formationPoint.position, member.navMesh.transform.position) > .1f)
+                {
+                    member.animancer.Layers[0].Play(member.animations.RunForward);
+                    member.navMesh.SetDestination(formationPoint.position);
+                }
+                else
+                {
+                    member.animancer.Layers[0].Play(member.animations.Idle);
+                }
+
             }
 
             return;

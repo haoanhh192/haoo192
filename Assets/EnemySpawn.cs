@@ -36,10 +36,13 @@ public class EnemySpawn : Unit
         currentCamera = Camera.main;
 
         SetWave(debugLevel.Waves[currentWaveIndex]);
+
+        _stateMachine.On<WinState>(() => isStopped = true);
+        _stateMachine.On<LoseState>(() => isStopped = true);
     }
     private void Update()
     {
-        if (isStopped)
+        if (isStopped || _stateMachine.Last.Is<PauseState>())
         {
             return;
         }
@@ -60,13 +63,13 @@ public class EnemySpawn : Unit
             SetWave(debugLevel.Waves[currentWaveIndex]);
         }
 
-        if (currentLevelTimer >= debugLevel.TotalDuration)
+        /*if (currentLevelTimer >= debugLevel.TotalDuration)
         {
             {
                 isStopped = true;
                 _stateMachine.Push(new WinState());
             }
-        }
+        }*/
 
         if (currentAmount >= maxEnemiesOnField)
         {

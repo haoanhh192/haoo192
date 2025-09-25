@@ -149,7 +149,7 @@ MonoBehaviour:
   _maxPoints: 10
   _healthData: {fileID: 0}
   _hitEffect: {fileID: 0}
-  _deathEffect: {fileID: 0}
+  _deathEffect: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
   _isGrayFadeout: 0
   isHealthDataMode: 0
   particlesAreEnabled: 1
@@ -305,6 +305,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dfae2875b9be14dbf8e502af8ecda5cb, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 209f87ead24e08845a48c3666f94fd0e, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 209f87ead24e08845a48c3666f94fd0e, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0

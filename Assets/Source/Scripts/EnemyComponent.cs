@@ -72,7 +72,7 @@ public class EnemyComponent : Unit
     }
     public void GetHit(float damage)
     {
-        health.ApplyDamage(gameObject, damage + (_db.PowerIncreasePercent.Value * damage));
+        health.ApplyDamage(gameObject, damage);
     }
     private void Die()
     {

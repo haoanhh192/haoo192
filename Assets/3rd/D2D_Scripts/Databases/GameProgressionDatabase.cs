@@ -31,6 +31,11 @@ namespace D2D.Databases
         public readonly DataContainer<float> FireRateDecreasePercent =
             new DataContainer<float>("FireRateDecreasePercent", 0);
 
+        public readonly DataContainer<float> PowerIncreaseLevel =
+            new DataContainer<float>("PowerIncreaseLevel", 0);
+        public readonly DataContainer<float> FireRateDecreaseLevel =
+            new DataContainer<float>("FireRateDecreaseLevel", 0);
+
         public readonly TrackableValue<float> Money =
             new TrackableValue<float>(value: 0, firstGet: () => PlayerPrefs.GetInt("Money"));
         

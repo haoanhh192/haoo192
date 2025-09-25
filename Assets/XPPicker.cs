@@ -1,4 +1,5 @@
 using D2D;
+using System;
 using UnityEngine;
 
 public class XPPicker : MonoBehaviour
@@ -7,6 +8,8 @@ public class XPPicker : MonoBehaviour
     [SerializeField] private float pickUpForce = 5f;
 
     private SexyOverlap overlap;
+
+    public Action<float> OnPickUp;
 
     private void Awake()
     {
@@ -27,7 +30,8 @@ public class XPPicker : MonoBehaviour
 
                 if (distance <= getDistance)
                 {
-                    item.GetComponent<XPPoint>().PickUp();
+                    var xp = item.GetComponent<XPPoint>().PickUp();
+                    OnPickUp?.Invoke(xp);
 
                     return;
                 }

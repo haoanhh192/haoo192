@@ -43,6 +43,8 @@ public class SquadMember : Unit
         health = GetComponent<Health>();
         canvas = GetComponentInChildren<CharacterCanvas>();
 
+        targetVector = transform.forward + transform.up;
+
         canvas.HealthBar.SetHealth(health);
     }
     private void Update()

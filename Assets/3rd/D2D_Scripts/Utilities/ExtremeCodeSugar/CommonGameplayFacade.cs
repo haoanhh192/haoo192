@@ -175,5 +175,54 @@ namespace D2D.Utilities
             }
         }
         private static RoutineResolver __routineResolver;
+
+        public static LevelSO _levelSO
+        {
+            get
+            {
+                return __levelSO;
+            }
+            set
+            {
+                __levelSO = value;
+            }
+        }
+        private static LevelSO __levelSO;
+
+        public static GameProgress _gameProgress
+        {
+            get
+            {
+                if (__gameProgress == null)
+                {
+                    __gameProgress = GameObject.FindObjectOfType<GameProgress>();
+                }
+
+                return __gameProgress;
+            }
+            set
+            {
+                __gameProgress = value;
+            }
+        }
+        private static GameProgress __gameProgress;
+        public static UpgradesHandle _upgradesHandle
+        {
+            get
+            {
+                if (__upgradesHandle == null)
+                {
+                    __upgradesHandle = GameObject.FindObjectOfType<UpgradesHandle>();
+                }
+
+                return __upgradesHandle;
+            }
+            set
+            {
+                __upgradesHandle = value;
+            }
+        }
+        private static UpgradesHandle __upgradesHandle;
+
     }
 }

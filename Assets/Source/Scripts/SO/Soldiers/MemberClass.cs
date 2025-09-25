@@ -14,7 +14,7 @@ public class MemberClass : ScriptableObject
     public LayerMask enemyLayer;
 
     [HideInInspector]
-    public float ReloadDuration { get { return baseReloadDuration - (baseReloadDuration * _db.FireRateDecreasePercent.Value); } }
+    public float ReloadDuration { get { return baseReloadDuration - (baseReloadDuration * (Mathf.Clamp(_db.FireRateDecreasePercent.Value + _squad.TemporaryFireRateIncrease, 0, 0.8f))); } }
     [HideInInspector]
-    public float Damage { get { return baseDamage - (baseDamage * _db.PowerIncreasePercent.Value); } }
+    public float Damage { get { return baseDamage + (_db.PowerIncreasePercent.Value + _squad.TemporaryFirePowerIncrease) * baseDamage; } }
 }

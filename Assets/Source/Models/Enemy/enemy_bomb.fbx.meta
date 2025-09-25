@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 5314c6bb4a611d9478e199e875d7a4bf
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -5964442299392771529
+    second: Armature.010|Armature.001|Armature|Armature|mixamo.com|Layer0.001
+  - first:
+      74: -9182139324982213635
+    second: Armature.010|Armature.001|Armature|Armature|mixamo.com|Layer0.002
+  - first:
+      74: 2422940960833278305
+    second: Armature.010|Armature.001|Armature|Armature|mixamo.com|Layer0.003
+  - first:
+      74: 989561684540753047
+    second: Armature.010|Armature.001|Armature|Armature|mixamo.com|Layer0.004
+  - first:
+      74: 5379711988842153739
+    second: Armature.010|Armature.001|Armature|PoseLib
+  - first:
+      74: 91949535133177837
+    second: Armature.010|Armature.002|Armature|Armature|mixamo.com|Layer0.001
+  - first:
+      74: -6872679963111883562
+    second: Armature.010|Armature.002|Armature|Armature|mixamo.com|Layer0.002
+  - first:
+      74: 4796544001980023545
+    second: Armature.010|Armature.002|Armature|Armature|mixamo.com|Layer0.003
+  - first:
+      74: -6245966058915613275
+    second: Armature.010|Armature.002|Armature|Armature|mixamo.com|Layer0.004
+  - first:
+      74: 5776040413271868726
+    second: Armature.010|Armature.002|Armature|PoseLib
+  - first:
+      74: 822343509344061601
+    second: Armature.010|Armature.003|Armature|Armature|mixamo.com|Layer0.001
+  - first:
+      74: -6596925452821642622
+    second: Armature.010|Armature.003|Armature|Armature|mixamo.com|Layer0.002
+  - first:
+      74: -6672299068226616375
+    second: Armature.010|Armature.003|Armature|Armature|mixamo.com|Layer0.003
+  - first:
+      74: 7395457078798291094
+    second: Armature.010|Armature.003|Armature|Armature|mixamo.com|Layer0.004
+  - first:
+      74: -3668735513891186686
+    second: Armature.010|Armature.003|Armature|PoseLib
+  - first:
+      74: 3620476085758953330
+    second: Armature.010|Armature.004|Armature|Armature|mixamo.com|Layer0.001
+  - first:
+      74: -660916396073409252
+    second: Armature.010|Armature.004|Armature|Armature|mixamo.com|Layer0.002
+  - first:
+      74: 1579260777692099793
+    second: Armature.010|Armature.004|Armature|Armature|mixamo.com|Layer0.003
+  - first:
+      74: 8653434373554165517
+    second: Armature.010|Armature.004|Armature|Armature|mixamo.com|Layer0.004
+  - first:
+      74: 3209303881469368170
+    second: Armature.010|Armature.004|Armature|Armature|mixamo.com|Layer0.005
+  - first:
+      74: 6640859603564433353
+    second: Armature.010|Armature.004|Armature|PoseLib
+  - first:
+      74: 2463160876888944736
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.001
+  - first:
+      74: 3978581510742300822
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.002
+  - first:
+      74: -5126465055186516336
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.003
+  - first:
+      74: -5032297484851673613
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.004
+  - first:
+      74: 8547322755410385769
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.005
+  - first:
+      74: -7350743882929990777
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.006
+  - first:
+      74: 2038208955885602146
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.007
+  - first:
+      74: -5104239011179006358
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.008
+  - first:
+      74: -6780301475634284451
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.009
+  - first:
+      74: -1268878974867287003
+    second: Armature.010|Armature|Armature|Armature|mixamo.com|Layer0.010
+  - first:
+      74: 2103755865563425809
+    second: Armature.010|Armature|Armature|PoseLib
+  - first:
+      74: -4343785831411017183
+    second: Armature.010|Armature|mixamo.com|Layer0.002
+  - first:
+      74: 4454368396068490884
+    second: Armature.010|shooting
+  - first:
+      74: -4441100474531763630
+    second: Armature.010|two_pistol_shoot
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 26a98db09e2a04686a98e6cf499a2654, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clothes
+    second: {fileID: 2100000, guid: 618130517513f6b4e8e0d718d5894451, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -30,6 +30,7 @@ public class UpgradesHandle : Unit
     private UpgradeUI upgradeUI;
 
     private List<MemberUpgrades> m_AvailableMemberUpgrades = new();
+    private List<MemberUpgrades> m_AllMembers = new();
 
     private void Awake()
     {
@@ -49,6 +50,8 @@ public class UpgradesHandle : Unit
             }
         }
 
+        m_AllMembers = rareMemberUpgrades.Concat(commonMemberUpgrades).Concat(mediumMemberUpgrades).ToList();
+
         if (isDebug)
         {
             m_AvailableMemberUpgrades = new(debugUpgrades);
@@ -56,11 +59,10 @@ public class UpgradesHandle : Unit
             return;
         }
 
-        var allElements = rareMemberUpgrades.Concat(commonMemberUpgrades).Concat(mediumMemberUpgrades);
 
         foreach (var item in _db.UnlockedMembers)
         {
-            m_AvailableMemberUpgrades.Add(allElements.First(x => x.name == item));
+            m_AvailableMemberUpgrades.Add(m_AllMembers.First(x => x.name == item));
         }
     }
 
@@ -110,6 +112,14 @@ public class UpgradesHandle : Unit
             else
             {
                 memberUpgrade = availableMemberUpgrades.ToArray().Random();
+            }
+
+            if (_db.LastUnlockedMember.Value != "")
+            {
+                var name = _db.LastUnlockedMember.Value;
+                memberUpgrade = m_AllMembers.First(x => x.name == name);
+
+                _db.LastUnlockedMember.Value = "";
             }
 
             buttons[index].UpgradeButton.onClick.AddListener(() => Upgrade(memberUpgrade));

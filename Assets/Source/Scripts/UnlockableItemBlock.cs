@@ -98,6 +98,7 @@ public class UnlockableItemBlock : GameStateMachineUser
 
             _db.UnlockedMembers.Add(member.MemberUpgradesSO.name);
             _db.SaveMembers();
+            _db.LastUnlockedMember.Value = member.MemberUpgradesSO.name;
 
             if (member.NextUnlockable != null)
             {

@@ -1438,7 +1438,8 @@ MonoBehaviour:
   animancer: {fileID: 4866835442301185841}
   shootPoint: {fileID: 1829668305687767795}
   targetVector: {x: 0, y: 0, z: 0}
-  rotationLerp: 20
+  rotationLerp: 30
+  runForward: {fileID: 0}
   currentTarget: {fileID: 0}
   projectileForce: 10
   bulletPrefab: {fileID: 11400000, guid: eee42d13775b33643be3ec5187ac0ef9, type: 2}

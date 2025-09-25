@@ -23,6 +23,7 @@ public class SquadMember : Unit
     [Header("Movement Settings")]
     public Vector3 targetVector;
     public float rotationLerp = 20f;
+    public AnimationClip runForward;
 
     [HideInInspector]
     public EnemyComponent currentTarget;
@@ -47,7 +48,7 @@ public class SquadMember : Unit
         health = GetComponent<Health>();
         canvas = GetComponentInChildren<CharacterCanvas>();
 
-        targetVector = transform.forward + transform.up;
+        targetVector = transform.forward * 10f + transform.up;
 
         canvas.HealthBar.SetHealth(health);
     }
@@ -57,7 +58,7 @@ public class SquadMember : Unit
     }
     public virtual void Init()
     {
-
+        runForward = animations.RunForward;
     }
     public virtual void Shoot(Transform target)
     {

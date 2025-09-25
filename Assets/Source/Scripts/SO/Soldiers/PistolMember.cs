@@ -22,6 +22,8 @@ public class PistolMember : SquadMember
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
+        projectile.rb.velocity = Vector3.zero;
+
         var muzzleFlash = Instantiate(_gameData.muzzleFlash, shootPoint.transform.position, Quaternion.LookRotation(transform.forward));
         Destroy(muzzleFlash, 2f);
 

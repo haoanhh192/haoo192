@@ -40,6 +40,7 @@ public class SquadComponent : GameStateMachineUser
 
         foreach (var member in squadMembers)
         {
+            member.Init();
             member.animancer.Layers[0].Play(member.animations.Idle);
             member.health.Died += () => MemberDie(member);
         }
@@ -65,6 +66,7 @@ public class SquadComponent : GameStateMachineUser
     {
         if (member != null && !squadMembers.Contains(member))
         {
+            member.Init();
             squadMembers.Add(member);
             _formation.RecreateFormation(squadMembers[0].transform.position, _formationRadius, squadMembers.Count - 1);
             member.health.Died += () => MemberDie(member);
@@ -167,7 +169,7 @@ public class SquadComponent : GameStateMachineUser
                 
                 if (Vector3.Distance(formationPoint.position, member.navMesh.transform.position) > .1f)
                 {
-                    member.animancer.Layers[0].Play(member.animations.RunForward);
+                    member.animancer.Layers[0].Play(member.runForward);
                     member.navMesh.SetDestination(formationPoint.position);
                 }
                 else
@@ -186,7 +188,7 @@ public class SquadComponent : GameStateMachineUser
         {
             memberIndex++;
 
-            member.animancer.Layers[0].Play(member.animations.RunForward);
+            member.animancer.Layers[0].Play(member.runForward);
             member.navMesh.isStopped = false;
 
             Transform formationPoint = _formation.FormationPoints[memberIndex];

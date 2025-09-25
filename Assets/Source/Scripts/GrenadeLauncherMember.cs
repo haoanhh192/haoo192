@@ -13,6 +13,10 @@ public class GrenadeLauncherMember : SquadMember
     [SerializeField, TagField] private string enemyTag;
     [SerializeField] private LayerMask enemyLayer;
 
+    public override void Init()
+    {
+        runForward = animations.RunWithRifle;
+    }
     public override void Shoot(Transform target)
     {
         if (reloadTime > Time.time)

@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 2512949562409372130}
   - component: {fileID: -5856921475103603280}
   m_Layer: 0
-  m_Name: 1 XP Point
+  m_Name: 5 XP Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

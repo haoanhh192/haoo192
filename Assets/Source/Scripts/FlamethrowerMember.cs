@@ -23,6 +23,10 @@ public class FlamethrowerMember : SquadMember
             vfx.Stop();
         }
     }
+    public override void Init()
+    {
+        runForward = animations.RunWithRifle;
+    }
     private void OnDrawGizmos()
     {
         foreach (var ray in drawRay)

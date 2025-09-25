@@ -15,6 +15,7 @@ MonoBehaviour:
   Idle: {fileID: -203655887218126122, guid: b7486a34921d59c4a97cc6b29e193e91, type: 3}
   Death: {fileID: -203655887218126122, guid: 2ce8e4e48c5274d42970a5a9c032d4fd, type: 3}
   UnarmedRun: {fileID: -203655887218126122, guid: 7ef2d3b2ea011da4985ab756c3d2fe7e, type: 3}
+  RunWithRifle: {fileID: -203655887218126122, guid: bab5d3c2ad9e3624c8ccf44fd467d9a2, type: 3}
   RunForward: {fileID: -203655887218126122, guid: e09b58c2d3eeeb64989111771640415d, type: 3}
   RunBackwards: {fileID: -203655887218126122, guid: 1ea5d8900905b194cb7707c3cb427a89, type: 3}
   RunLeft: {fileID: -203655887218126122, guid: 7d5c8872c38a36b448e29bf1591ae596, type: 3}

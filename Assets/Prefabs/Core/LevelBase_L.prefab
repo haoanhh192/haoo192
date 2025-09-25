@@ -3769,7 +3769,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 65527
 --- !u!1 &258536290
 GameObject:
   m_ObjectHideFlags: 0
@@ -40632,7 +40632,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.5, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -42276,7 +42276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &654915907631578742
 Transform:
   m_ObjectHideFlags: 0
@@ -43223,7 +43223,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 65527
 --- !u!114 &4501231901049801691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47212,6 +47212,7 @@ GameObject:
   - component: {fileID: 6189209498995416332}
   - component: {fileID: 6116057834636250861}
   - component: {fileID: 4900789301369775558}
+  - component: {fileID: 688905795}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -47269,7 +47270,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 63735
+    m_Bits: 64759
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -47355,6 +47356,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bc61b900564ea2b05494ae1591db9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &688905795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628902878471643410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 8270126656302349907}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &8705981437733275591
 GameObject:
   m_ObjectHideFlags: 0
@@ -47402,6 +47463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _manualSetupPools:
   - {fileID: 5542314900476105544}
+  - {fileID: 728512456452248507}
 --- !u!1 &8808948627115923023
 GameObject:
   m_ObjectHideFlags: 0
@@ -47495,12 +47557,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e5b733f4518cf40acd699108d36eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  memberUpgrades:
+  rareMemberUpgrades:
   - {fileID: 11400000, guid: 124bd28a6625e4741aa2dfad45cc2f14, type: 2}
   - {fileID: 11400000, guid: 4c74b11b0b54d524db0c32323b84fda3, type: 2}
+  mediumMemberUpgrades:
   - {fileID: 11400000, guid: 3624cbcc92d31f5448ff32ef8e1a17a6, type: 2}
-  - {fileID: 11400000, guid: b88a4fcbfc32edf429ee6520d7ac1f5a, type: 2}
   - {fileID: 11400000, guid: eb2114d1cf115b54ab7cdd06090cad10, type: 2}
+  commonMemberUpgrades:
+  - {fileID: 11400000, guid: b88a4fcbfc32edf429ee6520d7ac1f5a, type: 2}
   - {fileID: 11400000, guid: 2eb83cedad0087342ac93604914e7b86, type: 2}
   statsUpgrades:
   - {fileID: 11400000, guid: 3df869ec334d3de4c8ebdf514cfdfd93, type: 2}
@@ -49138,7 +49202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 584191985800254632, guid: 0bc2e56cccbb549e8a08446a602a06ee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 584191985800254639, guid: 0bc2e56cccbb549e8a08446a602a06ee, type: 3}
       propertyPath: m_Pivot.x

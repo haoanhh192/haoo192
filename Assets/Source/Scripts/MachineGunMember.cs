@@ -9,7 +9,11 @@ public class MachineGunMember : SquadMember
     [SerializeField] private float projectileForce = 10f;
     [SerializeField] private PoolType bulletPrefab;
     [SerializeField, TagField] private string enemyTag;
-
+    
+    public override void Init()
+    {
+        runForward = animations.RunWithRifle;
+    }
     public override void Shoot(Transform target)
     {
         if (reloadTime > Time.time)
@@ -21,6 +25,8 @@ public class MachineGunMember : SquadMember
         bullet.transform.rotation = Quaternion.LookRotation(transform.forward);
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
+
+        projectile.rb.velocity = Vector3.zero;
 
         var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);

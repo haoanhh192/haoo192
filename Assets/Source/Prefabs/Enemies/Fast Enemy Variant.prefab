@@ -71,5 +71,9 @@ PrefabInstance:
       propertyPath: attackRate
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4237591272215210810, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
+      propertyPath: powerUpPrefab
+      value: 
+      objectReference: {fileID: 2512949562409372157, guid: fcff337950219074a9f1ce19c45b806c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}

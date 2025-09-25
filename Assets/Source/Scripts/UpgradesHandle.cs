@@ -6,7 +6,9 @@ using static D2D.Utilities.CommonGameplayFacade;
 
 public class UpgradesHandle : Unit
 {
-    [SerializeField] private MemberUpgrades[] memberUpgrades;
+    [SerializeField] private MemberUpgrades[] rareMemberUpgrades;
+    [SerializeField] private MemberUpgrades[] mediumMemberUpgrades;
+    [SerializeField] private MemberUpgrades[] commonMemberUpgrades;
     [SerializeField] private StatsUpgrades[] statsUpgrades;
 
     private bool createdStatsUpgrade = false;
@@ -52,7 +54,20 @@ public class UpgradesHandle : Unit
                 continue;
             }
 
-            var memberUpgrade = memberUpgrades.Random();
+            MemberUpgrades memberUpgrade;
+
+            if (Random.Range(0, 100) < 10f)
+            {
+                memberUpgrade = rareMemberUpgrades.Random();
+            }
+            else if (Random.Range(0, 100) < 30f) 
+            {
+                memberUpgrade = mediumMemberUpgrades.Random();
+            }
+            else
+            {
+                memberUpgrade = commonMemberUpgrades.Random();
+            }
 
             buttons[index].UpgradeButton.onClick.AddListener(() => Upgrade(memberUpgrade));
             buttons[index].InitButtonUI(memberUpgrade.Icon, memberUpgrade.UpgradeText);

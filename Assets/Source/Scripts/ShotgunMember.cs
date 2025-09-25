@@ -11,7 +11,11 @@ public class ShotgunMember : SquadMember
     [SerializeField] private int shotParts = 5;
     [SerializeField] private PoolType bulletPrefab;
     [SerializeField, TagField] private string enemyTag;
-
+    
+    public override void Init()
+    {
+        runForward = animations.RunWithRifle;
+    }
     public override void Shoot(Transform target)
     {
         if (reloadTime > Time.time)
@@ -27,6 +31,8 @@ public class ShotgunMember : SquadMember
             bullet.transform.rotation = Quaternion.LookRotation(transform.forward);
 
             var projectile = bullet.GetComponent<ProjectileComponent>();
+
+            projectile.rb.velocity = Vector3.zero;
 
             var muzzleFlash = Instantiate(_gameData.muzzleFlash, shootPoint.transform.position, Quaternion.LookRotation(transform.forward));
             Destroy(muzzleFlash, 2f);

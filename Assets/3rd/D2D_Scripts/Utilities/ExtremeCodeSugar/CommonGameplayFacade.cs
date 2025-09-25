@@ -73,6 +73,21 @@ namespace D2D.Utilities
             }
         }
         private static SquadComponent __squad;
+        public static AudioManager _audioManager
+        {
+            get
+            {
+                if (__audioManager == null)
+                    __audioManager = GameObject.FindObjectOfType<AudioManager>();
+
+                return __audioManager;
+            }
+            set
+            {
+                __audioManager = value;
+            }
+        }
+        private static AudioManager __audioManager;
         public static FormationComponent _formation
         {
             get

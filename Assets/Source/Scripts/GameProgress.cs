@@ -59,6 +59,8 @@ public class GameProgress : Unit
             XPforLevelUp = 0;
             level++;
 
+            _audioManager.PlayOneShot(_gameData.spawnClip, 0.4f);
+
             OnLevelUp?.Invoke(level);
         }
     }

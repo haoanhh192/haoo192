@@ -7,9 +7,11 @@ public class XPPoint : MonoBehaviour
 {
     [SerializeField] private float xp;
 
-    public void Init(Vector3 originPoint)
+    public void Init(Vector3 originPoint, Vector3 playerPoint)
     {
-        GetComponent<Rigidbody>().AddExplosionForce(_gameData.pickUpFlyForce, originPoint, 3);
+        Vector3 force = (Mathf.Sign(playerPoint.x - originPoint.x) == -1 ? Vector3.right : Vector3.left) + Vector3.up;
+        
+        GetComponent<Rigidbody>().AddForce(force * _gameData.pickUpFlyForce);
 
         Invoke("ChangeLayerToXP", _gameData.timeBeforeXPActivate);
     }

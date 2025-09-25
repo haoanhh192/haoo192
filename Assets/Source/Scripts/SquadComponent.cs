@@ -186,6 +186,7 @@ public class SquadComponent : GameStateMachineUser
                 if (Vector3.Distance(formationPoint.position, member.navMesh.transform.position) > .1f)
                 {
                     member.animancer.Layers[0].Play(member.runForward);
+                    member.navMesh.updateRotation = true;
                     member.navMesh.SetDestination(formationPoint.position);
                 }
                 else
@@ -217,6 +218,7 @@ public class SquadComponent : GameStateMachineUser
             else
             {
                 member.navMesh.SetDestination(formationPoint.position);
+                member.navMesh.updateRotation = false;
 
                 if (Vector3.Distance(member.transform.position, formationPoint.position) > 1f)
                 {

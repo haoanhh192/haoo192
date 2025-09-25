@@ -1496,7 +1496,7 @@ MonoBehaviour:
   animancer: {fileID: 2205506031697190926}
   shootPoint: {fileID: 8694651142972316292}
   targetVector: {x: 0, y: 0, z: 0}
-  rotationLerp: 30
+  rotationLerp: 8
   runForward: {fileID: 0}
   currentTarget: {fileID: 0}
   projectileForce: 10

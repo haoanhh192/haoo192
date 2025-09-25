@@ -9,6 +9,7 @@ public class FlamethrowerMember : SquadMember
     [SerializeField] private float maxDistance = 3f;
     [SerializeField, TagField] private string enemyTag;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private ParticleSystem[] flamesVFX;
 
@@ -22,6 +23,7 @@ public class FlamethrowerMember : SquadMember
         {
             vfx.Stop();
         }
+        audioSource.Stop();
     }
     public override void Init()
     {
@@ -80,6 +82,8 @@ public class FlamethrowerMember : SquadMember
                 vfx.Play();
             }
 
+            audioSource.gameObject.SetActive(true);
+
             hitEnemies.Clear();
         }
         else
@@ -88,6 +92,8 @@ public class FlamethrowerMember : SquadMember
             {
                 vfx.Stop();
             }
+
+            audioSource.gameObject.SetActive(false);
         }
 
         reloadTime = Time.time + memberClass.ReloadDuration;

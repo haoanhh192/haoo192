@@ -99,6 +99,7 @@ public class UpgradesHandle : Unit
                 break;
         }
 
+        _audioManager.PlayOneShot(_gameData.spawnClip, 0.4f);
         upgradeUI.HideUI();
     }
     private void UpgradeStats(StatsUpgrades upgrade)

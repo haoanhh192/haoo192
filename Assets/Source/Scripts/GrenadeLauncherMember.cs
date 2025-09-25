@@ -51,6 +51,7 @@ public class GrenadeLauncherMember : SquadMember
             }
 
             Destroy(Instantiate(explosionVFX, other.transform.position, Quaternion.identity), 3f);
+            _audioManager.PlayOneShot(_gameData.explosionClip, Random.Range(0.7f, 0.8f));
         }
 
         Destroy(@object.gameObject);

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434822350519434400}
   - component: {fileID: 374661277496059061}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 2512949562409372131}
   - component: {fileID: 2512949562409372130}
   - component: {fileID: -5856921475103603280}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: 5 XP Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,9 +226,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2512949562409372134}
     m_Modifications:
+    - target: {fileID: 166258, guid: 0838b9c5f2f7376419abf8116bb66082, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 174414, guid: 0838b9c5f2f7376419abf8116bb66082, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 189676, guid: 0838b9c5f2f7376419abf8116bb66082, type: 3}
       propertyPath: m_Name
       value: PowerOrbWaterElemental
+      objectReference: {fileID: 0}
+    - target: {fileID: 189676, guid: 0838b9c5f2f7376419abf8116bb66082, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 434610, guid: 0838b9c5f2f7376419abf8116bb66082, type: 3}
       propertyPath: m_RootOrder
@@ -327,6 +339,10 @@ PrefabInstance:
     - target: {fileID: 137668402254836339, guid: 394b241e93a1e7d419a75649d57366c2, type: 3}
       propertyPath: m_Name
       value: Crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 137668402254836339, guid: 394b241e93a1e7d419a75649d57366c2, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 766394798318921929, guid: 394b241e93a1e7d419a75649d57366c2, type: 3}
       propertyPath: m_RootOrder

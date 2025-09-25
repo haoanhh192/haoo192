@@ -47,6 +47,8 @@ public class ShotgunMember : SquadMember
             projectile.enterComponent.OnEnter += HitEnemy;
         }
 
+        _audioManager.PlayOneShot(_gameData.shotgunShotClip, Random.Range(0.4f, 0.5f));
+
         reloadTime = Time.time + memberClass.ReloadDuration;
     }
 

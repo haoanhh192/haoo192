@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Bits: 8192
   XPLayer: XP
   timeBeforeXPActivate: 0.7
-  pickUpFlyForce: 250
+  pickUpFlyForce: 230
   baseUpgradePrice: 100
   maxLevelUpgrade: 8
   baseIncrease: 10
@@ -35,3 +35,10 @@ MonoBehaviour:
   punchScale: 0.45
   punchDuration: 0.3
   punchDelay: 0.12
+  pistolShotClip: {fileID: 8300000, guid: c922c34f559ead440a273a13a924cfc7, type: 3}
+  machineGunShotClip: {fileID: 8300000, guid: 38d95e38f52f6a54b888d9fd555fa1e3, type: 3}
+  rifleShotClip: {fileID: 8300000, guid: c922c34f559ead440a273a13a924cfc7, type: 3}
+  shotgunShotClip: {fileID: 8300000, guid: d6dbb92a655eeb549a408aa59fed63f4, type: 3}
+  explosionClip: {fileID: 8300000, guid: 878d46363e7e0164a8b8c68333f993dc, type: 3}
+  pickUpClip: {fileID: 8300000, guid: 74ea4a2ad98acb241bdb9753be6cd8c4, type: 3}
+  spawnClip: {fileID: 8300000, guid: 5052682f23f19384da5d743dc76ed64b, type: 3}

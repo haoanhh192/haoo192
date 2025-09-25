@@ -100,7 +100,7 @@ public class EnemyComponent : Unit
     private void Die()
     {
         var powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity).Get<XPPoint>();
-        powerUp.Init(transform.position + transform.forward);
+        powerUp.Init(transform.position, _formation.transform.position);
 
         _enemySpawn.EnemyDied();
 

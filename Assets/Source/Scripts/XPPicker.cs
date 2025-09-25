@@ -2,6 +2,7 @@ using D2D;
 using System;
 using UnityEngine;
 
+using static D2D.Utilities.CommonGameplayFacade;
 public class XPPicker : MonoBehaviour
 {
     [SerializeField] private float getDistance = 1f;
@@ -32,6 +33,8 @@ public class XPPicker : MonoBehaviour
                 if (distance <= getDistance)
                 {
                     var xp = item.GetComponent<XPPoint>().PickUp();
+
+                    _audioManager.PlayOneShot(_gameData.pickUpClip, .2f);
                     OnPickUp?.Invoke(xp);
                     PickVFX(item.transform.position);
 
@@ -47,6 +50,7 @@ public class XPPicker : MonoBehaviour
 
                 float speed = pickUpForce - distance;
                 speed = speed * Time.fixedDeltaTime;
+
                 item.transform.position = Vector3.MoveTowards(item.transform.position, transform.position, speed);
             }
         }

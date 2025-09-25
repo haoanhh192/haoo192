@@ -22,7 +22,7 @@ public class SquadMember : Unit
 
     [Header("Movement Settings")]
     public Vector3 targetVector;
-    public float rotationLerp = 20f;
+    public float rotationLerp = 10f;
     public AnimationClip runForward;
 
     [HideInInspector]

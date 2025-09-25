@@ -40,6 +40,8 @@ public class RifleGunMember : SquadMember
         projectile.enterComponent.OnEnter -= HitEnemy;
         projectile.enterComponent.OnEnter += HitEnemy;
 
+        _audioManager.PlayOneShot(_gameData.rifleShotClip, Random.Range(0.4f, 0.5f));
+
         shotsInRow++;
 
         if (shotsInRow % shotsRow == 0)

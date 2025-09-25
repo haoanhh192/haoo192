@@ -50,5 +50,14 @@ namespace D2D.Gameplay
         [TabGroup("Level Up Tween")] public float punchScale;
         [TabGroup("Level Up Tween")] public float punchDuration;
         [TabGroup("Level Up Tween")] public float punchDelay;
+
+        [Header("Sounds")]
+        [TabGroup("Sounds")] public AudioClip pistolShotClip;
+        [TabGroup("Sounds")] public AudioClip machineGunShotClip;
+        [TabGroup("Sounds")] public AudioClip rifleShotClip;
+        [TabGroup("Sounds")] public AudioClip shotgunShotClip;
+        [TabGroup("Sounds")] public AudioClip explosionClip;
+        [TabGroup("Sounds")] public AudioClip pickUpClip;
+        [TabGroup("Sounds")] public AudioClip spawnClip;
     }
 }

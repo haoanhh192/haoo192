@@ -11,9 +11,9 @@ public class PowerText : MonoBehaviour
     {
         textPro = GetComponent<TextMeshProUGUI>();
 
-        UpdatePowerText(0);
+        //UpdatePowerText(0);
 
-        _gameProgress.OnLevelUp += UpdatePowerText;
+        //_gameProgress.OnLevelUp += UpdatePowerText;
     }
     private void UpdatePowerText(int level)
     {

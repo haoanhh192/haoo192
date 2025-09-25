@@ -62,10 +62,13 @@ namespace D2D.Gameplay
         [TabGroup("Sounds")] public AudioClip pickUpClip;
         [TabGroup("Sounds")] public AudioClip spawnClip;
         [TabGroup("Sounds")] public AudioClip laserClip;
+        [TabGroup("Sounds")] public float minSoundDelay;
 
         [Header("Enemies")]
         [TabGroup("Enemies")] public float baseSpeedMultiplier;
+        [TabGroup("Enemies")] public float baseXPMultiplier;
         [TabGroup("Enemies")] public PoolType laserMuzzleVFX;
+        [TabGroup("Enemies")] public PoolType explosionVFX;
 
         [Header("Unlockables")]
         [TabGroup("Unlockables")] public UnlockableItem firstUnlockable;

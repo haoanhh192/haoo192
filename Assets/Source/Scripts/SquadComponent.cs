@@ -1,5 +1,6 @@
 using Cinemachine;
 using D2D.Core;
+using SRF;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -71,6 +72,15 @@ public class SquadComponent : GameStateMachineUser
     protected override void OnGameRun()
     {
         _joystick = FindObjectOfType<Joystick>();
+    }
+    protected override void OnGameWin()
+    {
+        base.OnGameWin();
+
+        foreach (var member in squadMembers)
+        {
+            member.SetDanceAnimation(member.animations.DanceAnimations.Random());
+        }
     }
     public void AddMember(SquadMember member)
     {
@@ -175,7 +185,7 @@ public class SquadComponent : GameStateMachineUser
                 if (index == 0)
                 {
                     member.navMesh.ResetPath();
-                    member.animancer.Layers[0].Play(member.animations.Idle);
+                    member.SetIdleAnimation();
                     continue;
                 }
 

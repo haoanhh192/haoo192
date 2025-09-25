@@ -40,7 +40,11 @@ public class RifleGunMember : SquadMember
         projectile.enterComponent.OnEnter -= HitEnemy;
         projectile.enterComponent.OnEnter += HitEnemy;
 
-        _audioManager.PlayOneShot(_gameData.rifleShotClip, Random.Range(0.4f, 0.5f));
+        if (lastShotSoundTime < Time.time)
+        {
+            lastShotSoundTime = Time.time + _gameData.minSoundDelay;
+            _audioManager.PlayOneShot(_gameData.rifleShotClip, Random.Range(0.4f, 0.5f));
+        }
 
         shotsInRow++;
 

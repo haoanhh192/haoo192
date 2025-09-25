@@ -28,6 +28,7 @@ public class EnemySpawn : Unit
     private Camera currentCamera;
 
     private bool isStopped;
+    private int maxOnField;
 
     private void Awake()
     {
@@ -39,6 +40,8 @@ public class EnemySpawn : Unit
 
         _stateMachine.On<WinState>(() => isStopped = true);
         _stateMachine.On<LoseState>(() => isStopped = true);
+
+        maxOnField = maxEnemiesOnField + _db.PassedLevels.Value;
     }
     private void Update()
     {
@@ -52,6 +55,8 @@ public class EnemySpawn : Unit
 
         if (currentWaveTimer >= currentWave.Duration)
         {
+            // Controlled Waves
+            /* 
             currentWaveIndex++;
             currentWaveTimer = 0;
 
@@ -61,6 +66,9 @@ public class EnemySpawn : Unit
             }
 
             SetWave(debugLevel.Waves[currentWaveIndex]);
+            */
+
+            SetWave(debugLevel.Waves.Random());
         }
 
         /*if (currentLevelTimer >= debugLevel.TotalDuration)
@@ -71,7 +79,7 @@ public class EnemySpawn : Unit
             }
         }*/
 
-        if (currentAmount >= maxEnemiesOnField)
+        if (currentAmount >= maxOnField)
         {
             return;
         }

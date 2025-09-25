@@ -13,29 +13,29 @@ public class EnemyComponent : Unit
     public OnTriggerEnterComponent triggerEnterComponent;
     public Health health;
 
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float deathReward = 1f;
-    [SerializeField] private int refreshNavMeshFrames = 4;
-    [SerializeField] private Animations animations;
+    [SerializeField] internal float speed = 10f;
+    [SerializeField] internal float deathReward = 1f;
+    [SerializeField] internal int refreshNavMeshFrames = 4;
+    [SerializeField] internal Animations animations;
 
     [Header("Combat")]
-    [SerializeField] private float attackRate = 1f;
-    [SerializeField] private float damage = 1f;
-    [SerializeField] private SexyOverlap overlap;
+    [SerializeField] internal float attackRate = 1f;
+    [SerializeField] internal float damage = 1f;
+    [SerializeField] internal SexyOverlap overlap;
 
     [Header("After Death")]
-    [SerializeField] private GameObject powerUpPrefab;
+    [SerializeField] internal GameObject powerUpPrefab;
 
-    private float attackTimer;
+    internal float attackTimer;
 
-    private NavMeshAgent navMesh;
-    private CharacterCanvas canvas;
-    private AnimancerComponent animancer;
-    private CapsuleCollider collider;
+    internal NavMeshAgent navMesh;
+    internal CharacterCanvas canvas;
+    internal AnimancerComponent animancer;
+    internal CapsuleCollider collider;
 
-    private bool isDead = false;
+    internal bool isDead = false;
 
-    private void Awake()
+    internal virtual void Awake()
     {
         triggerEnterComponent = GetComponent<OnTriggerEnterComponent>();
         health = GetComponent<Health>();
@@ -57,7 +57,7 @@ public class EnemyComponent : Unit
 
         _stateMachine.On<WinState>(Die);
     }
-    private void Update()
+    public virtual void Update()
     {
         if (isDead)
         {
@@ -105,7 +105,7 @@ public class EnemyComponent : Unit
 
         health.ApplyDamage(gameObject, damage);
     }
-    private void Die()
+    internal virtual void Die()
     {
         var powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity).Get<XPPoint>();
         powerUp.Init(transform.position, _formation.transform.position);
@@ -130,9 +130,11 @@ public class EnemyComponent : Unit
         animancer.Animator.applyRootMotion = true;
         animancer.Play(animations.Death);
 
+        DHaptic.HapticLight();
+
         Destroy(gameObject, 3f);
     }
-    private void DespawnEnemy()
+    internal void DespawnEnemy()
     {
         _enemySpawn.EnemyDied();
 

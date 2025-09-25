@@ -37,7 +37,11 @@ public class MachineGunMember : SquadMember
         projectile.enterComponent.OnEnter -= HitEnemy;
         projectile.enterComponent.OnEnter += HitEnemy;
 
-        _audioManager.PlayOneShot(_gameData.machineGunShotClip, Random.Range(0.1f, 0.2f));
+        if (lastShotSoundTime < Time.time)
+        {
+            lastShotSoundTime = Time.time + _gameData.minSoundDelay;
+            _audioManager.PlayOneShot(_gameData.machineGunShotClip, Random.Range(0.1f, 0.2f));
+        }
 
         reloadTime = Time.time + memberClass.ReloadDuration;
     }

@@ -19,7 +19,8 @@ public class CharacterItemUI : Unit
     public void Init(MemberUpgrades member)
     {
         memberName.text = member.UpgradeText;
-        memberIcon.sprite = member.Icon;
+        memberIcon.sprite = member.SilhouetteIcon;
+        LockedLayer.sprite = member.SilhouetteIcon;
     }
 
     public void Unlock()

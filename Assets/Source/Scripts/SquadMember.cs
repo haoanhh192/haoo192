@@ -34,6 +34,7 @@ public class SquadMember : Unit
     private Tween punchTween;
 
     internal float reloadTime = 0;
+    internal float lastShotSoundTime = 0;
 
 
     [Button("Debug Kill")]
@@ -69,5 +70,13 @@ public class SquadMember : Unit
         punchTween.KillTo0();
 
         punchTween = transform.DOPunchScale(Vector3.one * _gameData.punchScale, _gameData.punchDuration, 0, 0).SetDelay(delay);
+    }
+    public virtual void SetIdleAnimation() 
+    {
+        animancer.Layers[0].Play(animations.Idle);
+    }
+    public void SetDanceAnimation(AnimationClip animation)
+    {
+        animancer.Play(animation, 0.5f);
     }
 }

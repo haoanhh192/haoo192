@@ -5,6 +5,7 @@ using static D2D.Utilities.CommonGameplayFacade;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+
     private void Awake()
     {
         _audioManager = this;

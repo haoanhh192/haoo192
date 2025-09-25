@@ -12,5 +12,5 @@ public class LevelSO : ScriptableObject
     public float TotalDuration => totalDuration;
     public float BaseXPToLevelUp => baseXPToLevelUp;
     public float StepXPOnLevelUp => stepXPOnLevelUp;
-    public const int LevelUps = 10;
+    public const int LevelUps = 5;
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 1ef1d30456a168f4ab8daf05167e275a, type: 3}
   upgradeText: Pistol
   memberPrefab: {fileID: 873183754724297478, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+  silhouetteIcon: {fileID: 21300000, guid: bc21ce2dc3abe2e4a84bbc8e03e83d75, type: 3}

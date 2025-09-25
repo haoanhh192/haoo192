@@ -5,6 +5,8 @@ using UnityEngine;
 public class MemberUpgrades : Upgrades
 {
     [SerializeField] private GameObject memberPrefab;
+    [SerializeField] private Sprite silhouetteIcon;
 
     public GameObject MemberPrefab => memberPrefab;
+    public Sprite SilhouetteIcon => silhouetteIcon;
 }

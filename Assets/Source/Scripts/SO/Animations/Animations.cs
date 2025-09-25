@@ -16,4 +16,5 @@ public class Animations : ScriptableObject
     public AnimationClip HoldRifle;
     public AnimationClip HoldGrenadeLauncher;
     public AnimationClip HoldShotgun;
+    public AnimationClip[] DanceAnimations;
 }

@@ -165,7 +165,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 300, y: 395}
+  m_CellSize: {x: 250, y: 404}
   m_Spacing: {x: 50, y: 80}
   m_Constraint: 1
   m_ConstraintCount: 3
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32269266, g: 0.19841579, b: 0.6698113, a: 0.8862745}
+  m_Color: {r: 0.101960786, g: 0.078431375, b: 0.35686275, a: 0.8862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -16,7 +16,6 @@ public class DoublePistolMember : SquadMember
 
     private bool firstPoint = false;
 
-
     public override void Init()
     {
         base.Init();
@@ -42,7 +41,12 @@ public class DoublePistolMember : SquadMember
         var muzzleFlash = _poolHub.Spawn(_gameData.bulletMuzzleFlash, firstPoint ? shootPoint.transform.position : secondPoint.transform.position);
         muzzleFlash.transform.rotation = Quaternion.LookRotation(transform.forward);
 
-        _audioManager.PlayOneShot(_gameData.pistolShotClip, .5f);
+        if (lastShotSoundTime < Time.time)
+        {
+            lastShotSoundTime = Time.time + _gameData.minSoundDelay;
+
+            _audioManager.PlayOneShot(_gameData.pistolShotClip, .5f);
+        }
 
         var direction = (currentTarget.transform.position - (firstPoint ? shootPoint.transform.position : secondPoint.transform.position)).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);
@@ -63,5 +67,9 @@ public class DoublePistolMember : SquadMember
         }
 
         @object.gameObject.SetActive(false);
+    }
+    public override void SetIdleAnimation()
+    {
+        animancer.Layers[0].Play(animations.RunWithDouble);
     }
 }

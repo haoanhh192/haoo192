@@ -29,19 +29,19 @@ MonoBehaviour:
   XPLayer: XP
   timeBeforeXPActivate: 0.7
   pickUpFlyForce: 230
-  baseUpgradePrice: 125
+  baseUpgradePrice: 200
   upgradesPercentByLevel:
   - 0
-  - 35
+  - 25
+  - 40
   - 55
   - 70
-  - 85
-  - 95
-  - 105
+  - 80
+  - 90
+  - 100
   - 110
   - 115
   - 120
-  - 125
   maxLevelUpgrade: 8
   baseIncrease: 10
   levelUpVFX: {fileID: 189236, guid: 8b80f8497c25823439546e7fbb1d81a9, type: 3}
@@ -56,8 +56,11 @@ MonoBehaviour:
   pickUpClip: {fileID: 8300000, guid: 74ea4a2ad98acb241bdb9753be6cd8c4, type: 3}
   spawnClip: {fileID: 8300000, guid: 5052682f23f19384da5d743dc76ed64b, type: 3}
   laserClip: {fileID: 8300000, guid: 4686de3506c101f43a9393cea35fbe13, type: 3}
-  baseSpeedMultiplier: 1.1
+  minSoundDelay: 0.2
+  baseSpeedMultiplier: 1.11
+  baseXPMultiplier: 1.04
   laserMuzzleVFX: {fileID: 11400000, guid: da70603e834bbe446a994397297df920, type: 2}
+  explosionVFX: {fileID: 11400000, guid: c4f1e5d0e3e78ae488ba529ae0ae1952, type: 2}
   firstUnlockable: {fileID: 11400000, guid: 127fe4962bd513c4a943c0ca6aa4ab9b, type: 2}
   unlockables:
   - {fileID: 11400000, guid: 127fe4962bd513c4a943c0ca6aa4ab9b, type: 2}

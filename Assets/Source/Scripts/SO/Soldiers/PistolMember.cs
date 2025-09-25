@@ -27,7 +27,11 @@ public class PistolMember : SquadMember
         var muzzleFlash = _poolHub.Spawn(_gameData.bulletMuzzleFlash, shootPoint.transform.position);
         muzzleFlash.transform.rotation = Quaternion.LookRotation(transform.forward);
 
-        _audioManager.PlayOneShot(_gameData.pistolShotClip, .5f);
+        if (lastShotSoundTime < Time.time)
+        {
+            lastShotSoundTime = Time.time + _gameData.minSoundDelay;
+            _audioManager.PlayOneShot(_gameData.pistolShotClip, .5f);
+        }
 
         var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);

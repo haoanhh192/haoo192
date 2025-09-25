@@ -34,7 +34,7 @@ public class GameProgress : Unit
 
         xpPicker = Find<XPPicker>();
         
-        var multiplier = Mathf.Pow(_gameData.baseSpeedMultiplier, _db.PassedLevels.Value);
+        var multiplier = Mathf.Pow(_gameData.baseXPMultiplier, _db.PassedLevels.Value);
 
         for (int i = 0; i < LevelSO.LevelUps; i++)
         {

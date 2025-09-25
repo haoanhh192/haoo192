@@ -57,7 +57,53 @@ namespace D2D.Utilities
             }
         }
         private static Level __level;
-        
+
+        public static SquadComponent _squad
+        {
+            get
+            {
+                if (__squad == null)
+                    __squad = GameObject.FindObjectOfType<SquadComponent>();
+
+                return __squad;
+            }
+            set
+            {
+                __squad = value;
+            }
+        }
+        private static SquadComponent __squad;
+        public static FormationComponent _formation
+        {
+            get
+            {
+                if (__formation == null)
+                    __formation = GameObject.FindObjectOfType<FormationComponent>();
+
+                return __formation;
+            }
+            set
+            {
+                __formation = value;
+            }
+        }
+        private static FormationComponent __formation;
+        public static EnemySpawn _enemySpawn
+        {
+            get
+            {
+                if (__enemySpawn == null)
+                    __enemySpawn = GameObject.FindObjectOfType<EnemySpawn>();
+
+                return __enemySpawn;
+            }
+            set
+            {
+                __enemySpawn = value;
+            }
+        }
+        private static EnemySpawn __enemySpawn;
+
         public static FlyingUISpawner _flyingSpawner
         {
             get

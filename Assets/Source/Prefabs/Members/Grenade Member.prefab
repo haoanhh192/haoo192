@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615195e9f1bf48319469a615389fc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxPoints: 1
+  _maxPoints: 10
   _healthData: {fileID: 0}
   _hitEffect: {fileID: 0}
   _deathEffect: {fileID: 0}
@@ -202,7 +202,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
@@ -228,9 +228,14 @@ MonoBehaviour:
   targetVector: {x: 0, y: 0, z: 0}
   rotationLerp: 20
   currentTarget: {fileID: 0}
+  projectileForce: 30
+  explosionRadius: 3
   grenadePrefab: {fileID: 7189246641373217378, guid: a715f6b506ac6604d9d3dc8c028f1a4e, type: 3}
   explosionVFX: {fileID: 180702, guid: a7c694f0877ea874fa57e033221095c3, type: 3}
   enemyTag: Enemy
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1001 &728729228478699246
 PrefabInstance:
   m_ObjectHideFlags: 0

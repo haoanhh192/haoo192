@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class FormationComponent : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class FormationComponent : MonoBehaviour
     /// <param name="additionalPointsCount"> Amount of additional points </param>
     public void RecreateFormation(Vector3 originalPoint, float radius = 1f, int additionalPointsCount = 0)
     {
+        // Removing old points
         foreach (var point in FormationPoints)
         {
             if (point != null)
@@ -28,11 +28,13 @@ public class FormationComponent : MonoBehaviour
 
         originalPoint.y = 0;
 
+        // Creating obligatory center point
         GameObject firstPoint = new();
         firstPoint.transform.position = originalPoint;
         firstPoint.transform.SetParent(transform);
         FormationPoints.Add(firstPoint.transform);
 
+        // Creating formation
         for (int i = 0; i < additionalPointsCount; i++)
         {
             float angle = i * Mathf.PI * 2f / additionalPointsCount;

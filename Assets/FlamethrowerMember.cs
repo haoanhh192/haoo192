@@ -1,18 +1,28 @@
 using Cinemachine;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static D2D.Utilities.CommonGameplayFacade;
 public class FlamethrowerMember : SquadMember
 {
-    [SerializeField] private Vector2 projectileForce;
     [SerializeField] private int checkSteps = 5;
     [SerializeField] private float maxDistance = 3f;
     [SerializeField, TagField] private string enemyTag;
-    [SerializeField, TagField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask enemyLayer;
+
+    [SerializeField] private ParticleSystem flamesVFX;
 
     private List<EnemyComponent> hitEnemies = new();
 
+    private List<Ray> drawRay = new();
+
+    private void OnDrawGizmos()
+    {
+        foreach (var ray in drawRay)
+        {
+            Gizmos.DrawRay(ray);        
+        }
+    }
     public override void Shoot(Transform target)
     {
         if (reloadTime > Time.time)
@@ -20,26 +30,47 @@ public class FlamethrowerMember : SquadMember
             return;
         }
 
-        float step = 1 / checkSteps;
+        float step = 1f / checkSteps;
 
-        var sideVector = transform.right / 2;
-        
+        var sideVector = Vector3.right / 2;
+
+        drawRay = new();
+
         for (int i = 1; i <= checkSteps; i++)
         {
             var direction = transform.forward + Vector3.Lerp(sideVector, -sideVector, step * i);
 
-            Physics.Raycast(transform.position, direction, out RaycastHit raycastHit, maxDistance, enemyLayer);
+            Ray ray = new Ray(transform.position, direction);
 
-            raycastHit.
+            drawRay.Add(ray);
+
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, maxDistance, _gameData.EnemyLayer))
+            {
+                var enemy = raycastHit.collider.GetComponent<EnemyComponent>();
+
+                if (enemy != null && !hitEnemies.Contains(enemy))
+                {
+                    hitEnemies.Add(enemy);
+                }
+            }
         }
 
+        if (hitEnemies.Count > 0)
+        {
+            foreach (var enemy in hitEnemies)
+            {
+                enemy.GetHit(memberClass.Damage);
+            }
 
+            flamesVFX.Play();
+
+            hitEnemies.Clear();
+        }
+        else
+        {
+            flamesVFX.Stop();
+        }
 
         reloadTime = Time.time + memberClass.ReloadDuration;
-    }
-
-    private void HitEnemy(EnemyComponent enemy)
-    {
-        enemy.GetHit(memberClass.Damage);
     }
 }

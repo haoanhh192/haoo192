@@ -1,11 +1,14 @@
 using Animancer;
 using D2D;
 using D2D.Gameplay;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
+using static D2D.Utilities.CommonGameplayFacade;
+
 [RequireComponent(typeof(Health))]
-public class SquadMember : MonoBehaviour
+public class SquadMember : Unit
 {
     public NavMeshAgent navMesh;
     public SexyOverlap overLapObstacle;
@@ -25,6 +28,12 @@ public class SquadMember : MonoBehaviour
 
     internal float reloadTime = 0;
 
+
+    [Button("Debug Kill")]
+    private void DebugKill()
+    {
+        health.ApplyDamage(null, health.CurrentPoints);
+    }
     private void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();

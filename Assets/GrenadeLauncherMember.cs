@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static D2D.Utilities.CommonGameplayFacade;
 public class GrenadeLauncherMember : SquadMember
 {
     [SerializeField] private float projectileForce = 30f;
+    [SerializeField] private float explosionRadius = 3f;
     [SerializeField] private GameObject grenadePrefab;
     [SerializeField] private GameObject explosionVFX;
     [SerializeField, TagField] private string enemyTag;
+    [SerializeField] private LayerMask enemyLayer;
 
     public override void Shoot(Transform target)
     {
@@ -33,7 +36,13 @@ public class GrenadeLauncherMember : SquadMember
     {
         if (other.CompareTag(enemyTag))
         {
-            other.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
+            var enemies = Physics.OverlapSphere(other.transform.position, explosionRadius, _gameData.EnemyLayer);
+
+            foreach (var enemy in enemies)
+            {
+                enemy.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
+            }
+
             Destroy(Instantiate(explosionVFX, other.transform.position, Quaternion.identity), 3f);
         }
 

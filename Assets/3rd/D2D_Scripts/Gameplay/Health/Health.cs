@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 using static D2D.Utilities.SettingsFacade;
 using static D2D.Utilities.CommonLazyFacade;
 using static D2D.Utilities.CommonGameplayFacade;
+using Sirenix.OdinInspector;
 
 namespace D2D.Gameplay
 {
@@ -27,7 +28,7 @@ namespace D2D.Gameplay
         [SerializeField] private bool _isGrayFadeout;
 
         public event Action Died;
-        public event Action Damaged;
+        public event Action<float> Damaged;
         public event Action PointsChanged;
         
         public GameObject LastAttacker { get; private set; }
@@ -94,7 +95,7 @@ namespace D2D.Gameplay
             {
                 Spawn(_hitEffect);
 
-                Damaged?.Invoke();
+                Damaged?.Invoke(damagePoints);
             }
             else
             {

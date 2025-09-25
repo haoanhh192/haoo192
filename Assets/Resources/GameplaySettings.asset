@@ -20,3 +20,9 @@ MonoBehaviour:
   grayDeathColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
   grayDeathDuration: 0.3
   grayCorpseLifetime: 2
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 8192

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+using static D2D.Utilities.CommonGameplayFacade;
+
 public class SquadComponent : MonoBehaviour
 {
     [Header("Squad Settings")]
@@ -15,6 +17,7 @@ public class SquadComponent : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private GameObject pistolMemberPrefab;
     [SerializeField] private GameObject grenadeLauncherPrefab;
+    [SerializeField] private GameObject flamethrowerPrefab;
 
     private Joystick _joystick;
     private FormationComponent _formation;
@@ -23,14 +26,32 @@ public class SquadComponent : MonoBehaviour
 
     private void Awake()
     {
+        _squad = this;
+
         _joystick = FindObjectOfType<Joystick>();
         _formation = FindObjectOfType<FormationComponent>();
         cinemachineTargetGroup = FindObjectOfType<CinemachineTargetGroup>();
 
         squadMembers = GetComponentsInChildren<SquadMember>().ToList();
 
+        foreach (var member in squadMembers)
+        {
+            member.health.Died += () => MemberDie(member);
+        }
+
         _formation.RecreateFormation(Vector3.zero, 1f, squadMembers.Count - 1);
         SetMembersToCinemachineGroup();
+    }
+
+    private void MemberDie(SquadMember member)
+    {
+        if (squadMembers.Contains(member))
+        {
+            squadMembers.Remove(member);
+
+            _formation.RecreateFormation(Vector3.zero, 1f, squadMembers.Count - 1);
+            SetMembersToCinemachineGroup();
+        }
     }
 
     private void Update()
@@ -46,6 +67,11 @@ public class SquadComponent : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             var newMember = Instantiate(grenadeLauncherPrefab, squadMembers[0].transform.position, Quaternion.identity, transform).GetComponent<SquadMember>();
+            AddMember(newMember);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            var newMember = Instantiate(flamethrowerPrefab, squadMembers[0].transform.position, Quaternion.identity, transform).GetComponent<SquadMember>();
             AddMember(newMember);
         }
     }

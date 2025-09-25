@@ -26,5 +26,9 @@ namespace D2D.Gameplay
         [TabGroup("Other")] public Color grayDeathColor;
         [TabGroup("Other")] public float grayDeathDuration;
         [TabGroup("Other")] public float grayCorpseLifetime;
+
+        [Header("Layers")]
+        [TabGroup("Layers")] public LayerMask GroundLayer;
+        [TabGroup("Layers")] public LayerMask EnemyLayer;
     }
 }

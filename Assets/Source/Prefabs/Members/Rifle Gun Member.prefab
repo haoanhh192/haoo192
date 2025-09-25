@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615195e9f1bf48319469a615389fc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxPoints: 1
+  _maxPoints: 10
   _healthData: {fileID: 0}
   _hitEffect: {fileID: 0}
   _deathEffect: {fileID: 0}
@@ -202,7 +202,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   navMesh: {fileID: 6544289291880790326}
   overLapObstacle: {fileID: 6544289291880790325}
   overLapEnemy: {fileID: 6893754867492251466}
-  memberClass: {fileID: 11400000, guid: 9a0df1daeee48a94e9d2b6928a66130d, type: 2}
+  memberClass: {fileID: 11400000, guid: 98d84d9f4382bb2419d9142c17058f30, type: 2}
   animations: {fileID: 11400000, guid: 2584c792d6e104f4286d32379be4d14b, type: 2}
   health: {fileID: 6953122935122498689}
   animancer: {fileID: 9065926866026787067}
@@ -229,6 +229,8 @@ MonoBehaviour:
   rotationLerp: 20
   currentTarget: {fileID: 0}
   projectileForce: 25
+  delayBetweenRows: 1.2
+  shotsRow: 4
   bulletPrefab: {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
   enemyTag: Enemy
 --- !u!1001 &3335295819667527322

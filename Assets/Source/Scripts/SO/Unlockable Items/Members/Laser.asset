@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Laser
   m_EditorClassIdentifier: 
   unlockableType: 1
+  unlockStep: 0.334
   icon: {fileID: 21300000, guid: cc133704de1cca7478e435d808b2a95a, type: 3}
   backIcon: {fileID: 21300000, guid: 7596fae8f8cf2074dbfc593b06f339a1, type: 3}
   showName: Laser

@@ -76,6 +76,5 @@ namespace D2D.Gameplay
         [Header("Unlockables")]
         [TabGroup("Unlockables")] public UnlockableItem firstUnlockable;
         [TabGroup("Unlockables")] public UnlockableItem[] unlockables;
-        [TabGroup("Unlockables")] public float progressStep;
     }
 }

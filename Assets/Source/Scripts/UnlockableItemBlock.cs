@@ -74,15 +74,15 @@ public class UnlockableItemBlock : GameStateMachineUser
         var startProgress = _db.UnlockableItemProgress.Value;
 
         unlockFill.fillAmount = startProgress;
-        unlockFill.DOFillAmount(startProgress + _gameData.progressStep, fillTime).OnUpdate(UpdateFillText).OnComplete(FinishAnimation);
+        unlockFill.DOFillAmount(startProgress + unlockableItem.UnlockStep, fillTime).OnUpdate(UpdateFillText).OnComplete(FinishAnimation);
 
-        if (startProgress + _gameData.progressStep >= 1f)
+        if (startProgress + unlockableItem.UnlockStep >= 1f)
         {
             UnlockItem();
         }
         else
         {
-            _db.UnlockableItemProgress.Value = startProgress + _gameData.progressStep;
+            _db.UnlockableItemProgress.Value = startProgress + unlockableItem.UnlockStep;
         }
     }
     private void UpdateFillText()

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   unlockableType: 1
+  unlockStep: 0.334
   icon: {fileID: 21300000, guid: e56a42a66d3c85747a2f2b94f671f7c8, type: 3}
   backIcon: {fileID: 21300000, guid: 5707d6ef9923ed14787d126685d6ef9c, type: 3}
   showName: Rifle

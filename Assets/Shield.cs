@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Shield : Unit
 {
-    private Rigidbody rb;
+    private Rigidbody[] rb;
 
     private void Awake()
     {
-        rb = Get<Rigidbody>();
+        rb = ChildrenGets<Rigidbody>();
 
         ParentGet<Health>().Died += OnDie;
     }
 
     private void OnDie()
     {
-        rb.isKinematic = false;
-
-        rb.AddForce(-transform.forward * 50f);
+        foreach (var rigid in rb)
+        {
+            rigid.isKinematic = false;
+        }
     }
 }

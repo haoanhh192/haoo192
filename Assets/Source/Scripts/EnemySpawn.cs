@@ -119,7 +119,9 @@ public class EnemySpawn : Unit
             var enemyComp = enemyGO.GetComponent<EnemyComponent>();
 
             var multiplier = Mathf.Pow(_gameData.baseSpeedMultiplier, _db.PassedLevels.Value);
-            enemyComp.SetSpeed(multiplier);
+            var speedLevel = Mathf.Min(_gameData.enemyMaxSpeedLevel, _db.PassedLevels.Value);
+            var multiplierSpeed = Mathf.Pow(_gameData.baseSpeedMultiplier, speedLevel);
+            enemyComp.SetSpeed(multiplierSpeed);
             enemyComp.SetHealth(multiplier);
 
             currentAmount++;

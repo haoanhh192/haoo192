@@ -46,11 +46,11 @@ public class RifleGunMember : SquadMember
 
         if (shotsInRow % shotsRow == 0)
         {
-            reloadTime = Time.time + delayBetweenRows;
+            reloadTime = Time.time + memberClass.ReloadDuration;
         }
         else
         {
-            reloadTime = Time.time + memberClass.ReloadDuration;
+            reloadTime = Time.time + delayBetweenRows;
         }
     }
 

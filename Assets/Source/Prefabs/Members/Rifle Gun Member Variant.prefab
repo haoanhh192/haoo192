@@ -1500,7 +1500,7 @@ MonoBehaviour:
   runForward: {fileID: 0}
   currentTarget: {fileID: 0}
   projectileForce: 10
-  delayBetweenRows: 1.2
+  delayBetweenRows: 0.1
   shotsRow: 4
   bulletPrefab: {fileID: 11400000, guid: eee42d13775b33643be3ec5187ac0ef9, type: 2}
   enemyTag: Enemy

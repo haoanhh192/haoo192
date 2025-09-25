@@ -30,6 +30,7 @@ namespace D2D.Gameplay
         [TabGroup("Other")] public GameObject muzzleFlash;
         [TabGroup("Other")] public PoolType bulletMuzzleFlash;
         [TabGroup("Other")] public float enemyDespawnDistance = 14f;
+        [TabGroup("Other")] public float enemyMaxSpeedLevel = 10f;
 
         [Header("Layers")]
         [TabGroup("Layers")] public LayerMask GroundLayer;

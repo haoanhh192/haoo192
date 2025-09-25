@@ -36,7 +36,7 @@ MonoBehaviour:
   safeZoneOffset: -90
   winReward:
     _chunks:
-    - rewardIncrease: 50
+    - rewardIncrease: 25
       fromLevelNumber: 0
     _startOffset: 50
   tools:

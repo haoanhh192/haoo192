@@ -14,6 +14,7 @@ public class EnemyComponent : Unit
     public Health health;
 
     [SerializeField] private float speed = 10f;
+    [SerializeField] private float deathReward = 1f;
     [SerializeField] private int refreshNavMeshFrames = 4;
     [SerializeField] private Animations animations;
 
@@ -110,6 +111,8 @@ public class EnemyComponent : Unit
         powerUp.Init(transform.position, _formation.transform.position);
 
         _enemySpawn.EnemyDied();
+
+        _db.Money.Value += deathReward;
 
         isDead = true;
 

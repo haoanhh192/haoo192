@@ -128,6 +128,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4237591272215210810, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
+      propertyPath: deathReward
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237591272215210810, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: powerUpPrefab
       value: 
       objectReference: {fileID: 2512949562409372157, guid: f756f299ed85c28449c0a3eafd642a32, type: 3}

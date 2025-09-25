@@ -1,6 +1,8 @@
 using D2D;
 using D2D.Core;
 using SRF;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 using static D2D.Utilities.CommonGameplayFacade;
@@ -45,6 +47,7 @@ public class UpgradesHandle : Unit
         var buttons = upgradeUI.GetButtons();
 
         createdStatsUpgrade = false;
+        List<MemberUpgrades> usedMemberUpgrade = new List<MemberUpgrades>();
 
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -65,22 +68,27 @@ public class UpgradesHandle : Unit
             }
 
             MemberUpgrades memberUpgrade;
+            List<MemberUpgrades> availableMemberUpgrades = new List<MemberUpgrades>();
 
             if (Random.Range(0, 100) < rareChance)
             {
-                memberUpgrade = rareMemberUpgrades.Random();
+                availableMemberUpgrades = rareMemberUpgrades.ToList();
             }
             else if (Random.Range(0, 100) < mediumChance) 
             {
-                memberUpgrade = mediumMemberUpgrades.Random();
+                availableMemberUpgrades = mediumMemberUpgrades.ToList();
             }
             else
             {
-                memberUpgrade = commonMemberUpgrades.Random();
+                availableMemberUpgrades = commonMemberUpgrades.ToList();
             }
+
+            memberUpgrade = availableMemberUpgrades.Except(usedMemberUpgrade).ToArray().Random();
 
             buttons[index].UpgradeButton.onClick.AddListener(() => Upgrade(memberUpgrade));
             buttons[index].InitButtonUI(memberUpgrade.Icon, memberUpgrade.UpgradeText);
+
+            usedMemberUpgrade.Add(memberUpgrade);
         }
     }
 

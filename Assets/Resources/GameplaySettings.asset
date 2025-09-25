@@ -29,7 +29,7 @@ MonoBehaviour:
   XPLayer: XP
   timeBeforeXPActivate: 0.7
   pickUpFlyForce: 230
-  baseUpgradePrice: 50
+  baseUpgradePrice: 125
   upgradesPercentByLevel:
   - 0
   - 35

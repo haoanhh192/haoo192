@@ -2076,6 +2076,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1912088909782476766, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1912088910851219735, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2151,6 +2155,14 @@ PrefabInstance:
     - target: {fileID: 3608832392635402141, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163990195386417690, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: _logging
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967958630039274675, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: rareChance
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8278786494825656350, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: m_LocalScale.x

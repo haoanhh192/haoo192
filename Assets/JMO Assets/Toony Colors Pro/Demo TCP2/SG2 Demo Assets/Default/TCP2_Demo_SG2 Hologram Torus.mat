@@ -85,8 +85,6 @@ Material:
     - _MyFloat: 1
     - _NDVMaxFrag: 0.45
     - _NDVMinFrag: 0
-    - _NormalsSource: 0
-    - _NormalsUVType: 0
     - _OcclusionStrength: 1
     - _OutlineWidth: 2
     - _Parallax: 0.02
@@ -110,4 +108,3 @@ Material:
     - _OutlineColorVertex: {r: 0, g: 0.5034485, b: 1, a: 1}
     - _SColor: {r: 0, g: 0, b: 0, a: 1}
     - _ScanlinesTex_SC: {r: 0, g: -0.02, b: 0, a: 0}
-  m_BuildTextureStacks: []

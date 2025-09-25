@@ -26,7 +26,7 @@ public class MenuUI : MonoBehaviour
     {
         _db.PowerIncreaseLevel.Value++;
 
-        _db.Money.Value -= _db.PowerIncreaseLevel.Value * _gameData.baseUpgradePrice;
+        _db.Money.Value -= _gameData.PowerUpgradePrice;
 
         UpdateStats();
     }
@@ -34,15 +34,15 @@ public class MenuUI : MonoBehaviour
     {
         _db.FireRateDecreaseLevel.Value++;
 
-        _db.Money.Value -= _db.FireRateDecreaseLevel.Value * _gameData.baseUpgradePrice;
+        _db.Money.Value -= _gameData.FireUpgradePrice;
         UpdateStats();
     }
     
     private void CheckForDeactivatingButtons()
     {
 
-        bool isEnoughForRate = _db.Money.Value >= (_db.FireRateDecreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
-        bool isEnoughForPower = _db.Money.Value >= (_db.PowerIncreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
+        bool isEnoughForRate = _db.Money.Value >= _gameData.FireNextUpgradePrice;
+        bool isEnoughForPower = _db.Money.Value >= _gameData.PowerNextUpgradePrice;
         
         fireRateIncreaseButton.Button.interactable = _gameData.upgradesPercentByLevel.Length <= _db.FireRateDecreaseLevel.Value ? false : isEnoughForRate;
         firePowerIncreaseButton.Button.interactable = _gameData.upgradesPercentByLevel.Length <= _db.FireRateDecreaseLevel.Value ? false : isEnoughForPower;
@@ -66,8 +66,8 @@ public class MenuUI : MonoBehaviour
 
         firePowerIncreaseButton.LevelText.text = $"LEVEL {_db.PowerIncreaseLevel.Value}";
         fireRateIncreaseButton.LevelText.text = $"LEVEL {_db.FireRateDecreaseLevel.Value}";
-        firePowerIncreaseButton.PriceText.text = $"{(_db.PowerIncreaseLevel.Value + 1) * _gameData.baseUpgradePrice} <sprite=0>";
-        fireRateIncreaseButton.PriceText.text = $"{(_db.FireRateDecreaseLevel.Value + 1) * _gameData.baseUpgradePrice} <sprite=0>";
+        firePowerIncreaseButton.PriceText.text = $"{_gameData.PowerNextUpgradePrice} <sprite=0>";
+        fireRateIncreaseButton.PriceText.text = $"{_gameData.FireNextUpgradePrice} <sprite=0>";
 
         CheckForDeactivatingButtons();
     }

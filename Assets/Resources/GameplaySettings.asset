@@ -33,7 +33,8 @@ MonoBehaviour:
   XPLayer: XP
   timeBeforeXPActivate: 0.7
   pickUpFlyForce: 230
-  baseUpgradePrice: 100
+  boostInitialPricee: 150
+  boostPriceStep: 60
   upgradesPercentByLevel:
   - 0
   - 25
@@ -47,7 +48,6 @@ MonoBehaviour:
   - 115
   - 120
   maxLevelUpgrade: 10
-  baseIncrease: 10
   levelUpVFX: {fileID: 189236, guid: 8b80f8497c25823439546e7fbb1d81a9, type: 3}
   punchScale: 0.45
   punchDuration: 0.3
@@ -61,8 +61,8 @@ MonoBehaviour:
   spawnClip: {fileID: 8300000, guid: 5052682f23f19384da5d743dc76ed64b, type: 3}
   laserClip: {fileID: 8300000, guid: 4686de3506c101f43a9393cea35fbe13, type: 3}
   minSoundDelay: 0.2
-  baseSpeedMultiplier: 1.11
-  baseXPMultiplier: 1.04
+  baseSpeedMultiplier: 1.04
+  baseXPMultiplier: 1.08
   laserMuzzleVFX: {fileID: 11400000, guid: da70603e834bbe446a994397297df920, type: 2}
   explosionVFX: {fileID: 11400000, guid: c4f1e5d0e3e78ae488ba529ae0ae1952, type: 2}
   allWaves:
@@ -83,4 +83,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d12b819731c3a654abb82e58cb36df07, type: 2}
   - {fileID: 11400000, guid: 4c3e666ccc681044f971e1596e93ca08, type: 2}
   - {fileID: 11400000, guid: c9ca27ef97ccb5f4eb6169a975c16588, type: 2}
-  progressStep: 0.334

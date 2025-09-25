@@ -13,4 +13,13 @@ public class LevelSO : ScriptableObject
     public float BaseXPToLevelUp => baseXPToLevelUp;
     public float StepXPOnLevelUp => stepXPOnLevelUp;
     public const int LevelUps = 5;
+
+    /*public float LevelXp
+    {
+        get
+        {
+            var result = BaseXPToLevelUp * multiplier + (i * _levelSO.StepXPOnLevelUp * multiplier)
+            return result;
+        }
+    }*/
 }

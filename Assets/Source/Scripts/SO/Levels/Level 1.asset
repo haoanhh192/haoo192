@@ -21,4 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a79e6abfcbf3e2142ad09834da6f4f32, type: 2}
   totalDuration: 50
   baseXPToLevelUp: 40
-  stepXPOnLevelUp: 30
+  stepXPOnLevelUp: 70

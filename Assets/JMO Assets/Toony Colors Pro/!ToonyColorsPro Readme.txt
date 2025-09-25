@@ -1,6 +1,6 @@
-Toony Colors Pro, version 2.8
-2021/09/28
-© 2021 - Jean Moreno
+Toony Colors Pro, version 2.9
+2022/04/28
+© 2022 - Jean Moreno
 =============================
 
 QUICK START
@@ -37,6 +37,46 @@ UPDATE NOTES
 ------------
 
 See full and formatted changelog here: https://jeanmoreno.com/unity/toonycolorspro/doc/changelog
+
+2.9.1
+#### Modified
+- [Shader Generator 2] Always serialize the current TCP2 version rather than the very first one the shader has been generated with.
+#### Fixed
+- [Standard PBS] Restored Outlines that were broken in the last update
+- [Standard PBS] Fixed Outline option not working in Unity 2021.2+
+- [Standard PBS Demo] Restored Normal Map on Robot model for PBS Demo
+- [Shader Generator 2] (Default) Fixed "no tile" sampling when using the built-in render pipeline.
+
+2.9.0
+#### Added
+- [Hybrid Shader] Added the "Hybrid Shader 2", which changes the way the shader handles render pipelines internally. This will improve compatibility and maintainability with future URP versions, and allow easier shader variants stripping.
+You can also now entirely exclude features you don't use from the shader code, to reduce the total variants count, build filesize and runtime memory usage. Please read the documentation to know more.
+*NOTE 1:* Your materials using the old "Hybrid Shader" will need to be updated, a script will propose to do that automatically when you update TCP2, or you can use the menu option in "Tools/Toony Colors Pro/Upgrade materials".
+*NOTE 2:* Lightmap support is now disabled by default because it dramatically reduces the number of shader variants; select the shader file and toggle "Lightmap" in the options to enable it back.
+- [Hybrid Shader] Added support for URP 12 features: "Decals", "Light Layers", "Light Cookies"
+- [Shader Generator 2] (Default) (URP) Added options to enable LOD Crossfading for both render pipelines
+- [Shader Generator 2] (Default) (URP) Added procedural dithering pattern options when using "Dithered Transparency"
+#### Modified
+- Legacy "Desktop" and "Mobile" shaders have been removed. You can use the menu option "Tools/Toony Colors Pro/Upgrade materials/From Legacy Desktop-Mobile to Hybrid Shader 2" to upgrade your legacy materials to using the "Hybrid Shader 2"
+- Removed "TCP2_BuildShaderPreprocessor" script that was used to strip out Hybrid Shader variants ("Hybrid Shader 2" does a better job at stripping out of the box)
+- Minimum Unity version for TCP2 is now Unity 2019.4.12
+#### Fixed
+- [Shader Generator 2] "Other Shader Property" references should now accept the same as the Base property with properties from Material Layers
+- [Shader Generator 2] Reloading a template will not clear the Shader Properties settings anymore
+- [Shader Generator 2] (Default) (URP) Fixed "Wind" and "Dissolve" features not working with the "Outline" pass
+- [Shader Generator 2] (Default) (URP) Fixed "Curved World 2020" not working for the "Outline" pass
+- [Shader Generator 2] (URP) Fixed console error about "PROP:Occlusion" when "Alpha Testing" was enabled
+- [TCP2_PlanarReflection] Fixed script complaining about the blur shader in a build even if blur is disabled
+- [TCP2_PlanarReflection] Made the blur shader reference explicit so that Unity knows to include it in builds
+
+2.8.1
+#### Fixed
+- [Shader Generator 2] (Default) (URP) Holes should now work in Terrain shaders
+- [Shader Generator 2] (Default) Fixed triplanar and no-tile texture sampling
+- [Shader Generator 2] (URP) Fixed reflection color not working with reflection probes
+- [Shader Generator 2] (Default) Prevent selecting invalid texture samplers (e.g. when they use triplanar or no-tile UVs)
+- [Shader Generator 2] (Default) (URP) Fixed some possible compilation errors when using Material Layers
+- Prevent possible asmdef conflict with Cartoon FX Remaster
 
 2.8
 #### Added
@@ -381,7 +421,7 @@ This can be used to make effects from simple texture blending to snow accumulati
 See the documentation to learn more!
 - Added "Cat Demo LWRP" scene (extract it from the "Cat Demo LWRP.unitypackage" file)
 - Shader Generator: Added "VertExmotion" support (under "Special Effects")
-- Shader Generator: Enabled Dithered Shadows when using Alpha Testing with Dithered Transparency
+- Shader Generator: Enabled Dithered Shadows when using Alpha Testing with "Dithered Transparency"
 - Shader Generator: fixed Outline in Single-Pass Stereo rendering mode (VR)
 - Added 26 MatCap textures
 - Reorganized the Textures folder

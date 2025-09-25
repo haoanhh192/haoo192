@@ -5,6 +5,9 @@ using D2D.Utils;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using static D2D.Utilities.SettingsFacade;
+using static D2D.Utilities.CommonLazyFacade;
+using static D2D.Utilities.CommonGameplayFacade;
 
 namespace D2D.Gameplay
 {
@@ -43,12 +46,40 @@ namespace D2D.Gameplay
         [TabGroup("PickUp")] public float pickUpFlyForce;
 
         [Header("Upgrades")]
-        [TabGroup("Upgrades")] public float baseUpgradePrice;
+        [TabGroup("Upgrades")] [SerializeField] private float boostInitialPricee = 150;
+        [TabGroup("Upgrades")] [SerializeField] private float boostPriceStep = 75;
         [TabGroup("Upgrades")] public float[] upgradesPercentByLevel;
         [TabGroup("Upgrades")] public int maxLevelUpgrade;
-        [TabGroup("Upgrades")] public int baseIncrease;
+        // [TabGroup("Upgrades")] public int baseIncrease;
         [TabGroup("Upgrades")] public GameObject levelUpVFX;
 
+        private float CalculateUpgradePrice(float l)
+        {
+            var step = boostPriceStep;
+
+            if (l >= 5)
+                step *= 1.2f;
+            
+            if (l >= 7)
+                step *= 1.5f;
+
+            var result = boostInitialPricee + l * step * 2;
+
+            if (l > 3)
+                result *= 1.2f;
+            
+            // if (l >= 6)
+                // result *= 1.1f;
+
+            return result.Round();
+        }
+
+        public float PowerUpgradePrice => CalculateUpgradePrice(_db.PowerIncreaseLevel.Value);
+        public float PowerNextUpgradePrice => CalculateUpgradePrice(_db.PowerIncreaseLevel.Value+1);
+        
+        public float FireUpgradePrice => CalculateUpgradePrice(_db.FireRateDecreaseLevel.Value);
+        public float FireNextUpgradePrice => CalculateUpgradePrice(_db.FireRateDecreaseLevel.Value+1);
+ 
         [Header("Level Up Tween")]
         [TabGroup("Level Up Tween")] public float punchScale;
         [TabGroup("Level Up Tween")] public float punchDuration;

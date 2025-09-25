@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2022 Jean Moreno
 
 #define WRITE_UNCOMPRESSED_SERIALIZED_DATA
 
@@ -65,7 +65,7 @@ namespace ToonyColorsPro
 		internal class Config
 		{
 #pragma warning disable 414
-			[Serialization.SerializeAs("ver")] string tcp2version = ShaderGenerator2.TCP2_VERSION;
+			[Serialization.SerializeAs("ver")] string tcp2version { get { return ShaderGenerator2.TCP2_VERSION; } }
 			[Serialization.SerializeAs("unity")] string unityVersion { get { return Application.unityVersion; } }
 #pragma warning restore 414
 

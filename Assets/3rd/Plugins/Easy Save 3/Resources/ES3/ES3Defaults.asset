@@ -66,6 +66,7 @@ MonoBehaviour:
     - Animancer.FSM
     - MoreMountains.Feedbacks.NiceVibrations
     - UniTask.Addressables
+    - KinoBloom.Runtime
     - MoreMountains.Tools.Editor
     - ToolbarExtender.Editor
     - NaughtyAttributes.Editor
@@ -83,6 +84,7 @@ MonoBehaviour:
     - MoreMountains.NiceVibrations.Editor
     - AppsFlyer.Editor
     - RahulCorleone.MagicLayout.Editor
+    - ToonyColorsPro.Demo.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

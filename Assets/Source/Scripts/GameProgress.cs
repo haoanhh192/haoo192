@@ -33,8 +33,32 @@ public class GameProgress : Unit
         _gameProgress = this;
 
         xpPicker = Find<XPPicker>();
-        
+
         var multiplier = Mathf.Pow(_gameData.baseXPMultiplier, _db.PassedLevels.Value);
+
+        if (_db.PassedLevels.Value >= 4)
+        {
+            multiplier *= 1.5f;
+            Debug.Log("Boost level 5: " + multiplier);
+        }
+        
+        if (_db.PassedLevels.Value >= 5)
+        {
+            multiplier *= 1.2f;
+            Debug.Log("Boost level 6: " + multiplier);
+        }
+        
+        if (_db.PassedLevels.Value >= 6)
+        {
+            multiplier *= 1.2f;
+            Debug.Log("Boost level 6: " + multiplier);
+        }
+        
+        if (_db.PassedLevels.Value >= 8)
+        {
+            multiplier += 1;
+            Debug.Log("Boost level 6: " + multiplier);
+        }
 
         for (int i = 0; i < LevelSO.LevelUps; i++)
         {

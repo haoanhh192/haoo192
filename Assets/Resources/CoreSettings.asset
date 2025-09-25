@@ -16,7 +16,7 @@ MonoBehaviour:
     appName: Stickman Squad
     companyName: D2DGames
     className: stickman.squad.epicbattle
-    version: 1
+    version: 2
   nextLevelLoadDelay: 0
   clearTweensOnSceneExit: 1
   lazyRuntimeCreationEnabled: 1
@@ -36,7 +36,7 @@ MonoBehaviour:
   safeZoneOffset: -90
   winReward:
     _chunks:
-    - rewardIncrease: 25
+    - rewardIncrease: 35
       fromLevelNumber: 0
     _startOffset: 50
   tools:

@@ -67,8 +67,14 @@ namespace D2D.Gameplay
 
             if (l > 3)
                 result *= 1.2f;
+
+            if (l.Almost(1))
+                result = 140;
             
-            // if (l >= 6)
+            if (l.Almost(2))
+                result = 250;
+
+                // if (l >= 6)
                 // result *= 1.1f;
 
             return result.Round();

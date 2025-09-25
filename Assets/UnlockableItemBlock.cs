@@ -1,5 +1,6 @@
 using D2D;
 using D2D.Core;
+using D2D.Utilities;
 using DG.Tweening;
 using System.Linq;
 using TMPro;
@@ -12,6 +13,8 @@ public class UnlockableItemBlock : GameStateMachineUser
 {
     [SerializeField] private Image unlockBack;
     [SerializeField] private Image unlockFill;
+    [SerializeField] private Image unlockOutline;
+    [SerializeField] private Image godrays;
     [SerializeField] private TextMeshProUGUI unlockText;
     [SerializeField] private CanvasGroup finishButton;
 
@@ -19,6 +22,8 @@ public class UnlockableItemBlock : GameStateMachineUser
     [SerializeField] private float fillTime = 2f;
 
     private UnlockableItem unlockableItem;
+
+    private bool isUnlocked = false;
 
     private void Start()
     {
@@ -37,7 +42,7 @@ public class UnlockableItemBlock : GameStateMachineUser
         {
             var member = (UnlockableMember)unlockableItem;
             
-            if (_db.UnlockedMembers.Contains(member.name))
+            if (_db.UnlockedMembers.Contains(member.MemberUpgradesSO.name))
             {
                 unlockableItem = null;
             }
@@ -47,8 +52,13 @@ public class UnlockableItemBlock : GameStateMachineUser
         {
             FinishAnimation();
 
+            unlockBack.gameObject.Off();
+            unlockText.gameObject.Off();
+            godrays.gameObject.Off();
+
             return;
         }
+
         SetUnlockable();
         StartAnimation();
     }
@@ -57,10 +67,10 @@ public class UnlockableItemBlock : GameStateMachineUser
     {
         unlockBack.sprite = unlockableItem.Icon;
         unlockFill.sprite = unlockableItem.Icon;
+        unlockOutline.sprite = unlockableItem.BackIcon;
     }
     public void StartAnimation()
     {
-
         var startProgress = _db.UnlockableItemProgress.Value;
 
         unlockFill.fillAmount = startProgress;
@@ -99,9 +109,23 @@ public class UnlockableItemBlock : GameStateMachineUser
                 _db.UnlockableItemProgress.Value = 1.1f;
             }
         }
+
+        isUnlocked = true;
+    }
+    private void UnlockedAnimation()
+    {
+        unlockText.text = "YOU'VE UNLOCKED\n" + unlockableItem.ShowName;
     }
     public void FinishAnimation()
     {
+        if (isUnlocked)
+        {
+            UnlockedAnimation();
+
+            unlockBack.transform.DOPunchScale(Vector3.one * .5f, .6f, 1, .5f);
+            unlockText.transform.DOPunchScale(Vector3.one * .5f, .6f, 1, .5f);
+        }
+
         finishButton.DOFade(1, .5f).
             OnComplete(() => 
             {

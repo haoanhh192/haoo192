@@ -101,9 +101,7 @@ public class UpgradesHandle : Unit
             }
 
             MemberUpgrades memberUpgrade;
-            List<MemberUpgrades> availableMemberUpgrades = new List<MemberUpgrades>();
-
-            availableMemberUpgrades = GetRandomAvailableMembers(availableMemberUpgrades);
+            List<MemberUpgrades> availableMemberUpgrades = GetRandomAvailableMembers();
 
             if (availableMemberUpgrades.Count > 1)
             {
@@ -121,9 +119,10 @@ public class UpgradesHandle : Unit
         }
     }
 
-    private List<MemberUpgrades> GetRandomAvailableMembers(List<MemberUpgrades> availableMemberUpgrades)
+    private List<MemberUpgrades> GetRandomAvailableMembers()
     {
         MembersComparer membersComparer = new MembersComparer();
+        List<MemberUpgrades> availableMemberUpgrades = new();
 
         if (Random.Range(0, 100) < rareChance)
         {

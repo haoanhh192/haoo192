@@ -57,6 +57,7 @@ MonoBehaviour:
   spawnClip: {fileID: 8300000, guid: 5052682f23f19384da5d743dc76ed64b, type: 3}
   laserClip: {fileID: 8300000, guid: 4686de3506c101f43a9393cea35fbe13, type: 3}
   baseSpeedMultiplier: 1.1
+  laserMuzzleVFX: {fileID: 11400000, guid: da70603e834bbe446a994397297df920, type: 2}
   firstUnlockable: {fileID: 11400000, guid: 127fe4962bd513c4a943c0ca6aa4ab9b, type: 2}
   unlockables:
   - {fileID: 11400000, guid: 127fe4962bd513c4a943c0ca6aa4ab9b, type: 2}

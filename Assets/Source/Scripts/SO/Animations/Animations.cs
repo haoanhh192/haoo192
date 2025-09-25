@@ -7,6 +7,7 @@ public class Animations : ScriptableObject
     public AnimationClip Death;
     public AnimationClip UnarmedRun;
     public AnimationClip RunWithRifle;
+    public AnimationClip RunWithDouble;
     public AnimationClip RunForward;
     public AnimationClip RunBackwards;
     public AnimationClip RunLeft;

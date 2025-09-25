@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   unlockableType: 1
+  icon: {fileID: 21300000, guid: fc1c0d2d5daa5214db48974fbdd00c77, type: 3}
+  backIcon: {fileID: 21300000, guid: d85bb6f7f4b25cb42b8470284ff04561, type: 3}
+  showName: Flamethrower
   memberUpgradesSO: {fileID: 11400000, guid: 124bd28a6625e4741aa2dfad45cc2f14, type: 2}
   nextUnlockable: {fileID: 11400000, guid: 118ae1a5c73661d43b2ad31a6b2811e1, type: 2}
-  icon: {fileID: 21300000, guid: 8b292b8124d728f41a6881c97fc76f9e, type: 3}

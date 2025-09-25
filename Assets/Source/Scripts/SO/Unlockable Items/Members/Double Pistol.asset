@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Double Pistol
   m_EditorClassIdentifier: 
   unlockableType: 1
+  icon: {fileID: 21300000, guid: af711eb1d9c6a584a85b4fbde86ae488, type: 3}
+  backIcon: {fileID: 21300000, guid: 9fb64b6660fb5d844894e656943f190a, type: 3}
+  showName: Double Pistol
   memberUpgradesSO: {fileID: 11400000, guid: 91d3a7cd9ecbef64288089c2c1b736c4, type: 2}
   nextUnlockable: {fileID: 11400000, guid: c9ca27ef97ccb5f4eb6169a975c16588, type: 2}
-  icon: {fileID: 21300000, guid: fd0894e7f1bc3b645bd08b999281cfaf, type: 3}

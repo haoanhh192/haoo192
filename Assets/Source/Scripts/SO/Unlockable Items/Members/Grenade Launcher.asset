@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Grenade Launcher
   m_EditorClassIdentifier: 
   unlockableType: 1
+  icon: {fileID: 21300000, guid: 2489cbb1e931456449bc78af6aca7e61, type: 3}
+  backIcon: {fileID: 21300000, guid: 6b3de73d45fbed147804fb95d56d2340, type: 3}
+  showName: Grenade Launcher
   memberUpgradesSO: {fileID: 11400000, guid: 4c74b11b0b54d524db0c32323b84fda3, type: 2}
   nextUnlockable: {fileID: 0}
-  icon: {fileID: 21300000, guid: 177e7d9caa57eb74c9948ae1212c2bf3, type: 3}

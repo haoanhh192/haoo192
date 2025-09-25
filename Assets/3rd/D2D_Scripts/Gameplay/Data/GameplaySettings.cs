@@ -65,6 +65,7 @@ namespace D2D.Gameplay
 
         [Header("Enemies")]
         [TabGroup("Enemies")] public float baseSpeedMultiplier;
+        [TabGroup("Enemies")] public PoolType laserMuzzleVFX;
 
         [Header("Unlockables")]
         [TabGroup("Unlockables")] public UnlockableItem firstUnlockable;

@@ -9,11 +9,22 @@ public class DoublePistolMember : SquadMember
     [SerializeField] private float projectileForce = 10f;
     [SerializeField] private PoolType bulletPrefab;
     [SerializeField] private Transform secondPoint;
+    [SerializeField] private AvatarMask upperBodyMask;
+    [SerializeField] private AnimationClip doubleHandsIdle;
 
     [SerializeField, TagField] private string enemyTag;
 
     private bool firstPoint = false;
 
+
+    public override void Init()
+    {
+        base.Init();
+
+        animancer.Layers[1].SetMask(upperBodyMask);
+        animancer.Layers[1].IsAdditive = false;
+        animancer.Layers[1].Play(doubleHandsIdle);
+    }
     public override void Shoot(Transform target)
     {
         if (reloadTime > Time.time)

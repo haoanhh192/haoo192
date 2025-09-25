@@ -40,8 +40,9 @@ public class LaserMember : SquadMember
         if (other.CompareTag(enemyTag))
         {
             other.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
-        }
 
-        @object.gameObject.SetActive(false);
+            var muzzle = _poolHub.Spawn(_gameData.laserMuzzleVFX, @object.position);
+            muzzle.transform.rotation = @object.rotation;
+        }
     }
 }

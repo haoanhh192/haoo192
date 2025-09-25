@@ -11,7 +11,11 @@ public class UnlockableItem : ScriptableObject
     
     [Header("Visual")]
     [SerializeField] private Sprite icon;
+    [SerializeField] private Sprite backIcon;
+    [SerializeField] private string showName;
 
     public Sprite Icon => icon;
+    public Sprite BackIcon => backIcon;
+    public string ShowName => showName;
     public UnlockableType UnlockableType => unlockableType;
 }

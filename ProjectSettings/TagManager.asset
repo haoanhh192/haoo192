@@ -8,6 +8,7 @@ TagManager:
   - Obstacles
   - Buildings
   - Missile
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,10 +21,10 @@ TagManager:
   - UIBills
   - FXCamera
   - PP
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Obstacle
+  - Enemy
+  - Projectile
   - 
   - 
   - 

@@ -45,6 +45,7 @@ public class SquadComponent : GameStateMachineUser
             member.health.Died += () => MemberDie(member);
         }
 
+        _stateMachine.On<WinState>(SqaudIdle);
         _formation.RecreateFormation(Vector3.zero, _formationRadius, squadMembers.Count - 1);
         SetMembersToCinemachineGroup();
     }
@@ -57,6 +58,13 @@ public class SquadComponent : GameStateMachineUser
 
          Movement();
          Shoot();
+    }
+    private void SqaudIdle()
+    {
+        foreach (var member in squadMembers)
+        {
+            member.animancer.Layers[0].Play(member.animations.Idle);
+        }
     }
     protected override void OnGameRun()
     {

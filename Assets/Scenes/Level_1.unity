@@ -7008,7 +7008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnemiesOnField: 10
-  delayBetweenSpawn: 0.4
+  delayBetweenSpawn: 0.1
   debugLevel: {fileID: 11400000, guid: a06f3ea282ddca84596f4169bf4c260f, type: 2}
 --- !u!1 &1664184676
 GameObject:

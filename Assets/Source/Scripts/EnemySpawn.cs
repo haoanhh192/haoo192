@@ -79,6 +79,8 @@ public class EnemySpawn : Unit
         if (timer <= Time.time)
         {
             SpawnEnemy(currentWave.Enemies.Random());
+
+            timer = Time.time + delayBetweenSpawn;
         }
     }
 

@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerEnterComponent: {fileID: 4237591272215210811}
   health: {fileID: 4237591272215210791}
-  speed: 4
+  speed: 3.5
   refreshNavMeshFrames: 4
   animations: {fileID: 11400000, guid: 2584c792d6e104f4286d32379be4d14b, type: 2}
   attackRate: 1

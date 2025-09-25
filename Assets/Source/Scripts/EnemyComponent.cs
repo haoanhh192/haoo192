@@ -69,6 +69,11 @@ public class EnemyComponent : Unit
         if (Time.frameCount % refreshNavMeshFrames == 0)
         {
             navMesh.SetDestination(_formation.transform.position);
+
+            if (Vector3.Distance(transform.position, _formation.transform.position) > _gameData.enemyDespawnDistance)
+            {
+                DespawnEnemy();
+            }
         }
 
         if (overlap.HasTouch && attackTimer <= Time.time)
@@ -94,10 +99,10 @@ public class EnemyComponent : Unit
     }
     private void Die()
     {
-        _enemySpawn.EnemyDied();
-
         var powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity).Get<XPPoint>();
         powerUp.Init(transform.position + transform.forward);
+
+        _enemySpawn.EnemyDied();
 
         isDead = true;
 
@@ -115,5 +120,13 @@ public class EnemyComponent : Unit
         animancer.Play(animations.Death);
 
         Destroy(gameObject, 3f);
+    }
+    private void DespawnEnemy()
+    {
+        _enemySpawn.EnemyDied();
+
+        isDead = true;
+
+        Destroy(gameObject);
     }
 }

@@ -39,7 +39,7 @@ public static class ConsoleProDebug
 	public static void Watch(string inName, string inValue)
 	{
 		#if UNITY_EDITOR
-				Debug.Log(inName + " : " + inValue + "\nCPAPI:{\"cmd\":\"Watch\", \"name\":\"" + inName + "\"}");
+				//Debug.Log(inName + " : " + inValue + "\nCPAPI:{\"cmd\":\"Watch\", \"name\":\"" + inName + "\"}");
 		#endif
 	}
 

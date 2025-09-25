@@ -451,13 +451,13 @@ MonoBehaviour:
   shootPoint: {fileID: 4825198746158526113}
   targetVector: {x: 0, y: 0, z: 0}
   rotationLerp: 10
-  runForward: {fileID: 0}
+  runForward: {fileID: 7400000, guid: 94553383badd659438fbcb65b5ad661e, type: 2}
   currentTarget: {fileID: 0}
   projectileForce: 10
   bulletPrefab: {fileID: 11400000, guid: eee42d13775b33643be3ec5187ac0ef9, type: 2}
   secondPoint: {fileID: 8246914205536981327}
   upperBodyMask: {fileID: 31900000, guid: 2ee86d3a5e2d3cf4fa965c906da1eb50, type: 2}
-  doubleHandsIdle: {fileID: 7400000, guid: aa51f0d367cf6284b890a1423fe0e83f, type: 2}
+  doubleHandsIdle: {fileID: -8198262577023063425, guid: 3040efc9ae4ec20418649886161f0e12, type: 3}
   enemyTag: Enemy
 --- !u!1 &928931991406647008
 GameObject:

@@ -18,11 +18,7 @@ public class DoublePistolMember : SquadMember
 
     public override void Init()
     {
-        base.Init();
-
-        animancer.Layers[1].SetMask(upperBodyMask);
-        animancer.Layers[1].IsAdditive = false;
-        animancer.Layers[1].Play(doubleHandsIdle);
+        
     }
     public override void Shoot(Transform target)
     {
@@ -70,6 +66,6 @@ public class DoublePistolMember : SquadMember
     }
     public override void SetIdleAnimation()
     {
-        animancer.Layers[0].Play(animations.RunWithDouble);
+        animancer.Layers[0].Play(doubleHandsIdle);
     }
 }

@@ -1,4 +1,5 @@
 using D2D;
+using D2D.Utilities;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class CharacterItemUI : Unit
     [SerializeField] private Image background;
     [SerializeField] private Image LockImage;
     [SerializeField] private Image LockedLayer;
+    [SerializeField] private Image availableImage;
 
     public void Init(MemberUpgrades member)
     {
@@ -24,5 +26,6 @@ public class CharacterItemUI : Unit
     {
         LockImage.DOFade(0, 0);
         LockedLayer.DOFade(0, 0);
+        availableImage.gameObject.On();
     }
 }

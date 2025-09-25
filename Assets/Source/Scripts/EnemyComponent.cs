@@ -1,6 +1,8 @@
 using D2D.Gameplay;
 using UnityEngine;
 
+using static D2D.Utilities.CommonGameplayFacade;
+
 [RequireComponent(typeof(OnTriggerEnterComponent))]
 public class EnemyComponent : MonoBehaviour
 {
@@ -16,17 +18,14 @@ public class EnemyComponent : MonoBehaviour
         triggerEnterComponent = GetComponent<OnTriggerEnterComponent>();
         health = GetComponent<Health>();
 
+        health.Died += Die;
+
         currentHealth = maxHealth;
     }
 
     public void GetHit(float damage)
     {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-
-        }
+        health.ApplyDamage(gameObject, damage + (_db.PowerIncreasePercent.Value * damage));
     }
     private void Die()
     {

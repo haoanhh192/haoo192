@@ -1,13 +1,10 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GrenadeLauncherMember : SquadMember
+public class MachineGunMember : SquadMember
 {
-    [SerializeField] private float projectileForce = 30f;
-    [SerializeField] private GameObject grenadePrefab;
-    [SerializeField] private GameObject explosionVFX;
+    [SerializeField] private float projectileForce = 10f;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField, TagField] private string enemyTag;
 
     public override void Shoot(Transform target)
@@ -17,7 +14,7 @@ public class GrenadeLauncherMember : SquadMember
             return;
         }
 
-        var bullet = Instantiate(grenadePrefab, transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
+        var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
@@ -34,7 +31,6 @@ public class GrenadeLauncherMember : SquadMember
         if (other.CompareTag(enemyTag))
         {
             other.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
-            Destroy(Instantiate(explosionVFX, other.transform.position, Quaternion.identity), 3f);
         }
 
         Destroy(@object.gameObject);

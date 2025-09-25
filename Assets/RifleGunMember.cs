@@ -1,14 +1,15 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GrenadeLauncherMember : SquadMember
+public class RifleGunMember : SquadMember
 {
-    [SerializeField] private float projectileForce = 30f;
-    [SerializeField] private GameObject grenadePrefab;
-    [SerializeField] private GameObject explosionVFX;
+    [SerializeField] private float projectileForce = 10f;
+    [SerializeField] private float delayBetweenRows = 1.2f;
+    [SerializeField] private int shotsRow = 4;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField, TagField] private string enemyTag;
+
+    private int shotsInRow;
 
     public override void Shoot(Transform target)
     {
@@ -17,7 +18,7 @@ public class GrenadeLauncherMember : SquadMember
             return;
         }
 
-        var bullet = Instantiate(grenadePrefab, transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
+        var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
@@ -26,7 +27,16 @@ public class GrenadeLauncherMember : SquadMember
 
         projectile.enterComponent.OnEnter += HitEnemy;
 
-        reloadTime = Time.time + memberClass.ReloadDuration;
+        shotsInRow++;
+
+        if (shotsInRow % shotsRow == 0)
+        {
+            reloadTime = Time.time + delayBetweenRows;
+        }
+        else
+        {
+            reloadTime = Time.time + memberClass.ReloadDuration;
+        }
     }
 
     private void HitEnemy(Transform other, Transform @object)
@@ -34,7 +44,6 @@ public class GrenadeLauncherMember : SquadMember
         if (other.CompareTag(enemyTag))
         {
             other.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
-            Destroy(Instantiate(explosionVFX, other.transform.position, Quaternion.identity), 3f);
         }
 
         Destroy(@object.gameObject);

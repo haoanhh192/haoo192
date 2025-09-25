@@ -258,6 +258,11 @@ namespace D2D.Utilities
             
             for (var i = 0; i < to.Count; i++)
             {
+                if (to[i] == null)
+                {
+                    continue;
+                }
+
                 var d = (from.position - to[i].transform.position).sqrMagnitude;
                 component = to[i].GetComponent<T>();
                 if (d < minDistance && component != null)

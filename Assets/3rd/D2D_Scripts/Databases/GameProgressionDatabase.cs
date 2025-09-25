@@ -26,6 +26,11 @@ namespace D2D.Databases
         public readonly DataContainer<int> PassedLevels = 
             new DataContainer<int>("PassedLevels", 0);
 
+        public readonly DataContainer<float> PowerIncreasePercent =
+            new DataContainer<float>("PowerIncreasePercent", 0);
+        public readonly DataContainer<float> FireRateDecreasePercent =
+            new DataContainer<float>("FireRateDecreasePercent", 0);
+
         public readonly TrackableValue<float> Money =
             new TrackableValue<float>(value: 0, firstGet: () => PlayerPrefs.GetInt("Money"));
         
@@ -86,7 +91,9 @@ namespace D2D.Databases
             ES3.Save("CompletedLevelsPerSession", 0);
             ES3.Save("PassedLevels", 0);
             ES3.Save("LastSceneNumber", 1);
-            
+            ES3.Save("PassedLevels", 0);
+            ES3.Save("LastSceneNumber", 1);
+
             PlayerPrefs.SetInt("Money", 0);
         }
     }

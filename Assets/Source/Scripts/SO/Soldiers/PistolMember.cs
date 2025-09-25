@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PistolMember : SquadMember
 {
+    [SerializeField] private float projectileForce = 10f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField, TagField] private string enemyTag;
 
@@ -18,18 +19,18 @@ public class PistolMember : SquadMember
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
         var direction = (currentTarget.transform.position - transform.position).normalized;
-        projectile.rb.AddForce(direction * 10f, ForceMode.VelocityChange);
+        projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);
 
         projectile.enterComponent.OnEnter += HitEnemy;
 
-        reloadTime = Time.time + memberClass.baseReloadDuration;
+        reloadTime = Time.time + memberClass.ReloadDuration;
     }
 
     private void HitEnemy(Transform other, Transform @object)
     {
         if (other.CompareTag(enemyTag))
         {
-            other.GetComponent<EnemyComponent>().GetHit(1);
+            other.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
         }
 
         Destroy(@object.gameObject);

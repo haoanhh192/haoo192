@@ -41786,6 +41786,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2169044e4bd1b496eb9b7882af071cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _logging: 0
+  knockoutsOfPlayerFromStart: 0
+  knockoutsOfEnemiesFromStart: 0
+  WinToKnockoutsName: wins_too_knockouts
 --- !u!114 &6455722333284153944
 MonoBehaviour:
   m_ObjectHideFlags: 0

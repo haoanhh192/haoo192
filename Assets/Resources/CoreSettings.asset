@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CoreSettings
   m_EditorClassIdentifier: 
   production:
-    appName: 
+    appName: Stickman Squad
     companyName: D2DGames
-    className: 
+    className: stickman.squad.epicbattle
     version: 1
   nextLevelLoadDelay: 0
   clearTweensOnSceneExit: 1

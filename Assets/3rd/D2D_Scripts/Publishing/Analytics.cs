@@ -1,21 +1,23 @@
 using System;
 using System.Collections.Generic;
-/*using AppsFlyerSDK;*/
+using AppsFlyerSDK;
 using D2D.Core;
 using D2D.Databases;
 using D2D.Gameplay;
+using D2D;
 using D2D.Utilities;
-/*using Facebook.Unity;*/
+using Facebook.Unity;
 using UnityEngine;
-using static D2D.Utilities.SettingsFacade;
-using static D2D.Utilities.CommonLazyFacade;
 using static D2D.Utilities.CommonGameplayFacade;
 
 namespace D2D
 {
+    [DefaultExecutionOrder(199)]
     public class Analytics : GameStateMachineUser
     {
-        /*private const string LevelCountKey = "LevelCount"; 
+        [SerializeField] private bool _logging;
+        
+        private const string LevelCountKey = "LevelCount"; 
             
         private int SceneNumber => _level.SceneNumber;
         public bool IsBootScene => !IsLevelScene;
@@ -39,31 +41,56 @@ namespace D2D
                 {"game_mode", "classic"}
             };
 
-        private float _timeSinceStart;
+        public static float timeSinceAppStart;
+        public static float timeOfLevelStart;
+        
+        public static int knockouts;
+        [HideInInspector] public int knockoutsOfPlayerFromStart;
+        [HideInInspector] public int knockoutsOfEnemiesFromStart;
+        public static int wins;
+        
+        public float TimeElapsedFromAppStart => Time.time - timeSinceAppStart;
+        public float LevelPlaytime => Time.time - timeOfLevelStart;
 
+        public string WinToKnockoutsPercentage => (wins == 0 ? -knockouts : knockouts == 0 ? wins : Math.Round((float) wins / ((float) knockouts), 2)).ToString();
+        [HideInInspector] public string WinToKnockoutsName = "wins_too_knockouts";
+        
         private Level _level;
+        
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        private static void OnApplicationStart()
+        {
+            var a = FindObjectOfType<Analytics>();
+            a._level = FindObjectOfType<Level>();
+            timeSinceAppStart = Time.time;
+            
+            if (!FB.IsInitialized)
+                FB.Init(a.InitCallback, a.OnHideUnity);
+            else
+                FB.ActivateApp();
+                
+            AppsFlyer.initSDK("r9vNC83N8nYpCzYGigyjUh", "");
+            AppsFlyer.startSDK();
+                
+            a.OnAppOpen();
+
+            Debug.Log("Analytics initialized! This is a first app open.");
+        }
 
         private void Start()
         {
             _level = Find<Level>();
-            _timeSinceStart = Time.time;
             
-            if (IsBootScene)
-            {
-                if (!FB.IsInitialized)
-                    FB.Init(InitCallback, OnHideUnity);
-                else
-                    FB.ActivateApp();
-                
-                AppsFlyer.initSDK("r9vNC83N8nYpCzYGigyjUh", "");
-                AppsFlyer.startSDK();
-                
-                OnAppOpen();
-            }
-            else
-            {
-                SendDataToYandex(DefaultData, "level_start");
-            }
+            knockoutsOfPlayerFromStart = 0;
+            knockoutsOfEnemiesFromStart = 0;
+            
+            timeOfLevelStart = Time.time;
+            
+            var d = DefaultData;
+            d.Add("time", TimeElapsedFromAppStart.Round().ToString());
+            d.Add("loses", knockouts.ToString());
+            d.Add(WinToKnockoutsName, WinToKnockoutsPercentage);
+            SendEvent(DefaultData, "level_start");
         }
 
         private void OnAppOpen()
@@ -79,60 +106,75 @@ namespace D2D
         private void OnApplicationQuit()
         {
             if (IsLevelScene)
-            {
                 SendLevelFinishDataToYandex(isLeave: true);
-            }
         }
 
         private void SendLevelFinishDataToYandex(bool isLeave)
         {
-            var result = _stateMachine.Was<WinState>() ? "win" : "lose";
-            
-            var progress = _stateMachine.Was<WinState>() ? "100" : "0";
+            bool isWin = _stateMachine.Was<WinState>();
+            var result = isWin ? "win" : "lose";
+
+            if (isWin)
+                wins++;
+
+            var progress = isWin ? "100" : "0";
             if (isLeave)
                 progress = "leave";
-            
-            var time = Time.time - _timeSinceStart;
-            
+
             var data = DefaultData;
+            
+            if (isWin)
+            {
+                data["level_name"] = (LevelNumber - 1).ToString();
+                data["level_number"] = (LevelNumber - 1).ToString();
+                data["level_loop"] = (LevelNumber - 1).ToString();
+            }
+            
             data.Add("result", result);
-            data.Add("time", time.Round().ToString());
+            data.Add("time", TimeElapsedFromAppStart.Round().ToString());
+            data.Add("level_playtime", LevelPlaytime.Round().ToString());
+            data.Add("loses", knockouts.ToString());
+            // data.Add(WinToKnockoutsName, WinToKnockoutsPercentage);
             data.Add("progress", progress);
 
-            SendDataToYandex(data, "level_finish");
+            CompletedLevelsCount.Value += 1;
+            CompletedLevelsCount.Save();
+
+            SendEvent(data, "level_finish");
         }
 
-        private void SendDataToYandex(Dictionary<string, object> data, string eventName)
+        private void SendEvent(Dictionary<string, object> data, string eventName, bool useBuffer = true)
         {
+            if (_logging)
+            {
+                #if UNITY_EDITOR
+                    Debug.Log("Send Analytics event: " + eventName);
+                    
+                    Debug.Log("----------");
+                    
+                    foreach (var d in data)
+                    {
+                        Debug.Log(d.Key + ": " + d.Value);
+                    }
+                    
+                    Debug.Log("----------");
+                #endif
+            }
+
             AppMetrica.Instance.ReportEvent(eventName, data);
-            AppMetrica.Instance.SendEventsBuffer();
+            
+            if (useBuffer)
+                AppMetrica.Instance.SendEventsBuffer();
         }
 
         private void InitCallback()
         {
-            if (FB.IsInitialized) 
-            {
+            if (FB.IsInitialized)
                 FB.ActivateApp();
-            }
-            else 
-            {
+            else
                 Debug.Log("Failed to Initialize the Facebook SDK");
-            }
         }
 
-        private void OnHideUnity(bool isGameShown)
-        {
-            Time.timeScale = isGameShown ? 1 : 0;
-        }
-
-        protected override void OnGameWin()
-        {
-            // The player wins
-        }
-
-        protected override void OnGameLose()
-        {
-            // The player loses
-        }*/
+        private void OnHideUnity(bool isGameShown) => Time.timeScale = isGameShown ? 1 : 0;
     }
 }

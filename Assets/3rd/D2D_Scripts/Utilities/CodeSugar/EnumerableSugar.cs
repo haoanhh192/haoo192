@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using D2D.Utilities;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace D2D.Utilities
@@ -41,6 +42,14 @@ namespace D2D.Utilities
 		        throw new Exception("You trying to get random element from null or empty list!");
 	        
             return list[DMath.Random(0, list.Count-1)];
+        }
+        
+        public static T GetRandomElement<T>(this IList<T> list)
+        {
+	        if (list.IsNullOrEmpty())
+		        throw new Exception("You trying to get random element from null or empty list!");
+	        
+	        return list[DMath.Random(0, list.Count-1)];
         }
         
         /*public static List<T> Shuffle<T>(this List<T> list, int by)

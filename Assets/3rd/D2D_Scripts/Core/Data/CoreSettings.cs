@@ -1,12 +1,12 @@
 ﻿using System;
 using D2D.Core;
 using D2D.Utilities;
-using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
 using D2D.Tools;
 using D2D.UI;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using static D2D.Utilities.SettingsFacade;
 using static D2D.Utilities.CommonLazyFacade;
 using static D2D.Utilities.CommonGameplayFacade;

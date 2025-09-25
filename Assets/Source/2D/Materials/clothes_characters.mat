@@ -9,9 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: clothes_characters
   m_Shader: {fileID: 4800000, guid: a6da473b89caeb1409bac856668af764, type: 3}
-  m_ValidKeywords:
-  - TCP2_SPEC_TOON
-  m_InvalidKeywords: []
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - TCP2_SPEC
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -76,9 +76,9 @@ Material:
     - _Parallax: 0.02
     - _RampSmooth: 0.94
     - _RampThreshold: 0.7
-    - _Shininess: 0.15
+    - _Shininess: 1.08
     - _SmoothnessTextureChannel: 0
-    - _SpecSmooth: 0
+    - _SpecSmooth: 0.33
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: AssetsPalette
   m_EditorClassIdentifier: 
   _favourites:
-  - {fileID: 152484, guid: 23fc589b73077394db72d954703e8d1c, type: 3}
-  - {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
-  - {fileID: 193226, guid: ed28e53c93fc7d2449d7c68bb8409223, type: 3}
   - {fileID: 102900000, guid: ee882501f30324e9ca26aeae173b42d4, type: 3}
-  - {fileID: 1853944158254526, guid: dfe0cf0e0df4ee94492935652d7772ac, type: 3}
-  - {fileID: 1193745591585432, guid: 6b08a00df5a864c4b989cab8a8ae173c, type: 3}
-  - {fileID: 189236, guid: 8b80f8497c25823439546e7fbb1d81a9, type: 3}
-  - {fileID: 1559235166260600, guid: 49b34aad5b5e23341a5eef46fc10eca8, type: 3}
-  - {fileID: 153256, guid: fe394d041df1a0547990f49cf653249f, type: 3}
+  - {fileID: 102900000, guid: 352b08461629040c18505f9e1cd07a88, type: 3}
+  - {fileID: 6561894348929538416, guid: 69fac1a3c28690e4d92c95bb9d1bbc2e, type: 3}
+  - {fileID: 102900000, guid: e5087ebccbb64934a835546a4ed12359, type: 3}
+  - {fileID: 125742, guid: 552b7b5872bf41745810a0b7bdabf440, type: 3}
+  - {fileID: 102900000, guid: 0b97d728cb605cb48a0c2ec3a3cd2896, type: 3}
+  - {fileID: 102900000, guid: 08ad08317b371f14a8ac865c9279f325, type: 3}
   replaceTool:
     _replacer: {fileID: 1000010255022904, guid: c136c7484681e4899b408acf1448b7eb, type: 3}
     _destroyOldSelected: 0

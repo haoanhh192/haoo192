@@ -35,7 +35,10 @@ namespace D2D.Gameplay
 
 		private void OnDisable()
 		{
-			targetHealth.PointsChanged -= UpdateSlider;
+			if (targetHealth != null)
+            {
+				targetHealth.PointsChanged -= UpdateSlider;
+            }
 		}
 
 		private void InitSlider()

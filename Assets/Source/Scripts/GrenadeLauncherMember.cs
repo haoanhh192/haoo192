@@ -20,7 +20,7 @@ public class GrenadeLauncherMember : SquadMember
             return;
         }
 
-        var bullet = Instantiate(grenadePrefab, shootPoint.transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
+        var bullet = Instantiate(grenadePrefab, shootPoint.transform.position, Quaternion.LookRotation(currentTarget.transform.position - shootPoint.transform.position));
 
         var muzzleFlash = Instantiate(_gameData.muzzleFlash, shootPoint.transform.position, Quaternion.LookRotation(transform.forward));
         Destroy(muzzleFlash, 2f);

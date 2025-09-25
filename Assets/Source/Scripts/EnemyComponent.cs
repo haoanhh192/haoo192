@@ -32,6 +32,8 @@ public class EnemyComponent : Unit
     private AnimancerComponent animancer;
     private CapsuleCollider collider;
 
+    private bool isDead = false;
+
     private void Awake()
     {
         triggerEnterComponent = GetComponent<OnTriggerEnterComponent>();
@@ -58,6 +60,11 @@ public class EnemyComponent : Unit
     }
     private void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         if (Time.frameCount % refreshNavMeshFrames == 0)
         {
             navMesh.SetDestination(_formation.transform.position);
@@ -66,14 +73,22 @@ public class EnemyComponent : Unit
         if (overlap.HasTouch && attackTimer <= Time.time)
         {
             var closestPlayer = overlap.NearestTouchedOfType<SquadMember>(transform);
-
-            closestPlayer.health.ApplyDamage(gameObject, damage);
+            
+            if (closestPlayer != null)
+            {
+                closestPlayer.health.ApplyDamage(gameObject, damage);
+            }
 
             attackTimer = Time.time + attackRate;
         }
     }
     public void GetHit(float damage)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         health.ApplyDamage(gameObject, damage);
     }
     private void Die()
@@ -83,10 +98,15 @@ public class EnemyComponent : Unit
         var powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity).Get<XPPoint>();
         powerUp.Init(transform.position + transform.forward);
 
+        isDead = true;
+
         navMesh.isStopped = true;
+        navMesh.ResetPath();
         navMesh.velocity = Vector3.zero;
 
         canvas.HealthBar.gameObject.SetActive(false);
+
+        overlap.enabled = false;
 
         collider.enabled = false;
 

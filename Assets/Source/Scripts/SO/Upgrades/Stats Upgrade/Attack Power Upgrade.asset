@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Attack Power Upgrade
   m_EditorClassIdentifier: 
   upgradesType: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b57c214063e94fc46a649800d8dd9b87, type: 3}
   upgradeText: + Attack Power
   statsUpgradesType: 2
   increasePercent: 10

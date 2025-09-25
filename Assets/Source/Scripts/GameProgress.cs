@@ -25,6 +25,7 @@ public class GameProgress : Unit
     public Action OnLevelUp;
 
     public float GetValueForFinish() => totalXP / needToFinish;
+    public float GetValueForLevelUP() => XPforLevelUp / xpToLevelUps[level];
 
     private void Awake()
     {

@@ -91,7 +91,7 @@ Material:
     - _SrcBlend: 1
     - _TexLod: 5
     - _UVSec: 0
-    - _ZSmooth: -0.5
+    - _ZSmooth: 0.5
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}

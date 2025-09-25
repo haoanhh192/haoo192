@@ -117,6 +117,7 @@ public class EnemyComponent : Unit
         navMesh.isStopped = true;
         navMesh.ResetPath();
         navMesh.velocity = Vector3.zero;
+        navMesh.enabled = false;
 
         canvas.HealthBar.gameObject.SetActive(false);
 

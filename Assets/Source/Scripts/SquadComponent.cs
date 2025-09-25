@@ -162,8 +162,6 @@ public class SquadComponent : GameStateMachineUser
     }
     private void Movement()
     {
-        SetNotBlockedMember();
-
         var swift = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical).normalized * _speed;
 
         if (swift.magnitude < .1f)
@@ -213,6 +211,7 @@ public class SquadComponent : GameStateMachineUser
             if (memberIndex == 0)
             {
                 member.navMesh.Move(swift * Time.deltaTime);
+                member.navMesh.ResetPath();
                 _formation.transform.position = member.transform.position;
             }
             else

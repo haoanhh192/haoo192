@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: AssetsPalette
   m_EditorClassIdentifier: 
   _favourites:
-  - {fileID: 189676, guid: 0838b9c5f2f7376419abf8116bb66082, type: 3}
   - {fileID: 152484, guid: 23fc589b73077394db72d954703e8d1c, type: 3}
   - {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
   - {fileID: 193226, guid: ed28e53c93fc7d2449d7c68bb8409223, type: 3}
@@ -22,6 +21,7 @@ MonoBehaviour:
   - {fileID: 1193745591585432, guid: 6b08a00df5a864c4b989cab8a8ae173c, type: 3}
   - {fileID: 189236, guid: 8b80f8497c25823439546e7fbb1d81a9, type: 3}
   - {fileID: 1559235166260600, guid: 49b34aad5b5e23341a5eef46fc10eca8, type: 3}
+  - {fileID: 153256, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   replaceTool:
     _replacer: {fileID: 1000010255022904, guid: c136c7484681e4899b408acf1448b7eb, type: 3}
     _destroyOldSelected: 0

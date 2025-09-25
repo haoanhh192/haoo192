@@ -4,6 +4,7 @@ using UnityEngine;
 public class Animations : ScriptableObject
 {
     public AnimationClip Idle;
+    public AnimationClip Death;
     public AnimationClip UnarmedRun;
     public AnimationClip RunForward;
     public AnimationClip RunBackwards;

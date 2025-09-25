@@ -131,9 +131,9 @@ MonoBehaviour:
   _maxPoints: 5
   _healthData: {fileID: 0}
   _meshRenderer: {fileID: 8498870042556962959}
-  _hitEffect: {fileID: 0}
-  _deathEffect: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
-  _isGrayFadeout: 0
+  _hitEffect: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
+  _deathEffect: {fileID: 153256, guid: fe394d041df1a0547990f49cf653249f, type: 3}
+  _isGrayFadeout: 1
   isHealthDataMode: 0
   particlesAreEnabled: 1
 --- !u!114 &1647561537

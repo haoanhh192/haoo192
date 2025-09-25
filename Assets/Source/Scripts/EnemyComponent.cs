@@ -30,12 +30,14 @@ public class EnemyComponent : Unit
     private NavMeshAgent navMesh;
     private CharacterCanvas canvas;
     private AnimancerComponent animancer;
+    private CapsuleCollider collider;
 
     private void Awake()
     {
         triggerEnterComponent = GetComponent<OnTriggerEnterComponent>();
         health = GetComponent<Health>();
         navMesh = GetComponent<NavMeshAgent>();
+        collider = GetComponent<CapsuleCollider>();
         animancer = GetComponentInChildren<AnimancerComponent>();
         canvas = GetComponentInChildren<CharacterCanvas>();
 
@@ -81,6 +83,16 @@ public class EnemyComponent : Unit
         var powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity).Get<XPPoint>();
         powerUp.Init(transform.position + transform.forward);
 
-        Destroy(gameObject);
+        navMesh.isStopped = true;
+        navMesh.velocity = Vector3.zero;
+
+        canvas.HealthBar.gameObject.SetActive(false);
+
+        collider.enabled = false;
+
+        animancer.Animator.applyRootMotion = true;
+        animancer.Play(animations.Death);
+
+        Destroy(gameObject, 3f);
     }
 }

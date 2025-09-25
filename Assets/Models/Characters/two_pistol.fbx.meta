@@ -132,6 +132,9 @@ ModelImporter:
   - first:
       74: -3337648924097607049
     second: Armature.006|Armature|Armature|Armature|mixamo.com|Layer0.020
+  - first:
+      74: -7790706383708559821
+    second: Armature.006|Armature|Armature|Armature|mixamo.com|Layer0.021
   externalObjects:
   - first:
       type: UnityEngine:Material

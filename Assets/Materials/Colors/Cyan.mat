@@ -93,12 +93,12 @@ Material:
     - _ZWrite: 1
     - __dummy__: 0
     m_Colors:
-    - _Color: {r: 0, g: 0.8867924, b: 0.8621594, a: 1}
+    - _Color: {r: 0.5226415, g: 1, b: 0.8257249, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0.03295251, g: 0, b: 0.5660378, a: 1}
-    - _RimColor: {r: 1, g: 0.17358488, b: 0.2802442, a: 0.6}
+    - _OutlineColor: {r: 0, g: 0.28334132, b: 0.3773585, a: 1}
+    - _RimColor: {r: 0.63783514, g: 0.17254901, b: 1, a: 0.6}
     - _RimDir: {r: 0, g: 0, b: 1, a: 0}
-    - _SColor: {r: 0, g: 0.24528301, b: 0.23785019, a: 1}
+    - _SColor: {r: 0, g: 0.3962264, b: 0.38364783, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []

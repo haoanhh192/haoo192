@@ -115,7 +115,12 @@ public class EnemySpawn : Unit
         
         if (Physics.Raycast(ray, out RaycastHit hit, _gameData.GroundLayer))
         {
-            Instantiate(enemy, hit.point, Quaternion.identity);
+            var enemyGO = Instantiate(enemy, hit.point, Quaternion.identity);
+            var enemyComp = enemyGO.GetComponent<EnemyComponent>();
+
+            var multiplier = Mathf.Pow(_gameData.baseSpeedMultiplier, _db.PassedLevels.Value);
+            enemyComp.SetSpeed(multiplier);
+            enemyComp.SetHealth(multiplier);
 
             currentAmount++;
         }

@@ -15,12 +15,13 @@ public class SoundSwitcher : MonoBehaviour
 
     private void Awake()
     {
-        float masterValue = PlayerPrefs.GetFloat(MasterVolume, 0);
-
-        audioMixer.SetFloat(MasterVolume, masterValue);
-
         audioButton.onClick.AddListener(SwitchSound);
         UpdateCross();
+    }
+    private void Start()
+    {
+        float masterValue = PlayerPrefs.GetFloat(MasterVolume, 0);
+        audioMixer.SetFloat(MasterVolume, masterValue);
     }
 
     private void SwitchSound()

@@ -88,6 +88,14 @@ public class EnemyComponent : Unit
             attackTimer = Time.time + attackRate;
         }
     }
+    public void SetSpeed(float multiplier)
+    {
+        navMesh.speed = speed * multiplier;
+    }
+    public void SetHealth(float multiplier)
+    {
+        health.SetMaxPoints(health.MaxPoints * multiplier, true);
+    }
     public void GetHit(float damage)
     {
         if (isDead)

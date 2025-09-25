@@ -33,10 +33,12 @@ public class GameProgress : Unit
         _gameProgress = this;
 
         xpPicker = Find<XPPicker>();
+        
+        var multiplier = Mathf.Pow(_gameData.baseSpeedMultiplier, _db.PassedLevels.Value);
 
         for (int i = 0; i < LevelSO.LevelUps; i++)
         {
-            var xpToLevelUp = _levelSO.BaseXPToLevelUp + (i * _levelSO.StepXPOnLevelUp);
+            var xpToLevelUp = _levelSO.BaseXPToLevelUp * multiplier + (i * _levelSO.StepXPOnLevelUp * multiplier);
             needToFinish += xpToLevelUp;
 
             xpToLevelUps.Add(i, xpToLevelUp);

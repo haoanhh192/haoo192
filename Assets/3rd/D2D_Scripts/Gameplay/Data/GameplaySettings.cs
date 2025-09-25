@@ -65,5 +65,10 @@ namespace D2D.Gameplay
 
         [Header("Enemies")]
         [TabGroup("Enemies")] public float baseSpeedMultiplier;
+
+        [Header("Unlockables")]
+        [TabGroup("Unlockables")] public UnlockableItem firstUnlockable;
+        [TabGroup("Unlockables")] public UnlockableItem[] unlockables;
+        [TabGroup("Unlockables")] public float progressStep;
     }
 }

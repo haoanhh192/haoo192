@@ -37,6 +37,12 @@ namespace D2D.Databases
         public readonly DataContainer<float> FireRateDecreaseLevel =
             new DataContainer<float>("FireRateDecreaseLevel", 0);
 
+        public readonly DataContainer<string> UnlockableItem =
+            new DataContainer<string>("UnlockableItem", "");
+
+        public readonly DataContainer<float> UnlockableItemProgress =
+            new DataContainer<float>("UnlockableItemProgress", 0f);
+
         public List<string> UnlockedMembers
         {
             get
@@ -131,6 +137,8 @@ namespace D2D.Databases
             ES3.Save("LastSceneNumber", 1);
             ES3.Save("PowerIncreaseLevel", 0f);
             ES3.Save("FireRateDecreaseLevel", 0f);
+            ES3.Save("UnlockableItemProgress", 0f);
+            ES3.Save("UnlockableItem", "");
             ES3.Save(UnlockedMembersKey, new List<string>());
 
             PlayerPrefs.SetInt("Money", 0);

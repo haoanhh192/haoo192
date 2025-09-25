@@ -44,6 +44,7 @@ public class EnemyComponent : Unit
         canvas = GetComponentInChildren<CharacterCanvas>();
 
         canvas.HealthBar.SetHealth(health);
+        health.SetMaxPoints(health.MaxPoints + (health.MaxPoints * _db.PassedLevels.Value / 10), true);
 
         animancer.Play(animations.UnarmedRun);
 

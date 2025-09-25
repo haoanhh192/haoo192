@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c01c51fdd36ddf48a149ffa7ffcc505, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  baseReloadDuration: 0.1
-  baseDamage: 1
+  baseReloadDuration: 0.2
+  baseDamage: 0.7
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 4096

@@ -44,9 +44,11 @@ public class FlamethrowerMember : SquadMember
 
             drawRay.Add(ray);
 
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, maxDistance, _gameData.EnemyLayer))
+            var hits = Physics.RaycastAll(ray, maxDistance, _gameData.EnemyLayer);
+
+            foreach (var hit in hits)
             {
-                var enemy = raycastHit.collider.GetComponent<EnemyComponent>();
+                var enemy = hit.collider.GetComponent<EnemyComponent>();
 
                 if (enemy != null && !hitEnemies.Contains(enemy))
                 {

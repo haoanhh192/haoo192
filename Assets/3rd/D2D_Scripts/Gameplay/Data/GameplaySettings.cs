@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using D2D.Utilities;
 using D2D.Utils;
+using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -30,5 +31,10 @@ namespace D2D.Gameplay
         [Header("Layers")]
         [TabGroup("Layers")] public LayerMask GroundLayer;
         [TabGroup("Layers")] public LayerMask EnemyLayer;
+        [TabGroup("Layers")][Layer] public string XPLayer;
+
+        [Header("PickUP")]
+        [TabGroup("PickUp")] public float timeBeforeXPActivate;
+        [TabGroup("PickUp")] public float pickUpFlyForce;
     }
 }

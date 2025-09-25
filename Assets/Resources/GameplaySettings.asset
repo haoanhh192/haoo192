@@ -26,3 +26,6 @@ MonoBehaviour:
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 8192
+  XPLayer: XP
+  timeBeforeXPActivate: 0.7
+  pickUpFlyForce: 250

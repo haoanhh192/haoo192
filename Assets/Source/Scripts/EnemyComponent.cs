@@ -2,12 +2,13 @@ using Animancer;
 using D2D;
 using D2D.Core;
 using D2D.Gameplay;
+using D2D.Utilities;
 using UnityEngine;
 using UnityEngine.AI;
 using static D2D.Utilities.CommonGameplayFacade;
 
 [RequireComponent(typeof(OnTriggerEnterComponent))]
-public class EnemyComponent : MonoBehaviour
+public class EnemyComponent : Unit
 {
     public OnTriggerEnterComponent triggerEnterComponent;
     public Health health;
@@ -21,9 +22,13 @@ public class EnemyComponent : MonoBehaviour
     [SerializeField] private float damage = 1f;
     [SerializeField] private SexyOverlap overlap;
 
+    [Header("After Death")]
+    [SerializeField] private GameObject powerUpPrefab;
+
     private float attackTimer;
 
     private NavMeshAgent navMesh;
+    private CharacterCanvas canvas;
     private AnimancerComponent animancer;
 
     private void Awake()
@@ -32,6 +37,9 @@ public class EnemyComponent : MonoBehaviour
         health = GetComponent<Health>();
         navMesh = GetComponent<NavMeshAgent>();
         animancer = GetComponentInChildren<AnimancerComponent>();
+        canvas = GetComponentInChildren<CharacterCanvas>();
+
+        canvas.HealthBar.SetHealth(health);
 
         animancer.Play(animations.UnarmedRun);
 
@@ -69,6 +77,9 @@ public class EnemyComponent : MonoBehaviour
     private void Die()
     {
         _enemySpawn.EnemyDied();
+
+        var powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity).Get<XPPoint>();
+        powerUp.Init(transform.position + transform.forward);
 
         Destroy(gameObject);
     }

@@ -1,4 +1,5 @@
 using Cinemachine;
+using D2D.Core;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -49,6 +50,13 @@ public class SquadComponent : MonoBehaviour
         {
             squadMembers.Remove(member);
 
+            if (squadMembers.Count <= 0)
+            {
+                _stateMachine.Push(new LoseState());
+
+                return;
+            }
+
             _formation.RecreateFormation(Vector3.zero, 1f, squadMembers.Count - 1);
             SetMembersToCinemachineGroup();
         }
@@ -82,6 +90,7 @@ public class SquadComponent : MonoBehaviour
         {
             squadMembers.Add(member);
             _formation.RecreateFormation(squadMembers[0].transform.position, 1f, squadMembers.Count - 1);
+            member.health.Died += () => MemberDie(member);
             SetMembersToCinemachineGroup();
         }
     }

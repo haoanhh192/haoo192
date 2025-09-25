@@ -17,6 +17,8 @@ namespace D2D.Gameplay
 
 		private Tween fadeTween;
 
+		private bool isInited = false;
+
 		private void Awake()
 		{
 			slider = GetComponent<Slider>();
@@ -25,7 +27,7 @@ namespace D2D.Gameplay
 
 		private void Start()
 		{
-			if (targetHealth != null)
+			if (targetHealth != null && !isInited)
             {
 				InitSlider();
             }
@@ -38,6 +40,8 @@ namespace D2D.Gameplay
 
 		private void InitSlider()
 		{
+			isInited = true;
+
 			targetHealth.PointsChanged += UpdateSlider;
 
 			slider.maxValue = targetHealth.MaxPoints;
@@ -48,9 +52,11 @@ namespace D2D.Gameplay
 
 		private void UpdateSlider()
 		{
-			if (fadeTween != null)
+			fadeTween.KillTo0();
+			
+			if (targetHealth.CurrentPoints <= 0)
             {
-				fadeTween = fadeTween.KillTo0();
+				return;
             }
 
 			canvasGroup.DOFade(1, 0);
@@ -65,6 +71,11 @@ namespace D2D.Gameplay
 		public void SetHealth(Health health)
         {
 			targetHealth = health;
+
+			if (canvasGroup == null)
+            {
+				canvasGroup = GetComponent<CanvasGroup>();
+			}
 
 			InitSlider();
         }

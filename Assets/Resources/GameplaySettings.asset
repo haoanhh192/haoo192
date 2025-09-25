@@ -55,4 +55,5 @@ MonoBehaviour:
   explosionClip: {fileID: 8300000, guid: 878d46363e7e0164a8b8c68333f993dc, type: 3}
   pickUpClip: {fileID: 8300000, guid: 74ea4a2ad98acb241bdb9753be6cd8c4, type: 3}
   spawnClip: {fileID: 8300000, guid: 5052682f23f19384da5d743dc76ed64b, type: 3}
+  laserClip: {fileID: 8300000, guid: 4686de3506c101f43a9393cea35fbe13, type: 3}
   baseSpeedMultiplier: 1.1

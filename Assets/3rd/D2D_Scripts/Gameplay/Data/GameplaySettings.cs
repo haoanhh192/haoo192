@@ -61,6 +61,7 @@ namespace D2D.Gameplay
         [TabGroup("Sounds")] public AudioClip explosionClip;
         [TabGroup("Sounds")] public AudioClip pickUpClip;
         [TabGroup("Sounds")] public AudioClip spawnClip;
+        [TabGroup("Sounds")] public AudioClip laserClip;
 
         [Header("Enemies")]
         [TabGroup("Enemies")] public float baseSpeedMultiplier;

@@ -99,8 +99,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615195e9f1bf48319469a615389fc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0.08177757, g: 1, b: 0, a: 0}
+    key3: {r: 0.08177757, g: 1, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   _maxPoints: 5
   _healthData: {fileID: 0}
+  _meshRenderer: {fileID: 8498870042556962959}
   _hitEffect: {fileID: 0}
   _deathEffect: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
   _isGrayFadeout: 0
@@ -413,3 +443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Animator: {fileID: 71350200231837652}
   _ActionOnDisable: 0
+--- !u!137 &8498870042556962959 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2622753384463669962, guid: 227234a1cb62f0248bf0d6a7dae7cb4d, type: 3}
+  m_PrefabInstance: {fileID: 5879424063163073093}
+  m_PrefabAsset: {fileID: 0}

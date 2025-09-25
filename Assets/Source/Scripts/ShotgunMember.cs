@@ -28,6 +28,9 @@ public class ShotgunMember : SquadMember
 
             var projectile = bullet.GetComponent<ProjectileComponent>();
 
+            var muzzleFlash = Instantiate(_gameData.muzzleFlash, shootPoint.transform.position, Quaternion.LookRotation(transform.forward));
+            Destroy(muzzleFlash, 2f);
+
             var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
 
             var randomDir = Vector3.Lerp(-rightVector, rightVector, Random.value);

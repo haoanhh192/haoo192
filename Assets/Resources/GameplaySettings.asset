@@ -28,6 +28,7 @@ MonoBehaviour:
   baseUpgradePrice: 100
   maxLevelUpgrade: 8
   baseIncrease: 10
+  levelUpVFX: {fileID: 189236, guid: 8b80f8497c25823439546e7fbb1d81a9, type: 3}
   punchScale: 0.45
   punchDuration: 0.3
-  punchDelay: 0.075
+  punchDelay: 0.12

@@ -27,6 +27,7 @@ namespace D2D.Gameplay
         [TabGroup("Other")] public Color grayDeathColor;
         [TabGroup("Other")] public float grayDeathDuration;
         [TabGroup("Other")] public float grayCorpseLifetime;
+        [TabGroup("Other")] public GameObject muzzleFlash;
 
         [Header("Layers")]
         [TabGroup("Layers")] public LayerMask GroundLayer;
@@ -41,6 +42,7 @@ namespace D2D.Gameplay
         [TabGroup("Upgrades")] public float baseUpgradePrice;
         [TabGroup("Upgrades")] public int maxLevelUpgrade;
         [TabGroup("Upgrades")] public int baseIncrease;
+        [TabGroup("Upgrades")] public GameObject levelUpVFX;
 
         [Header("Level Up Tween")]
         [TabGroup("Level Up Tween")] public float punchScale;

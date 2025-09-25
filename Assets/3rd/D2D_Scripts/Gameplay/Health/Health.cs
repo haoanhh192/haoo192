@@ -1,35 +1,33 @@
 ﻿using System;
-using AV.Inspector.Runtime;
 using D2D.Utilities;
-using D2D.Utils;
 using DG.Tweening;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 using static D2D.Utilities.SettingsFacade;
 using static D2D.Utilities.CommonLazyFacade;
 using static D2D.Utilities.CommonGameplayFacade;
-using Sirenix.OdinInspector;
 
 namespace D2D.Gameplay
 {
     public class Health : MonoBehaviour
     {
+        [Header("Hit Flash")]
+        [SerializeField] private Gradient gradient;
+        private Color originalColor;
+        
         [SerializeField] private float _maxPoints;
         [SerializeField] private HealthData _healthData;
-        
-        [Space(10)]
+        [SerializeField] private SkinnedMeshRenderer _meshRenderer;
         
         [SerializeField] private GameObject _hitEffect;
         [SerializeField] private GameObject _deathEffect;
-
-        [Space] 
         
         [SerializeField] private bool _isGrayFadeout;
 
         public event Action Died;
         public event Action<float> Damaged;
         public event Action PointsChanged;
+
+        private Tween flashTween;
         
         public GameObject LastAttacker { get; private set; }
 
@@ -74,6 +72,7 @@ namespace D2D.Gameplay
         private void Awake()
         {
             CurrentPoints = MaxPoints;
+            originalColor = _meshRenderer.material.color;
         }
 
         public void ApplyDamage(GameObject attacker, float damagePoints)
@@ -83,7 +82,9 @@ namespace D2D.Gameplay
             {
                 throw new Exception("Damage points should be positive!");
             }
-            
+
+            flashTween.KillTo0();
+
             // Object is already died => return
             if (CurrentPoints <= 0)
                 return;
@@ -95,6 +96,9 @@ namespace D2D.Gameplay
             if (CurrentPoints > 0)
             {
                 Spawn(_hitEffect);
+
+                flashTween = _meshRenderer.material.DOColor(gradient.Evaluate(_currentPoints / _maxPoints), .1f);
+                _meshRenderer.material.DOColor(originalColor, .05f).SetDelay(.1f);
 
                 Damaged?.Invoke(damagePoints);
             }

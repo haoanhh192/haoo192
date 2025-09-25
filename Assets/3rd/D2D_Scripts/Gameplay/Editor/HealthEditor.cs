@@ -31,6 +31,8 @@ namespace D2D.Gameplay
                 Space(10);
                 ShowProperty("_hitEffect", "Hit Effect");
                 ShowProperty("_deathEffect", "Death Effect");
+                ShowProperty("_meshRenderer", "Mesh Renderer");
+                ShowProperty("gradient", "Gradient");
             }
             
             ShowProperty("_isGrayFadeout", "Is Gray Fadeout");

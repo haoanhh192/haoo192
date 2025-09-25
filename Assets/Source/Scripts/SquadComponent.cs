@@ -16,11 +16,6 @@ public class SquadComponent : GameStateMachineUser
     [Header("Camera Settings")]
     [SerializeField] private CinemachineTargetGroup cinemachineTargetGroup;
 
-    [Header("Debug")]
-    [SerializeField] private GameObject pistolMemberPrefab;
-    [SerializeField] private GameObject grenadeLauncherPrefab;
-    [SerializeField] private GameObject flamethrowerPrefab;
-
     private Joystick _joystick;
     private FormationComponent _formation;
 
@@ -83,14 +78,19 @@ public class SquadComponent : GameStateMachineUser
         {
             squadMembers[i].PunchScaleWithDelay(_gameData.punchDelay * i);
         }
+
+        var vfx = Instantiate(_gameData.levelUpVFX, squadMembers[0].transform.position, Quaternion.LookRotation(Vector3.up));
+        Destroy(vfx, 2f);
     }
     public void IncreaseFireRate(float value)
     {
         temporaryFireRateIncrease += value;
+        PunchScaleSquad();
     }
     public void IncreaseFirePower(float value)
     {
         temporaryFirePowerIncrease += value;
+        PunchScaleSquad();
     }
 
     private void MemberDie(SquadMember member)

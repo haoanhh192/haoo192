@@ -26,6 +26,9 @@ public class RifleGunMember : SquadMember
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
+        var muzzleFlash = Instantiate(_gameData.muzzleFlash, shootPoint.transform.position, Quaternion.LookRotation(transform.forward));
+        Destroy(muzzleFlash, 2f);
+
         var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);
 

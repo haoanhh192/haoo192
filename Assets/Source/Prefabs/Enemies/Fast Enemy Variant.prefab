@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6dc9b17c5f1894b22a88c28c70c941a2, type: 2}
     - target: {fileID: 4237591272215210791, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: _maxPoints
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4237591272215210808, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: m_Name
-      value: Fast Enemy
+      value: Fast Enemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4237591272215210809, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: m_RootOrder

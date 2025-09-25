@@ -70,6 +70,8 @@ namespace D2D.Gameplay
         [TabGroup("Enemies")] public float baseXPMultiplier;
         [TabGroup("Enemies")] public PoolType laserMuzzleVFX;
         [TabGroup("Enemies")] public PoolType explosionVFX;
+        [TabGroup("Enemies")] public Wave[] allWaves;
+        [TabGroup("Enemies")] public Wave firstWave;
 
         [Header("Unlockables")]
         [TabGroup("Unlockables")] public UnlockableItem firstUnlockable;

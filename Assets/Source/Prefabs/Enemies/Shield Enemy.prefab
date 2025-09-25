@@ -106,7 +106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 222793509611741078, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: m_AngularSpeed
-      value: 75
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 3369696111215352152, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: m_FillAmount

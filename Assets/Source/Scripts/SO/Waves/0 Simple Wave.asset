@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50965fd94b18ae14fade4ecbf7c109be, type: 3}
-  m_Name: Shield
+  m_Name: 0 Simple Wave
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 3810967352486399098, guid: 52bbb8b3b96595e4390a30b8154735a5, type: 3}
-  duration: 3
+  - {fileID: 4237591272215210808, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
+  duration: 5
+  minLevel: 0

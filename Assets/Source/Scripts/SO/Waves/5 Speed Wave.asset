@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50965fd94b18ae14fade4ecbf7c109be, type: 3}
-  m_Name: Speed Wave
+  m_Name: 5 Speed Wave
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 6076420303904637098, guid: a9fc88e0985ac7845a97445d5b02d87e, type: 3}
   duration: 5
+  minLevel: 4

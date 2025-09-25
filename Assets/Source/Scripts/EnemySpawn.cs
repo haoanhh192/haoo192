@@ -1,6 +1,7 @@
 using D2D;
 using D2D.Core;
 using SRF;
+using System.Collections.Generic;
 using UnityEngine;
 
 using static D2D.Utilities.CommonGameplayFacade;
@@ -10,12 +11,12 @@ public class EnemySpawn : Unit
     [SerializeField] private int maxEnemiesOnField;
     [SerializeField] private float delayBetweenSpawn = .4f;
 
+    [Header("Old system")]
     [SerializeField] private LevelSO debugLevel;
+    private int currentWaveIndex = 0;
 
     public LevelSO Level => debugLevel;
     public float LevelTimer => currentLevelTimer;
-
-    private int currentWaveIndex = 0;
 
     private int currentAmount = 0;
 
@@ -24,6 +25,7 @@ public class EnemySpawn : Unit
     private float timer;
 
     private Wave currentWave;
+    private List<Wave> availableWaves = new();
 
     private Camera currentCamera;
 
@@ -36,12 +38,22 @@ public class EnemySpawn : Unit
 
         currentCamera = Camera.main;
 
-        SetWave(debugLevel.Waves[currentWaveIndex]);
+        SetWave(_gameData.firstWave);
 
         _stateMachine.On<WinState>(() => isStopped = true);
         _stateMachine.On<LoseState>(() => isStopped = true);
 
         maxOnField = maxEnemiesOnField + _db.PassedLevels.Value;
+
+        int passedLevels = _db.PassedLevels.Value;
+
+        foreach (var wave in _gameData.allWaves)
+        {
+            if (passedLevels >= wave.MinLevel)
+            {
+                availableWaves.Add(wave);
+            }
+        }
     }
     private void Update()
     {
@@ -58,7 +70,6 @@ public class EnemySpawn : Unit
             // Controlled Waves
             /* 
             currentWaveIndex++;
-            currentWaveTimer = 0;
 
             if (debugLevel.Waves.Length <= currentWaveIndex)
             {
@@ -68,7 +79,9 @@ public class EnemySpawn : Unit
             SetWave(debugLevel.Waves[currentWaveIndex]);
             */
 
-            SetWave(debugLevel.Waves.Random());
+            currentWaveTimer = 0;
+
+            SetWave(availableWaves.Random());
         }
 
         /*if (currentLevelTimer >= debugLevel.TotalDuration)
@@ -95,6 +108,8 @@ public class EnemySpawn : Unit
     public void SetWave(Wave wave)
     {
         currentWave = wave;
+
+        Debug.Log(wave.name);
     }
     public void EnemyDied()
     {

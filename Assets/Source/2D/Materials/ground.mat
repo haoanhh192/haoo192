@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a193d7f7022a7074ca2e3faaa0dfc9cf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3eb32f529dfbf0141bf006f2aa5e5d29, type: 3}
         m_Scale: {x: 2.5, y: 2.5}
         m_Offset: {x: 0.18, y: 0}
     - _Ramp:
@@ -41,7 +41,7 @@ Material:
     - _Shininess: 0.35
     - _SpecSmooth: 0.05
     m_Colors:
-    - _Color: {r: 0.8113208, g: 0.7837665, b: 0.7837665, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _HColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimDir: {r: 0, g: 0, b: 1, a: 0}

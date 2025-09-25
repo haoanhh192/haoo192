@@ -40,16 +40,24 @@ public class MenuUI : MonoBehaviour
     
     private void CheckForDeactivatingButtons()
     {
-        if (_db.FireRateDecreaseLevel.Value >= _gameData.maxLevelUpgrade)
-        {
-            fireRateIncreaseButton.Button.interactable = false;
-        }
 
         bool isEnoughForRate = _db.Money.Value >= (_db.FireRateDecreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
         bool isEnoughForPower = _db.Money.Value >= (_db.PowerIncreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
         
         fireRateIncreaseButton.Button.interactable = _gameData.upgradesPercentByLevel.Length <= _db.FireRateDecreaseLevel.Value ? false : isEnoughForRate;
         firePowerIncreaseButton.Button.interactable = _gameData.upgradesPercentByLevel.Length <= _db.FireRateDecreaseLevel.Value ? false : isEnoughForPower;
+        
+        if (_db.FireRateDecreaseLevel.Value >= _gameData.maxLevelUpgrade)
+        {
+            fireRateIncreaseButton.Button.interactable = false;
+            fireRateIncreaseButton.PriceText.text = "MAX";
+        }
+
+        if (_db.PowerIncreaseLevel.Value >= _gameData.maxLevelUpgrade)
+        {
+            firePowerIncreaseButton.Button.interactable = false;
+            firePowerIncreaseButton.PriceText.text = "MAX";
+        }
     }
     private void UpdateStats() 
     {

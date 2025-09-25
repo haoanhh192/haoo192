@@ -46,7 +46,7 @@ MonoBehaviour:
   - 110
   - 115
   - 120
-  maxLevelUpgrade: 8
+  maxLevelUpgrade: 10
   baseIncrease: 10
   levelUpVFX: {fileID: 189236, guid: 8b80f8497c25823439546e7fbb1d81a9, type: 3}
   punchScale: 0.45
@@ -65,6 +65,16 @@ MonoBehaviour:
   baseXPMultiplier: 1.04
   laserMuzzleVFX: {fileID: 11400000, guid: da70603e834bbe446a994397297df920, type: 2}
   explosionVFX: {fileID: 11400000, guid: c4f1e5d0e3e78ae488ba529ae0ae1952, type: 2}
+  allWaves:
+  - {fileID: 11400000, guid: c63cb65c9da870a4a908161c50287db8, type: 2}
+  - {fileID: 11400000, guid: 822532fd1d1818849a3d7c57b869ad4c, type: 2}
+  - {fileID: 11400000, guid: bd49e2566c701f940a64142d971fde96, type: 2}
+  - {fileID: 11400000, guid: 21933b25268cfae4dad8b9758d8e2e78, type: 2}
+  - {fileID: 11400000, guid: a79e6abfcbf3e2142ad09834da6f4f32, type: 2}
+  - {fileID: 11400000, guid: 277687fda0c94e74a856c37b4089ff4a, type: 2}
+  - {fileID: 11400000, guid: d96c6be2893e3cd41a456dd51b10c878, type: 2}
+  - {fileID: 11400000, guid: 42267a289ab8f124fae701d845829f79, type: 2}
+  firstWave: {fileID: 11400000, guid: c63cb65c9da870a4a908161c50287db8, type: 2}
   firstUnlockable: {fileID: 11400000, guid: 127fe4962bd513c4a943c0ca6aa4ab9b, type: 2}
   unlockables:
   - {fileID: 11400000, guid: 127fe4962bd513c4a943c0ca6aa4ab9b, type: 2}

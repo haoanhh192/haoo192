@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rifle Gun
   m_EditorClassIdentifier: 
   baseReloadDuration: 0.1
-  baseDamage: 2
+  baseDamage: 3
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 4096

@@ -10,17 +10,24 @@ public class FlamethrowerMember : SquadMember
     [SerializeField, TagField] private string enemyTag;
     [SerializeField] private LayerMask enemyLayer;
 
-    [SerializeField] private ParticleSystem flamesVFX;
+    [SerializeField] private ParticleSystem[] flamesVFX;
 
     private List<EnemyComponent> hitEnemies = new();
 
     private List<Ray> drawRay = new();
 
+    private void Awake()
+    {
+        foreach (var vfx in flamesVFX)
+        {
+            vfx.Stop();
+        }
+    }
     private void OnDrawGizmos()
     {
         foreach (var ray in drawRay)
         {
-            Gizmos.DrawRay(ray);        
+            Gizmos.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance);        
         }
     }
     public override void Shoot(Transform target)
@@ -64,13 +71,19 @@ public class FlamethrowerMember : SquadMember
                 enemy.GetHit(memberClass.Damage);
             }
 
-            flamesVFX.Play();
+            foreach (var vfx in flamesVFX)
+            {
+                vfx.Play();
+            }
 
             hitEnemies.Clear();
         }
         else
         {
-            flamesVFX.Stop();
+            foreach (var vfx in flamesVFX)
+            {
+                vfx.Stop();
+            }
         }
 
         reloadTime = Time.time + memberClass.ReloadDuration;

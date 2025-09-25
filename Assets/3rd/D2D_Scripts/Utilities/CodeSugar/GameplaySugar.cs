@@ -161,9 +161,9 @@ namespace D2D.Utilities
             return null;
         }
 
-        public static void AfterCall(this float delay, Action a)
+        public static Tween AfterCall(this float delay, Action a)
         {
-            DOVirtual.DelayedCall(delay, () => a?.Invoke());
+            return DOVirtual.DelayedCall(delay, () => a?.Invoke());
         }
 
         #endregion

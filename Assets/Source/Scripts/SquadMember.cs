@@ -1,6 +1,7 @@
 using Animancer;
 using D2D;
 using D2D.Gameplay;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
@@ -28,6 +29,8 @@ public class SquadMember : Unit
 
     private CharacterCanvas canvas;
     private Camera currentCamera;
+
+    private Tween punchTween;
 
     internal float reloadTime = 0;
 
@@ -59,5 +62,11 @@ public class SquadMember : Unit
     public virtual void Shoot(Transform target)
     {
 
+    }
+    public virtual void PunchScaleWithDelay(float delay)
+    {
+        punchTween.KillTo0();
+
+        punchTween = transform.DOPunchScale(Vector3.one * _gameData.punchScale, _gameData.punchDuration, 0, 0).SetDelay(delay);
     }
 }

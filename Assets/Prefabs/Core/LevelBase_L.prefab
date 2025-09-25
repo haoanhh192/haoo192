@@ -41102,7 +41102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cfa62a230c44411a3ee311b5d1a6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _money: 10
+  _money: 10000
   _levelsPassed: 0
 --- !u!1 &2331369171456545618
 GameObject:

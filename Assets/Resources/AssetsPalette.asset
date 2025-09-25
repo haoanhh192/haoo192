@@ -18,6 +18,8 @@ MonoBehaviour:
   - {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
   - {fileID: 193226, guid: ed28e53c93fc7d2449d7c68bb8409223, type: 3}
   - {fileID: 102900000, guid: ee882501f30324e9ca26aeae173b42d4, type: 3}
+  - {fileID: 1853944158254526, guid: dfe0cf0e0df4ee94492935652d7772ac, type: 3}
+  - {fileID: 1193745591585432, guid: 6b08a00df5a864c4b989cab8a8ae173c, type: 3}
   replaceTool:
     _replacer: {fileID: 1000010255022904, guid: c136c7484681e4899b408acf1448b7eb, type: 3}
     _destroyOldSelected: 0

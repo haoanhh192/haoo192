@@ -41,5 +41,10 @@ namespace D2D.Gameplay
         [TabGroup("Upgrades")] public float baseUpgradePrice;
         [TabGroup("Upgrades")] public int maxLevelUpgrade;
         [TabGroup("Upgrades")] public int baseIncrease;
+
+        [Header("Level Up Tween")]
+        [TabGroup("Level Up Tween")] public float punchScale;
+        [TabGroup("Level Up Tween")] public float punchDuration;
+        [TabGroup("Level Up Tween")] public float punchDelay;
     }
 }

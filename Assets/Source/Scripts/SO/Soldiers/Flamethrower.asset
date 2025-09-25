@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   baseReloadDuration: 0.1
-  baseDamage: 0.3
+  baseDamage: 1
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 4096

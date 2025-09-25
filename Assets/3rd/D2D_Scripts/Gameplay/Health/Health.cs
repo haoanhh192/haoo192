@@ -90,7 +90,8 @@ namespace D2D.Gameplay
 
             CurrentPoints -= damagePoints;
             LastAttacker = attacker;
-            
+
+
             if (CurrentPoints > 0)
             {
                 Spawn(_hitEffect);

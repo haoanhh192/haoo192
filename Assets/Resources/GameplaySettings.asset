@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a8313b47064e26bcdb60e81b588bc9, type: 3}
   m_Name: GameplaySettings
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 1538772533367502636, guid: d01f5725b15f94609ba5796eca13940f, type: 3}
-  - {fileID: 4912882742794310374, guid: 5b943de0602f8431a984b0a1ab49afd8, type: 3}
-  - {fileID: 6113521810186837761, guid: d677d9a430fa440d882f7a77d1d320ca, type: 3}
-  - {fileID: 8078703655874656112, guid: 01ad46ab542684684ada12cd6cc3d1e3, type: 3}
+  levels: []
   grayDeathColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
   grayDeathDuration: 0.3
   grayCorpseLifetime: 2
@@ -32,3 +28,6 @@ MonoBehaviour:
   baseUpgradePrice: 100
   maxLevelUpgrade: 8
   baseIncrease: 10
+  punchScale: 0.45
+  punchDuration: 0.3
+  punchDelay: 0.075

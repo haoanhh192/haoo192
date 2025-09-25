@@ -9331,6 +9331,18 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1311670057}
+    - target: {fileID: 255667447, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 255667449, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 65527
+      objectReference: {fileID: 0}
+    - target: {fileID: 551385224146104384, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1032966837458598255, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: _manualSetupPools.Array.size
       value: 2
@@ -9403,6 +9415,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5319763792809732559, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5621401089879197958, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: m_Follow
       value: 
@@ -9411,6 +9427,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 859659601}
+    - target: {fileID: 7051523188983201928, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 65527
+      objectReference: {fileID: 0}
     - target: {fileID: 7065408238028419696, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9427,6 +9447,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7179121099500563052, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7994360894068553594, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9441,6 +9465,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7994360894068553594, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603563005481145159, guid: 2afb0c0b1e9834310869cb2f0c994844, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9649,5 +9677,9 @@ PrefabInstance:
       propertyPath: cinemachineTargetGroup
       value: 
       objectReference: {fileID: 859659600}
+    - target: {fileID: 8583770409737552327, guid: a0a15effcaf7f2f4bbfd493b6593fdcb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0a15effcaf7f2f4bbfd493b6593fdcb, type: 3}

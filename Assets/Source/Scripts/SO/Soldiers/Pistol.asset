@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c01c51fdd36ddf48a149ffa7ffcc505, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  baseReloadDuration: 2
+  baseReloadDuration: 1.5
   baseDamage: 5
   obstacleLayer:
     serializedVersion: 2

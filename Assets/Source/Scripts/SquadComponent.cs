@@ -74,6 +74,14 @@ public class SquadComponent : GameStateMachineUser
             _formation.RecreateFormation(squadMembers[0].transform.position, _formationRadius, squadMembers.Count - 1);
             member.health.Died += () => MemberDie(member);
             SetMembersToCinemachineGroup();
+            PunchScaleSquad();
+        }
+    }
+    private void PunchScaleSquad()
+    {
+        for (int i = squadMembers.Count - 1; i >= 0; i--)
+        {
+            squadMembers[i].PunchScaleWithDelay(_gameData.punchDelay * i);
         }
     }
     public void IncreaseFireRate(float value)

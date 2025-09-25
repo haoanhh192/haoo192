@@ -1324,6 +1324,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4686956759511495932, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5344633537846803137, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1338,6 +1342,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4a47ec9412d994437a3aca5db9d7554a, type: 2}
     - target: {fileID: 6714911652248901744, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811372046902101425, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775740286107913407, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8378920435682925054, guid: 559c40fc91d73514997bf2450e855e89, type: 3}

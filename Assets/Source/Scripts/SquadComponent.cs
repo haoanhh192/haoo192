@@ -46,7 +46,9 @@ public class SquadComponent : GameStateMachineUser
         }
 
         _stateMachine.On<WinState>(SqaudIdle);
-        _formation.RecreateFormation(Vector3.zero, _formationRadius, squadMembers.Count - 1);
+        var squadMembersCount = squadMembers.Count;
+
+        _formation.RecreateFormation(Vector3.zero, squadMembersCount <= 4 ? _formationRadius - .3f : _formationRadius, squadMembersCount - 1);
         SetMembersToCinemachineGroup();
     }
     private void Update()
@@ -76,7 +78,9 @@ public class SquadComponent : GameStateMachineUser
         {
             member.Init();
             squadMembers.Add(member);
-            _formation.RecreateFormation(squadMembers[0].transform.position, _formationRadius, squadMembers.Count - 1);
+
+            var squadMembersCount = squadMembers.Count;
+            _formation.RecreateFormation(squadMembers[0].transform.position, squadMembersCount <= 4 ? _formationRadius - .3f : _formationRadius, squadMembersCount - 1);
             member.health.Died += () => MemberDie(member);
             SetMembersToCinemachineGroup();
             PunchScaleSquad();
@@ -123,7 +127,8 @@ public class SquadComponent : GameStateMachineUser
                 return;
             }
 
-            _formation.RecreateFormation(Vector3.zero, _formationRadius, squadMembers.Count - 1);
+            var squadMembersCount = squadMembers.Count;
+            _formation.RecreateFormation(Vector3.zero, squadMembersCount <= 4 ? _formationRadius - .3f : _formationRadius, squadMembersCount - 1);
             SetMembersToCinemachineGroup();
         }
     }

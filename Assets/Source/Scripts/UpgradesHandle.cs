@@ -1,4 +1,5 @@
 using D2D;
+using D2D.Core;
 using SRF;
 using UnityEngine;
 
@@ -27,9 +28,14 @@ public class UpgradesHandle : Unit
 
         _gameProgress.OnLevelUp += OnLevelUp;
     }
-    
-    private void OnLevelUp()
+
+    private void OnLevelUp(int level)
     {
+        if (_stateMachine.Last.Is<LoseState>() || _stateMachine.Last.Is<WinState>())
+        {
+            return;
+        }
+
         ShowUpgradeUI();
     }
     private void ShowUpgradeUI()

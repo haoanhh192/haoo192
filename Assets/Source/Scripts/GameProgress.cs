@@ -22,7 +22,7 @@ public class GameProgress : Unit
 
     private XPPicker xpPicker;
 
-    public Action OnLevelUp;
+    public Action<int> OnLevelUp;
 
     public float GetValueForFinish() => totalXP / needToFinish;
     public float GetValueForLevelUP() => XPforLevelUp / xpToLevelUps[level];
@@ -59,7 +59,7 @@ public class GameProgress : Unit
             XPforLevelUp = 0;
             level++;
 
-            OnLevelUp?.Invoke();
+            OnLevelUp?.Invoke(level);
         }
     }
     private void CheckForFinish(float xp)

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: GameplaySettings
   m_EditorClassIdentifier: 
   levels: []
-  grayDeathColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  grayDeathColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   grayDeathDuration: 0.3
   grayCorpseLifetime: 2
   muzzleFlash: {fileID: 1559235166260600, guid: 49b34aad5b5e23341a5eef46fc10eca8, type: 3}
   bulletMuzzleFlash: {fileID: 11400000, guid: dc8e4e4cce7112f418de643a1eebd558, type: 2}
+  enemyDespawnDistance: 14
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64

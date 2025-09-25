@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace D2D.Gameplay
@@ -8,18 +9,26 @@ namespace D2D.Gameplay
 		[SerializeField] private Health targetHealth;
 		[SerializeField] private Gradient gradient;
 		[SerializeField] private Image fill;
+		[SerializeField] private float fadeDuration = .7f;
+		[SerializeField] private float showDuration = 2f;
 		
 		private Slider slider;
+		private CanvasGroup canvasGroup;
+
+		private Tween fadeTween;
 
 		private void OnEnable()
 		{
 			slider = GetComponent<Slider>();
-			targetHealth.PointsChanged += UpdateSlider;
+			canvasGroup = GetComponent<CanvasGroup>();
 		}
 
 		private void Start()
 		{
-			InitSlider();
+			if (targetHealth != null)
+            {
+				InitSlider();
+            }
 		}
 
 		private void OnDisable()
@@ -29,6 +38,8 @@ namespace D2D.Gameplay
 
 		private void InitSlider()
 		{
+			targetHealth.PointsChanged += UpdateSlider;
+
 			slider.maxValue = targetHealth.MaxPoints;
 			slider.value = targetHealth.MaxPoints;
 
@@ -37,10 +48,25 @@ namespace D2D.Gameplay
 
 		private void UpdateSlider()
 		{
+			if (fadeTween != null)
+            {
+				fadeTween = fadeTween.KillTo0();
+            }
+
+			canvasGroup.DOFade(1, 0);
+			fadeTween = canvasGroup.DOFade(0, fadeDuration).SetDelay(showDuration);
+
 			slider.value = targetHealth.CurrentPoints;
 			slider.maxValue = targetHealth.MaxPoints;
 			
 			fill.color = gradient.Evaluate(slider.normalizedValue);
 		}
+
+		public void SetHealth(Health health)
+        {
+			targetHealth = health;
+
+			InitSlider();
+        }
 	}
 }

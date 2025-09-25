@@ -1,3 +1,4 @@
+using Animancer;
 using D2D;
 using D2D.Core;
 using D2D.Gameplay;
@@ -13,6 +14,7 @@ public class EnemyComponent : MonoBehaviour
 
     [SerializeField] private float speed = 10f;
     [SerializeField] private int refreshNavMeshFrames = 4;
+    [SerializeField] private Animations animations;
 
     [Header("Combat")]
     [SerializeField] private float attackRate = 1f;
@@ -22,12 +24,17 @@ public class EnemyComponent : MonoBehaviour
     private float attackTimer;
 
     private NavMeshAgent navMesh;
+    private AnimancerComponent animancer;
 
     private void Awake()
     {
         triggerEnterComponent = GetComponent<OnTriggerEnterComponent>();
         health = GetComponent<Health>();
         navMesh = GetComponent<NavMeshAgent>();
+        animancer = GetComponentInChildren<AnimancerComponent>();
+
+        animancer.Play(animations.UnarmedRun);
+
         if (overlap == null)
         {
             overlap = GetComponentInChildren<SexyOverlap>();

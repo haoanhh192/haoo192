@@ -25,6 +25,8 @@ public class SquadMember : Unit
     [HideInInspector]
     public EnemyComponent currentTarget;
 
+    private CharacterCanvas canvas;
+    private Camera currentCamera;
 
     internal float reloadTime = 0;
 
@@ -39,6 +41,9 @@ public class SquadMember : Unit
         navMesh = GetComponent<NavMeshAgent>();
         overLapObstacle = GetComponent<SexyOverlap>();
         health = GetComponent<Health>();
+        canvas = GetComponentInChildren<CharacterCanvas>();
+
+        canvas.HealthBar.SetHealth(health);
     }
     private void Update()
     {

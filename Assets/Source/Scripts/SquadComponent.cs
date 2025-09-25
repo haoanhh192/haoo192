@@ -1,15 +1,20 @@
 using Cinemachine;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class SquadComponent : MonoBehaviour
 {
     [Header("Squad Settings")]
-    [SerializeField] private SquadMember[] squadMembers;
+    [SerializeField] private List<SquadMember> squadMembers;
     [SerializeField] private float _speed = 5f;
 
     [Header("Camera Settings")]
     [SerializeField] private CinemachineTargetGroup cinemachineTargetGroup;
+
+    [Header("Debug")]
+    [SerializeField] private GameObject pistolMemberPrefab;
+    [SerializeField] private GameObject grenadeLauncherPrefab;
 
     private Joystick _joystick;
     private FormationComponent _formation;
@@ -22,9 +27,9 @@ public class SquadComponent : MonoBehaviour
         _formation = FindObjectOfType<FormationComponent>();
         cinemachineTargetGroup = FindObjectOfType<CinemachineTargetGroup>();
 
-        squadMembers = GetComponentsInChildren<SquadMember>();
+        squadMembers = GetComponentsInChildren<SquadMember>().ToList();
 
-        _formation.RecreateFormation(Vector3.zero, 1f, squadMembers.Length - 1);
+        _formation.RecreateFormation(Vector3.zero, 1f, squadMembers.Count - 1);
         SetMembersToCinemachineGroup();
     }
 
@@ -32,6 +37,27 @@ public class SquadComponent : MonoBehaviour
     {
          Movement();
          Shoot();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            var newMember = Instantiate(pistolMemberPrefab, squadMembers[0].transform.position, Quaternion.identity, transform).GetComponent<SquadMember>();
+            AddMember(newMember);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            var newMember = Instantiate(grenadeLauncherPrefab, squadMembers[0].transform.position, Quaternion.identity, transform).GetComponent<SquadMember>();
+            AddMember(newMember);
+        }
+    }
+
+    public void AddMember(SquadMember member)
+    {
+        if (member != null && !squadMembers.Contains(member))
+        {
+            squadMembers.Add(member);
+            _formation.RecreateFormation(squadMembers[0].transform.position, 1f, squadMembers.Count - 1);
+            SetMembersToCinemachineGroup();
+        }
     }
 
     private void SetMembersToCinemachineGroup()
@@ -58,7 +84,6 @@ public class SquadComponent : MonoBehaviour
             }
         }
     }
-
     private void Movement()
     {
         SetNotBlockedMember();
@@ -88,22 +113,26 @@ public class SquadComponent : MonoBehaviour
             member.navMesh.isStopped = false;
 
             Transform formationPoint = _formation.FormationPoints[memberIndex];
-
-            if (member.Equals(openSquadMember))
+            
+            if (memberIndex == 0)
             {
-                _formation.transform.position = member.transform.position - formationPoint.transform.localPosition;
+                member.navMesh.Move(swift * Time.deltaTime);
+                _formation.transform.position = member.transform.position;
             }
-
-            if (Vector3.Distance(member.transform.position, formationPoint.position) > .5f)
+            else
             {
                 member.navMesh.SetDestination(formationPoint.position);
 
-                continue;
+                if (Vector3.Distance(member.transform.position, formationPoint.position) > 1f)
+                {
+                    member.navMesh.speed = _speed + 2;
+                }
+                else
+                {
+                    member.navMesh.speed = _speed;
+                }
             }
-
-            member.navMesh.ResetPath();
             
-            member.navMesh.Move(swift * Time.deltaTime);
 
             if (member.currentTarget == null)
             {
@@ -115,7 +144,6 @@ public class SquadComponent : MonoBehaviour
             }
         }
     }
-
     private void SetNotBlockedMember()
     {
         if (openSquadMember == null || openSquadMember.overLapObstacle.HasTouch)

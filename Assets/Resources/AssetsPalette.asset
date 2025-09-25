@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: AssetsPalette
   m_EditorClassIdentifier: 
   _favourites:
-  - {fileID: 2100000, guid: 55696d9672c1964448d7c2c7bd2c345e, type: 2}
-  - {fileID: 2100000, guid: e888bdf6b22fcc242a525c402432772f, type: 2}
   - {fileID: 2100000, guid: d8cf46e476746194a9b68b38ca0df280, type: 2}
   - {fileID: 2100000, guid: fba57fad68104ca4f8c504e1fb6b4ab6, type: 2}
   - {fileID: 2100000, guid: 5d178d73d8d2522468fcf25bac17ed63, type: 2}
+  - {fileID: 180702, guid: a7c694f0877ea874fa57e033221095c3, type: 3}
   replaceTool:
     _replacer: {fileID: 1000010255022904, guid: c136c7484681e4899b408acf1448b7eb, type: 3}
     _destroyOldSelected: 0

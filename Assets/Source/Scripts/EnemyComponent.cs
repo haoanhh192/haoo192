@@ -1,9 +1,11 @@
+using D2D.Gameplay;
 using UnityEngine;
 
 [RequireComponent(typeof(OnTriggerEnterComponent))]
 public class EnemyComponent : MonoBehaviour
 {
     public OnTriggerEnterComponent triggerEnterComponent;
+    public Health health;
 
     [SerializeField] private float maxHealth = 10f;
 
@@ -12,6 +14,7 @@ public class EnemyComponent : MonoBehaviour
     private void Awake()
     {
         triggerEnterComponent = GetComponent<OnTriggerEnterComponent>();
+        health = GetComponent<Health>();
 
         currentHealth = maxHealth;
     }

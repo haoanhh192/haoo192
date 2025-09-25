@@ -24,8 +24,8 @@ public class PistolMember : SquadMember
 
         projectile.rb.velocity = Vector3.zero;
 
-        var muzzleFlash = Instantiate(_gameData.muzzleFlash, shootPoint.transform.position, Quaternion.LookRotation(transform.forward));
-        Destroy(muzzleFlash, 2f);
+        var muzzleFlash = _poolHub.Spawn(_gameData.bulletMuzzleFlash, shootPoint.transform.position);
+        muzzleFlash.transform.rotation = Quaternion.LookRotation(transform.forward);
 
         var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);

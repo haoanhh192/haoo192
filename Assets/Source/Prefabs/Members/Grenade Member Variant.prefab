@@ -1474,6 +1474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RocketLauncher_standardShader
       objectReference: {fileID: 0}
+    - target: {fileID: 4095410011900606380, guid: 5e03a2f3bcfbf9544afe010806f6088c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5452144249593220150, guid: 3918e0ce5d59e314f89e986d61365f9b, type: 3}
     - target: {fileID: 7354200043169214671, guid: 5e03a2f3bcfbf9544afe010806f6088c, type: 3}
       propertyPath: m_RootOrder
       value: 0

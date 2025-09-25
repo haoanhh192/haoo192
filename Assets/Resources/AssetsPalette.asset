@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 125742, guid: 552b7b5872bf41745810a0b7bdabf440, type: 3}
   - {fileID: 102900000, guid: 0b97d728cb605cb48a0c2ec3a3cd2896, type: 3}
   - {fileID: 102900000, guid: 08ad08317b371f14a8ac865c9279f325, type: 3}
+  - {fileID: 152484, guid: 23fc589b73077394db72d954703e8d1c, type: 3}
   replaceTool:
     _replacer: {fileID: 1000010255022904, guid: c136c7484681e4899b408acf1448b7eb, type: 3}
     _destroyOldSelected: 0

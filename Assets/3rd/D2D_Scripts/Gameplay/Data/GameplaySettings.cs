@@ -28,6 +28,7 @@ namespace D2D.Gameplay
         [TabGroup("Other")] public float grayDeathDuration;
         [TabGroup("Other")] public float grayCorpseLifetime;
         [TabGroup("Other")] public GameObject muzzleFlash;
+        [TabGroup("Other")] public PoolType bulletMuzzleFlash;
 
         [Header("Layers")]
         [TabGroup("Layers")] public LayerMask GroundLayer;

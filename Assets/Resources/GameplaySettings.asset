@@ -17,6 +17,7 @@ MonoBehaviour:
   grayDeathDuration: 0.3
   grayCorpseLifetime: 2
   muzzleFlash: {fileID: 1559235166260600, guid: 49b34aad5b5e23341a5eef46fc10eca8, type: 3}
+  bulletMuzzleFlash: {fileID: 11400000, guid: dc8e4e4cce7112f418de643a1eebd558, type: 2}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64

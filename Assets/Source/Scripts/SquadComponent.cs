@@ -147,7 +147,10 @@ public class SquadComponent : GameStateMachineUser
 
             if (member.currentTarget != null)
             {
-                member.targetVector = member.currentTarget.transform.position;
+                var newTargetPos = member.currentTarget.transform.position;
+                newTargetPos.y = member.transform.position.y;
+                member.targetVector = newTargetPos;
+
                 member.Shoot(member.currentTarget.transform);
             }
         }

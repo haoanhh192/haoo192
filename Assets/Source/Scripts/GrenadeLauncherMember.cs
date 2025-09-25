@@ -26,8 +26,8 @@ public class GrenadeLauncherMember : SquadMember
 
         var bullet = Instantiate(grenadePrefab, shootPoint.transform.position, Quaternion.LookRotation(currentTarget.transform.position - shootPoint.transform.position));
 
-        var muzzleFlash = Instantiate(_gameData.muzzleFlash, shootPoint.transform.position, Quaternion.LookRotation(transform.forward));
-        Destroy(muzzleFlash, 2f);
+        var muzzleFlash = _poolHub.Spawn(_gameData.bulletMuzzleFlash, shootPoint.transform.position);
+        muzzleFlash.transform.rotation = Quaternion.LookRotation(transform.forward);
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 

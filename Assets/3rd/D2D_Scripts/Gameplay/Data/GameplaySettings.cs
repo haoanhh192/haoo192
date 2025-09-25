@@ -42,6 +42,7 @@ namespace D2D.Gameplay
 
         [Header("Upgrades")]
         [TabGroup("Upgrades")] public float baseUpgradePrice;
+        [TabGroup("Upgrades")] public float[] upgradesPercentByLevel;
         [TabGroup("Upgrades")] public int maxLevelUpgrade;
         [TabGroup("Upgrades")] public int baseIncrease;
         [TabGroup("Upgrades")] public GameObject levelUpVFX;

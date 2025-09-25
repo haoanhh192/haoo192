@@ -65,8 +65,8 @@ namespace D2D.Gameplay
 			canvasGroup.DOFade(1, 0);
 			fadeTween = canvasGroup.DOFade(0, fadeDuration).SetDelay(showDuration);
 
-			slider.value = targetHealth.CurrentPoints;
 			slider.maxValue = targetHealth.MaxPoints;
+			slider.value = targetHealth.CurrentPoints;
 			
 			fill.color = gradient.Evaluate(slider.normalizedValue);
 		}

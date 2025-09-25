@@ -28,7 +28,19 @@ MonoBehaviour:
   XPLayer: XP
   timeBeforeXPActivate: 0.7
   pickUpFlyForce: 230
-  baseUpgradePrice: 100
+  baseUpgradePrice: 50
+  upgradesPercentByLevel:
+  - 0
+  - 35
+  - 55
+  - 70
+  - 85
+  - 95
+  - 105
+  - 110
+  - 115
+  - 120
+  - 125
   maxLevelUpgrade: 8
   baseIncrease: 10
   levelUpVFX: {fileID: 189236, guid: 8b80f8497c25823439546e7fbb1d81a9, type: 3}

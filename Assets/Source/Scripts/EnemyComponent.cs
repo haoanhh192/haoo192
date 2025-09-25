@@ -43,9 +43,6 @@ public class EnemyComponent : Unit
         animancer = GetComponentInChildren<AnimancerComponent>();
         canvas = GetComponentInChildren<CharacterCanvas>();
 
-        canvas.HealthBar.SetHealth(health);
-        health.SetMaxPoints(health.MaxPoints + (health.MaxPoints * _db.PassedLevels.Value / 10), true);
-
         animancer.Play(animations.UnarmedRun);
 
         if (overlap == null)
@@ -94,7 +91,9 @@ public class EnemyComponent : Unit
     }
     public void SetHealth(float multiplier)
     {
-        health.SetMaxPoints(health.MaxPoints * multiplier, true);
+        var newHealth = (int) (health.MaxPoints * multiplier);
+        canvas.HealthBar.SetHealth(health);
+        health.SetMaxPoints(newHealth, true);
     }
     public void GetHit(float damage)
     {

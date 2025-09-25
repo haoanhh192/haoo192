@@ -48,13 +48,13 @@ public class MenuUI : MonoBehaviour
         bool isEnoughForRate = _db.Money.Value >= (_db.FireRateDecreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
         bool isEnoughForPower = _db.Money.Value >= (_db.PowerIncreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
         
-        fireRateIncreaseButton.Button.interactable = isEnoughForRate;
-        firePowerIncreaseButton.Button.interactable = isEnoughForPower;
+        fireRateIncreaseButton.Button.interactable = _gameData.upgradesPercentByLevel.Length <= _db.FireRateDecreaseLevel.Value ? false : isEnoughForRate;
+        firePowerIncreaseButton.Button.interactable = _gameData.upgradesPercentByLevel.Length <= _db.FireRateDecreaseLevel.Value ? false : isEnoughForPower;
     }
     private void UpdateStats() 
     {
-        _db.PowerIncreasePercent.Value = _db.PowerIncreaseLevel.Value * _gameData.baseIncrease / 100;
-        _db.FireRateDecreasePercent.Value = _db.FireRateDecreaseLevel.Value * _gameData.baseIncrease / 100;
+        _db.PowerIncreasePercent.Value = _gameData.upgradesPercentByLevel[(int) _db.PowerIncreaseLevel.Value] / 100;
+        _db.FireRateDecreasePercent.Value = _gameData.upgradesPercentByLevel[(int)_db.FireRateDecreaseLevel.Value] / 100;
 
         firePowerIncreaseButton.LevelText.text = $"LEVEL {_db.PowerIncreaseLevel.Value}";
         fireRateIncreaseButton.LevelText.text = $"LEVEL {_db.FireRateDecreaseLevel.Value}";

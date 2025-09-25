@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: fc44873991f268042ac3ab8929ee70e5, type: 3}
   upgradeText: Power
   statsUpgradesType: 2
-  increasePercent: 10
+  increasePercent: 35

@@ -22,6 +22,7 @@ namespace D2D.Gameplay
     public class GameplaySettings : SingletonData<GameplaySettings>
     {
         [TabGroup("Common")] public List<GameObject> levels;
+        [TabGroup("Common")] public Material[] groundMaterials;
 
         [Header("Death")]
         [TabGroup("Other")] public Color grayDeathColor;

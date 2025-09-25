@@ -11,10 +11,10 @@ public class SurfaceGenerator : MonoBehaviour
     [SerializeField] private int checkFrames = 4;
 
     // ~~~~ Round to nearest Grid point ~~~~
-    public Vector3 SnapCalculate(Vector3 p)
+    public Vector3 SnapCalculate(Vector3 playerPos)
     {
-        float x = p.x - p.x % Grid.x;
-        float z = p.z - p.z % Grid.z;
+        float x = playerPos.x - playerPos.x % Grid.x;
+        float z = playerPos.z - playerPos.z % Grid.z;
 
         return new Vector3(x, 0, z);
     }

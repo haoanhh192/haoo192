@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: GameplaySettings
   m_EditorClassIdentifier: 
   levels: []
+  groundMaterials:
+  - {fileID: 2100000, guid: 59066d7159a1f9147824a145ab4928b6, type: 2}
+  - {fileID: 2100000, guid: ebf7e8ea2b948a34ca46b0d32ce8d667, type: 2}
+  - {fileID: 2100000, guid: 945d7810d6e94174185f72bf26774da6, type: 2}
   grayDeathColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   grayDeathDuration: 0.3
   grayCorpseLifetime: 2
@@ -29,7 +33,7 @@ MonoBehaviour:
   XPLayer: XP
   timeBeforeXPActivate: 0.7
   pickUpFlyForce: 230
-  baseUpgradePrice: 200
+  baseUpgradePrice: 100
   upgradesPercentByLevel:
   - 0
   - 25

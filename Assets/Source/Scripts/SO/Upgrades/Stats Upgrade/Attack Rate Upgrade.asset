@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradesType: 1
   icon: {fileID: 0}
-  upgradeText: Attack Rate Increase
+  upgradeText: + Attack Rate
   statsUpgradesType: 1
   increasePercent: 10

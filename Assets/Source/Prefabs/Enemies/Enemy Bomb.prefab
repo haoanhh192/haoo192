@@ -425,12 +425,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerEnterComponent: {fileID: 7138603212317123793}
   health: {fileID: 7138603212317123789}
-  speed: 4.5
+  speed: 3
   deathReward: 1
   refreshNavMeshFrames: 4
   animations: {fileID: 11400000, guid: 2584c792d6e104f4286d32379be4d14b, type: 2}
   attackRate: 1
-  damage: 5
+  damage: 2
   overlap: {fileID: 8753011385480040260}
   powerUpPrefab: {fileID: 2512949562409372157, guid: 10b73102836b29747af83bf1026b2685, type: 3}
   bombOverlap: {fileID: 971742812}

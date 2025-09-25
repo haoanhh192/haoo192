@@ -106,6 +106,7 @@ public class SquadComponent : MonoBehaviour
 
             if (member.currentTarget != null)
             {
+                member.targetVector = member.currentTarget.transform.position;
                 member.Shoot(member.currentTarget.transform);
             }
         }
@@ -163,10 +164,6 @@ public class SquadComponent : MonoBehaviour
             if (member.currentTarget == null)
             {
                 member.targetVector = member.transform.position + swift;
-            }
-            else
-            {
-                member.targetVector = member.currentTarget.transform.position;
             }
         }
     }

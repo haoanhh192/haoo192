@@ -11,13 +11,13 @@ namespace D2D.Gameplay
 		[SerializeField] private Image fill;
 		[SerializeField] private float fadeDuration = .7f;
 		[SerializeField] private float showDuration = 2f;
+		[SerializeField] private Slider slider;
 		
-		private Slider slider;
 		private CanvasGroup canvasGroup;
 
 		private Tween fadeTween;
 
-		private void OnEnable()
+		private void Awake()
 		{
 			slider = GetComponent<Slider>();
 			canvasGroup = GetComponent<CanvasGroup>();

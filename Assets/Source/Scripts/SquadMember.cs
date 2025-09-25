@@ -20,7 +20,7 @@ public class SquadMember : Unit
 
     [Header("Movement Settings")]
     public Vector3 targetVector;
-    public float rotationLerp = 5f;
+    public float rotationLerp = 20f;
 
     [HideInInspector]
     public EnemyComponent currentTarget;

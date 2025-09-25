@@ -316,6 +316,7 @@ MonoBehaviour:
   fill: {fileID: 2347175621237464541}
   fadeDuration: 0.7
   showDuration: 2
+  slider: {fileID: 1584413387223782611}
 --- !u!114 &1584413387223782611
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Machine Gun Upgrade
   m_EditorClassIdentifier: 
   upgradesType: 2
-  icon: {fileID: 0}
-  upgradeText: Machine Gun
+  icon: {fileID: 21300000, guid: 1f63f76d39851e1459858d0d085c2b61, type: 3}
+  upgradeText: Auto Gun
   memberPrefab: {fileID: 991471788331666158, guid: 032fa9bcb3342fc49b4a4b408c6c925a, type: 3}

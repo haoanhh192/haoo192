@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   upgradesType: 1
-  icon: {fileID: 21300000, guid: d4675828ce1e4c142a77d0e55259768b, type: 3}
-  upgradeText: + Heal
+  icon: {fileID: 21300000, guid: e21e067a495ec114dbca7f29e4743b78, type: 3}
+  upgradeText: Heal
   statsUpgradesType: 3
   increasePercent: 50

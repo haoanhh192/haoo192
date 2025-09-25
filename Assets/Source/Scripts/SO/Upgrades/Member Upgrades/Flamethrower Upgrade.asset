@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Flamethrower Upgrade
   m_EditorClassIdentifier: 
   upgradesType: 2
-  icon: {fileID: 0}
-  upgradeText: Flamethrower
+  icon: {fileID: 21300000, guid: 8b292b8124d728f41a6881c97fc76f9e, type: 3}
+  upgradeText: Fire Man
   memberPrefab: {fileID: 3822126870382918512, guid: c328b5a2e98149d4bb5732b7358a7f97, type: 3}

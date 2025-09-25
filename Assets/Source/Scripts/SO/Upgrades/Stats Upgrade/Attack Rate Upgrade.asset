@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Attack Rate Upgrade
   m_EditorClassIdentifier: 
   upgradesType: 1
-  icon: {fileID: 21300000, guid: 7770f99d7a4d08943ad3dc0661683054, type: 3}
-  upgradeText: + Attack Rate
+  icon: {fileID: 21300000, guid: 238904c9fc0f2464e87ad2a913fc9434, type: 3}
+  upgradeText: Attack Rate
   statsUpgradesType: 1
   increasePercent: 10

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c01c51fdd36ddf48a149ffa7ffcc505, type: 3}
   m_Name: Machine Gun
   m_EditorClassIdentifier: 
-  baseReloadDuration: 0.25
-  baseDamage: 2
+  baseReloadDuration: 0.33
+  baseDamage: 1.7
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 4096

@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 222793509611741078, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
+      propertyPath: m_Acceleration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 222793509611741078, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
+      propertyPath: avoidancePriority
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 222793509611741078, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3874455892432316664, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.755
@@ -97,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237591272215210810, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: speed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4237591272215210810, guid: a83601dfcee9a0a4bb6bb284cf6cb348, type: 3}
       propertyPath: damage

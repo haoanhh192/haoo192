@@ -9,6 +9,10 @@ public class UpgradesHandle : Unit
     [SerializeField] private MemberUpgrades[] rareMemberUpgrades;
     [SerializeField] private MemberUpgrades[] mediumMemberUpgrades;
     [SerializeField] private MemberUpgrades[] commonMemberUpgrades;
+
+    [SerializeField] private float rareChance = 10f;
+    [SerializeField] private float mediumChance = 30f;
+
     [SerializeField] private StatsUpgrades[] statsUpgrades;
 
     private bool createdStatsUpgrade = false;
@@ -56,11 +60,11 @@ public class UpgradesHandle : Unit
 
             MemberUpgrades memberUpgrade;
 
-            if (Random.Range(0, 100) < 10f)
+            if (Random.Range(0, 100) < rareChance)
             {
                 memberUpgrade = rareMemberUpgrades.Random();
             }
-            else if (Random.Range(0, 100) < 30f) 
+            else if (Random.Range(0, 100) < mediumChance) 
             {
                 memberUpgrade = mediumMemberUpgrades.Random();
             }

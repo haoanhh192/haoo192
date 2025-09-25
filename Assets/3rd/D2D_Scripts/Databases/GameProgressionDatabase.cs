@@ -98,6 +98,8 @@ namespace D2D.Databases
             ES3.Save("LastSceneNumber", 1);
             ES3.Save("PassedLevels", 0);
             ES3.Save("LastSceneNumber", 1);
+            ES3.Save("PowerIncreaseLevel", 0f);
+            ES3.Save("FireRateDecreaseLevel", 0f);
 
             PlayerPrefs.SetInt("Money", 0);
         }

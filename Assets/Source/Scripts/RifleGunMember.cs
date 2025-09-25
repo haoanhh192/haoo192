@@ -1,12 +1,15 @@
 using Cinemachine;
+using D2D;
 using UnityEngine;
+
+using static D2D.Utilities.CommonGameplayFacade;
 
 public class RifleGunMember : SquadMember
 {
     [SerializeField] private float projectileForce = 10f;
     [SerializeField] private float delayBetweenRows = 1.2f;
     [SerializeField] private int shotsRow = 4;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private PoolType bulletPrefab;
     [SerializeField, TagField] private string enemyTag;
 
     private int shotsInRow;
@@ -18,13 +21,15 @@ public class RifleGunMember : SquadMember
             return;
         }
 
-        var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
+        var bullet = _poolHub.Spawn(bulletPrefab, shootPoint.transform.position);
+        bullet.transform.rotation = Quaternion.LookRotation(transform.forward);
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
-        var direction = (currentTarget.transform.position - transform.position).normalized;
+        var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);
 
+        projectile.enterComponent.OnEnter -= HitEnemy;
         projectile.enterComponent.OnEnter += HitEnemy;
 
         shotsInRow++;
@@ -46,6 +51,6 @@ public class RifleGunMember : SquadMember
             other.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
         }
 
-        Destroy(@object.gameObject);
+        @object.gameObject.SetActive(false);
     }
 }

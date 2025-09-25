@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &125238519419633015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6714911652248901744}
+  m_Layer: 11
+  m_Name: Shoot Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6714911652248901744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125238519419633015}
+  m_LocalRotation: {x: -0.50216293, y: -0.50216573, z: 0.49782434, w: 0.49782833}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7003979939825490791}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &873183754724297478
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,11 +106,12 @@ MonoBehaviour:
   animations: {fileID: 11400000, guid: 2584c792d6e104f4286d32379be4d14b, type: 2}
   health: {fileID: 3941111433761171124}
   animancer: {fileID: 3107329795138765518}
+  shootPoint: {fileID: 6714911652248901744}
   targetVector: {x: 0, y: 0, z: 0}
   rotationLerp: 20
   currentTarget: {fileID: 0}
   projectileForce: 10
-  bulletPrefab: {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
+  bulletPrefab: {fileID: 11400000, guid: eee42d13775b33643be3ec5187ac0ef9, type: 2}
   enemyTag: Enemy
 --- !u!195 &873183754724297475
 NavMeshAgent:
@@ -318,6 +350,11 @@ PrefabInstance:
 --- !u!95 &3020819988180752702 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 209f87ead24e08845a48c3666f94fd0e, type: 3}
+  m_PrefabInstance: {fileID: 8684785542281913519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7003979939825490791 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 209f87ead24e08845a48c3666f94fd0e, type: 3}
   m_PrefabInstance: {fileID: 8684785542281913519}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8378920435682925054 stripped

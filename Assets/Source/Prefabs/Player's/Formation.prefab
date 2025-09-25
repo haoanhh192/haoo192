@@ -66,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getDistance: 1
   pickUpForce: 20
+  pickUpVFX: {fileID: 152484, guid: 23fc589b73077394db72d954703e8d1c, type: 3}
 --- !u!135 &1802693936
 SphereCollider:
   m_ObjectHideFlags: 0

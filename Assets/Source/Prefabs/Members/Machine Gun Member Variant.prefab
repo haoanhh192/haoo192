@@ -125,11 +125,12 @@ MonoBehaviour:
   animations: {fileID: 11400000, guid: 2584c792d6e104f4286d32379be4d14b, type: 2}
   health: {fileID: 3994097341429704540}
   animancer: {fileID: 3081361911654417190}
+  shootPoint: {fileID: 6695842448482113944}
   targetVector: {x: 0, y: 0, z: 0}
   rotationLerp: 20
   currentTarget: {fileID: 0}
   projectileForce: 10
-  bulletPrefab: {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
+  bulletPrefab: {fileID: 11400000, guid: eee42d13775b33643be3ec5187ac0ef9, type: 2}
   enemyTag: Enemy
 --- !u!114 &3081361911654417190 stripped
 MonoBehaviour:
@@ -153,3 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615195e9f1bf48319469a615389fc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6695842448482113944 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6714911652248901744, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+  m_PrefabInstance: {fileID: 134054283148476904}
+  m_PrefabAsset: {fileID: 0}

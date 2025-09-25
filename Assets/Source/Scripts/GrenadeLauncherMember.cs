@@ -20,11 +20,11 @@ public class GrenadeLauncherMember : SquadMember
             return;
         }
 
-        var bullet = Instantiate(grenadePrefab, transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
+        var bullet = Instantiate(grenadePrefab, shootPoint.transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
-        var direction = (currentTarget.transform.position - transform.position).normalized;
+        var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);
 
         projectile.enterComponent.OnEnter += HitEnemy;

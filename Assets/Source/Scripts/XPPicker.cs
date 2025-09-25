@@ -6,6 +6,7 @@ public class XPPicker : MonoBehaviour
 {
     [SerializeField] private float getDistance = 1f;
     [SerializeField] private float pickUpForce = 5f;
+    [SerializeField] private GameObject pickUpVFX;
 
     private SexyOverlap overlap;
 
@@ -32,6 +33,7 @@ public class XPPicker : MonoBehaviour
                 {
                     var xp = item.GetComponent<XPPoint>().PickUp();
                     OnPickUp?.Invoke(xp);
+                    PickVFX(item.transform.position);
 
                     return;
                 }
@@ -48,5 +50,11 @@ public class XPPicker : MonoBehaviour
                 item.transform.position = Vector3.MoveTowards(item.transform.position, transform.position, speed);
             }
         }
+    }
+    private void PickVFX(Vector3 place)
+    {
+        var vfx = Instantiate(pickUpVFX, place, Quaternion.identity);
+
+        Destroy(vfx, 2f);
     }
 }

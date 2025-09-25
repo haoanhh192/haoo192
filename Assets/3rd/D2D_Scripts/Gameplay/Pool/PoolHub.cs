@@ -24,6 +24,8 @@ namespace D2D
 
         private void Awake()
         {
+            _poolHub = this;
+
             foreach (PoolType poolType in _poolTypes)
             {
                 CreatePool(poolType);

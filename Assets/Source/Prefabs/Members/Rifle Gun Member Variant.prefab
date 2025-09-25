@@ -74,6 +74,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 873183754724297474, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+--- !u!4 &470708817429718041 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6714911652248901744, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+  m_PrefabInstance: {fileID: 6609142125120961641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5970715065237694742 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 676769238026245503, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
@@ -125,13 +130,14 @@ MonoBehaviour:
   animations: {fileID: 11400000, guid: 2584c792d6e104f4286d32379be4d14b, type: 2}
   health: {fileID: 7857022445368580829}
   animancer: {fileID: 8117474732281724583}
+  shootPoint: {fileID: 470708817429718041}
   targetVector: {x: 0, y: 0, z: 0}
   rotationLerp: 20
   currentTarget: {fileID: 0}
   projectileForce: 10
   delayBetweenRows: 1.2
   shotsRow: 4
-  bulletPrefab: {fileID: 7189246641373217378, guid: ce55757173933984cb374e6fdbabad7a, type: 3}
+  bulletPrefab: {fileID: 11400000, guid: eee42d13775b33643be3ec5187ac0ef9, type: 2}
   enemyTag: Enemy
 --- !u!114 &7857022445368580829 stripped
 MonoBehaviour:

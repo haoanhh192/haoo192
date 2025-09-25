@@ -223,6 +223,22 @@ namespace D2D.Utilities
             }
         }
         private static UpgradesHandle __upgradesHandle;
+        public static PoolHub _poolHub
+        {
+            get
+            {
+                if (__poolHub == null)
+                {
+                    __poolHub = GameObject.FindObjectOfType<PoolHub>();
+                }
 
+                return __poolHub;
+            }
+            set
+            {
+                __poolHub = value;
+            }
+        }
+        private static PoolHub __poolHub;
     }
 }

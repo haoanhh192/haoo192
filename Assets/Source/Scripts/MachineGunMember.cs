@@ -1,10 +1,13 @@
 using Cinemachine;
+using D2D;
 using UnityEngine;
+
+using static D2D.Utilities.CommonGameplayFacade;
 
 public class MachineGunMember : SquadMember
 {
     [SerializeField] private float projectileForce = 10f;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private PoolType bulletPrefab;
     [SerializeField, TagField] private string enemyTag;
 
     public override void Shoot(Transform target)
@@ -14,13 +17,15 @@ public class MachineGunMember : SquadMember
             return;
         }
 
-        var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up / 2, Quaternion.LookRotation(transform.forward));
+        var bullet = _poolHub.Spawn(bulletPrefab, shootPoint.transform.position);
+        bullet.transform.rotation = Quaternion.LookRotation(transform.forward);
 
         var projectile = bullet.GetComponent<ProjectileComponent>();
 
-        var direction = (currentTarget.transform.position - transform.position).normalized;
+        var direction = (currentTarget.transform.position - shootPoint.transform.position).normalized;
         projectile.rb.AddForce(direction * projectileForce, ForceMode.VelocityChange);
 
+        projectile.enterComponent.OnEnter -= HitEnemy;
         projectile.enterComponent.OnEnter += HitEnemy;
 
         reloadTime = Time.time + memberClass.ReloadDuration;
@@ -33,6 +38,6 @@ public class MachineGunMember : SquadMember
             other.GetComponent<EnemyComponent>().GetHit(memberClass.Damage);
         }
 
-        Destroy(@object.gameObject);
+        @object.gameObject.SetActive(false);
     }
 }

@@ -152,6 +152,8 @@ namespace D2D.Gameplay
             
             GameObject instance = Instantiate(prefab, transform.position, 
                 transform.rotation, null);
+
+            Destroy(instance, 2f);
         }
 
         public void Heal(float healPoints)

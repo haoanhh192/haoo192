@@ -17,6 +17,7 @@ public class SquadMember : Unit
     public Animations animations;
     public Health health;
     public AnimancerComponent animancer;
+    public Transform shootPoint;
 
     [Header("Movement Settings")]
     public Vector3 targetVector;

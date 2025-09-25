@@ -26,7 +26,7 @@ public class MenuUI : MonoBehaviour
     {
         _db.PowerIncreaseLevel.Value++;
 
-        _db.Money.Value -= (_db.PowerIncreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
+        _db.Money.Value -= _db.PowerIncreaseLevel.Value * _gameData.baseUpgradePrice;
 
         UpdateStats();
     }
@@ -34,7 +34,7 @@ public class MenuUI : MonoBehaviour
     {
         _db.FireRateDecreaseLevel.Value++;
 
-        _db.Money.Value -= (_db.FireRateDecreaseLevel.Value + 1) * _gameData.baseUpgradePrice;
+        _db.Money.Value -= _db.FireRateDecreaseLevel.Value * _gameData.baseUpgradePrice;
         UpdateStats();
     }
     

@@ -74,6 +74,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 873183754724297474, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+--- !u!4 &1348842929139429169 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6714911652248901744, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
+  m_PrefabInstance: {fileID: 5730872227600693057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4870095521021279297 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 873183754724297472, guid: 559c40fc91d73514997bf2450e855e89, type: 3}
@@ -114,6 +119,7 @@ MonoBehaviour:
   animations: {fileID: 11400000, guid: 2584c792d6e104f4286d32379be4d14b, type: 2}
   health: {fileID: 8735160401288417781}
   animancer: {fileID: 7248356757573055887}
+  shootPoint: {fileID: 1348842929139429169}
   targetVector: {x: 0, y: 0, z: 0}
   rotationLerp: 20
   currentTarget: {fileID: 0}

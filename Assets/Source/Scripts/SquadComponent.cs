@@ -92,6 +92,13 @@ public class SquadComponent : GameStateMachineUser
         temporaryFirePowerIncrease += value;
         PunchScaleSquad();
     }
+    public void HealSquad(float value)
+    {
+        foreach (var member in squadMembers)
+        {
+            member.health.Heal(member.health.MaxPoints * (value / 100));
+        }
+    }
 
     private void MemberDie(SquadMember member)
     {

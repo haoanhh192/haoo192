@@ -89,6 +89,11 @@ public class UpgradesHandle : Unit
 
                 _squad.IncreaseFireRate(upgrade.IncreasePercent);
                 break;
+
+            case StatsUpgradesType.Heal:
+
+                _squad.HealSquad(upgrade.IncreasePercent);
+                break;
         }
     }
 

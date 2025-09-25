@@ -166,7 +166,7 @@ namespace D2D.Gameplay
             if (healPoints <= 0)
                 throw new Exception("Heal points should be positive!");
 
-            CurrentPoints = Math.Max(CurrentPoints+healPoints, _maxPoints);
+            CurrentPoints = Math.Min(CurrentPoints+healPoints, _maxPoints);
         }
 
         public void SetMaxPoints(float newMaxPoints, bool needRefill = false)

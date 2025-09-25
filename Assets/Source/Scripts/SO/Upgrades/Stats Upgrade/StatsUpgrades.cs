@@ -3,7 +3,8 @@ using UnityEngine;
 public enum StatsUpgradesType
 {
     AttackRate = 1,
-    AttackPower = 2
+    AttackPower = 2,
+    Heal = 3
 }
 
 [CreateAssetMenu(menuName = "Game/Upgrades/Stats Upgrade")]
